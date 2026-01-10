@@ -25,38 +25,51 @@
 
   <!-- HERO: either image or YouTube. Replace hero.jpg or VIDEO_ID below -->
 <!-- ===== HERO VIDEO ===== -->
-<section class="hero-outer">
-  <div class="hero-media-wrap">
+<!-- ===== PROFESSIONAL HERO ===== -->
+<section class="hero-full">
+  <div class="hero-media">
     <video class="hero-video"
-           autoplay
-           muted
-           loop
-           playsinline
-           preload="metadata">
+           autoplay muted loop playsinline preload="metadata"
+           poster="/assets/images/hero.jpg">
       <source src="/assets/media/trimmed_illustration.mp4" type="video/mp4">
+      <!-- fallback -->
     </video>
+
+    <!-- subtle dark overlay to improve contrast -->
+    <div class="hero-overlay"></div>
   </div>
 
-  <div class="hero-card container">
-    <div class="hero-left">
+  <div class="hero-content container">
+    <div class="hero-text">
       <h1>Ryman H</h1>
-      <p class="lead">
-        Senior Research Fellow — Soft & Medical Robotics · University of Oxford
+      <p class="subtitle">Senior Research Fellow — Soft &amp; Medical Robotics · University of Oxford</p>
+
+      <p class="blurb">
+        I develop anatomically realistic phantoms and sensorised robotic systems for clinical training and translational research.
+        Open to Lecturer / Assistant Professor positions.
       </p>
 
-      <p>
-        I develop anatomically realistic phantoms and sensorised robotic systems
-        for medical training and translational research.
+      <p class="hero-ctas">
+        <a class="btn primary" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV</a>
+        <a class="btn" href="/publications.html">Publications</a>
+    
       </p>
+    </div>
 
-      <p class="hero-actions">
-        <a class="btn" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">CV</a>
-        <a class="btn muted" href="/publications.html">Publications</a>
-        <a class="btn muted" href="/radlab.html">RADLAB</a>
-      </p>
+    <div class="hero-aside">
+      <!-- optional short list or image tiles -->
+      <div class="selected-pubs">
+        <h4>Selected publications</h4>
+        <ul>
+          <li><strong>Hashem, R.</strong> et al. (2022). <em>SoRSS: A soft robot…</em></li>
+          <li><strong>Hashem, R.</strong> et al. (2021). <em>Ring-shaped soft pneumatic actuator…</em></li>
+        </ul>
+        <a class="small-link" href="/publications.html">Full publications →</a>
+      </div>
     </div>
   </div>
 </section>
+
 
 
   <main class="container">
