@@ -1,85 +1,99 @@
-/* assets/css/site.css - core styles inspired by the example site */
-:root{--accent:#0b6ec6;--muted:#667;--bg:#f7f8fa}
-*{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;line-height:1.5;color:#222;margin:0;background:var(--bg)}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-.site-header{background:#fff;border-bottom:1px solid #ececec}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 28px}
-.brand h1{margin:0;font-size:18px}
-.brand .meta{margin:0;color:var(--muted);font-size:13px}
-.main-nav a{margin-left:14px;color:#222;text-decoration:none;font-size:14px}
-.main-nav a:hover{text-decoration:underline}
-
-.hero{display:flex;gap:28px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.95));align-items:center}
-.hero-media{flex:1;max-width:640px;border-radius:8px;overflow:hidden;box-shadow:0 8px 22px rgba(15,23,42,0.06)}
-.hero-media img, .hero-media iframe{width:100%;height:100%;display:block}
-.hero-card{flex:0 0 420px;background:#fff;padding:22px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-.hero-card h2{margin:0 0 6px 0}
-.hero-sub{color:var(--muted);margin:0 0 12px 0}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;margin-right:8px}
-.btn.muted{background:#6c757d}
-
-main.container{padding-top:12px;padding-bottom:48px}
-.timeline{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);margin-bottom:18px}
-.timeline-list{margin:0;padding-left:18px}
-
-.projects .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
-.card{background:#fff;border-radius:8px;overflow:hidden;display:block;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
-.card img{width:100%;height:180px;object-fit:cover;display:block}
-.card-body{padding:12px}
-
-.publications, .contact{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);margin-top:18px}
-
-.site-footer{padding:18px 0;background:transparent;color:var(--muted);text-align:center;border-top:1px solid #eee}
-
-@media (max-width:920px){
-  .hero{flex-direction:column}
-  .hero-card{width:100%}
-  .header-inner{flex-direction:column;align-items:flex-start}
-  .main-nav{margin-top:8px}
+:root{
+  --accent:#0b6ec6;
+  --muted:#6b7280;
+  --bg:#f8fafb;
 }
-<!-- ===== PROFESSIONAL HERO ===== -->
-<section class="hero-full">
-  <div class="hero-media">
-    <video class="hero-video"
-           autoplay muted loop playsinline preload="metadata"
-           poster="/assets/images/hero.jpg">
-      <source src="/assets/media/trimmed_illustration.mp4" type="video/mp4">
-      <!-- fallback -->
-    </video>
 
-    <!-- subtle dark overlay to improve contrast -->
-    <div class="hero-overlay"></div>
-  </div>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+  background:var(--bg);
+  color:#111;
+  line-height:1.5;
+}
 
-  <div class="hero-content container">
-    <div class="hero-text">
-      <h1>Ryman H</h1>
-      <p class="subtitle">Senior Research Fellow — Soft &amp; Medical Robotics · University of Oxford</p>
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-      <p class="blurb">
-        I develop anatomically realistic phantoms and sensorised robotic systems for clinical training and translational research.
-        Open to Lecturer / Assistant Professor positions.
-      </p>
+/* header */
+.site-header{background:#fff;border-bottom:1px solid #e5e7eb}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand h1{margin:0;font-size:18px}
+.brand .meta{font-size:13px;color:var(--muted)}
+.main-nav a{margin-left:16px;font-size:14px;color:#111}
+.main-nav a:hover{color:var(--accent)}
 
-      <p class="hero-ctas">
-        <a class="btn primary" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV</a>
-        <a class="btn" href="/publications.html">Publications</a>
-        <a class="btn ghost" href="/radlab.html">RADLAB</a>
-      </p>
-    </div>
+/* hero */
+.hero-full{position:relative;min-height:65vh;overflow:hidden}
+.hero-media{position:absolute;inset:0;background:#000}
+.hero-video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:100%;
+  height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  object-position:50% 50%;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(10,15,25,.35);
+}
 
-    <div class="hero-aside">
-      <!-- optional short list or image tiles -->
-      <div class="selected-pubs">
-        <h4>Selected publications</h4>
-        <ul>
-          <li><strong>Hashem, R.</strong> et al. (2022). <em>SoRSS: A soft robot…</em></li>
-          <li><strong>Hashem, R.</strong> et al. (2021). <em>Ring-shaped soft pneumatic actuator…</em></li>
-        </ul>
-        <a class="small-link" href="/publications.html">Full publications →</a>
-      </div>
-    </div>
-  </div>
-</section>
+.hero-content{
+  position:relative;
+  z-index:3;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:28px;
+  padding:60px 20px 80px;
+}
 
+.hero-text{
+  background:rgba(255,255,255,.96);
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.hero-text h1{margin:0 0 8px;font-size:30px}
+.subtitle{color:var(--muted);margin:0 0 12px}
+.blurb{margin:0 0 16px}
+
+.btn{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:600;
+  margin-right:10px;
+}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.outline{border:1px solid #e5e7eb;color:#111;background:#fff}
+
+/* aside */
+.hero-aside .box{
+  background:rgba(255,255,255,.95);
+  padding:16px;
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.hero-aside h4{margin:0 0 8px;font-size:14px}
+.hero-aside ul{margin:0;padding-left:18px;font-size:14px}
+
+/* main */
+main{max-width:1100px;margin:40px auto;padding:0 20px}
+.card{background:#fff;border-radius:8px;padding:20px;border:1px solid #e5e7eb}
+
+/* footer */
+footer{text-align:center;font-size:13px;color:var(--muted);padding:24px 0;border-top:1px solid #e5e7eb;background:#fff}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;padding:40px 16px}
+  .hero-full{min-height:50vh}
+  .hero-text h1{font-size:24px}
+  .main-nav{display:none}
+}
