@@ -29,13 +29,14 @@ a{color:var(--accent);text-decoration:none}
 .hero-media{position:absolute;inset:0;background:#000}
 .hero-video{
   position:absolute;
-  top:50%;
-  left:50%;
-  width:100%;
+  inset:0;
+  margin:auto;
+  width:85%;
   height:auto;
-  transform:translate(-50%,-50%) scale(0.70);
+  max-height:100%;
   object-fit:contain;
 }
+
 
 .hero-overlay{
   position:absolute;
