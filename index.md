@@ -1,4 +1,4 @@
-# Ryman H
+# Ryman Hashem
 
 ## About Me
 Personal academic and project website.
