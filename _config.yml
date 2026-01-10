@@ -1,1 +1,62 @@
-theme: jekyll-theme-architect
+# _config.yml (AcademicPages-style starter)
+title: "Ryman H"
+subtitle: "Senior Research Fellow — Soft & Medical Robotics, Embodied Intelligence"
+email: "ryman.hashem@eng.ox.ac.uk"
+author: "Ryman H"
+institution: "University of Oxford"
+location: "Oxford, UK"
+description: "Senior Research Fellow at the University of Oxford. Research: soft robotics, medical phantoms, translational devices. Seeking Lecturer / Assistant Professor roles (UK & international)."
+github: "ryman-h"
+linkedin: "YOUR_LINKEDIN_URL"   # replace
+orcid: "YOUR_ORCID_ID"          # optional
+theme: minimal-mistakes-jekyll  # AcademicPages uses the Minimal Mistakes layout
+
+# Jekyll Scholar (for publications)
+scholar:
+  style: apa
+  source: "_bibliography/publications.bib"
+  sort: { -year: -month: -day }
+  details: true
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: /:categories/:title/
+
+# Site navigation (example)
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "CV"
+    url: "/cv/"
+  - title: "Publications"
+    url: "/publications/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "Teaching"
+    url: "/teaching/"
+  - title: "Contact"
+    url: "/contact/"
+
+# PDF CV (you have uploaded a file already)
+cv_pdf: "/Ryman_Hashem_CV_Imperial_25.pdf"
+
+# Author info for templates that display it
+author_profile:
+  name: "Ryman H"
+  position: "Senior Research Fellow"
+  affiliation: "University of Oxford"
+  email: "ryman.hashem@eng.ox.ac.uk"
+
+# Plugins (if GitHub Pages supports them in your case)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-scholar
+
+# Minimal site-level defaults
+exclude:
+  - "node_modules"
+  - "vendor"
