@@ -4,136 +4,132 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ryman H — Senior Research Fellow</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0b6ec6; --muted:#6c6f72; --bg:#f8fafb; --card:#fff;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:#111;background:var(--bg)}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* header */
+    header.site-header{background:#fff;border-bottom:1px solid #eee;position:relative}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand h1{margin:0;font-size:18px}
+    .brand .meta{margin:2px 0 0;color:var(--muted);font-size:13px}
+    nav.main-nav{display:flex;gap:16px;align-items:center}
+    nav.main-nav a{color:#333;font-size:14px;padding:8px;border-radius:6px}
+    nav.main-nav a:hover{background:rgba(11,110,198,0.06);color:var(--accent)}
+
+    /* full hero */
+    .hero { position:relative; min-height:60vh; overflow:hidden; display:block; background:#000; }
+    .hero video{position:absolute;inset:0;width:120%;height:120%;object-fit:cover;left:50%;top:50%;transform:translate(-50%,-50%);filter:grayscale(0.0) contrast(.95)}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(6,12,20,0.36), rgba(6,12,20,0.24));z-index:1}
+    .hero .hero-card{position:relative;z-index:3;max-width:1060px;margin: -70px auto 40px; background:rgba(255,255,255,0.98);border-radius:10px;box-shadow:0 18px 40px rgba(6,12,20,0.08);padding:28px;display:flex;gap:20px;align-items:flex-start}
+    .hero .left{flex:1}
+    .hero h1{margin:0 0 6px;font-size:28px}
+    .hero .lead{color:var(--muted);margin:0 0 12px}
+    .hero p{margin:0 0 12px;line-height:1.45;color:#222}
+    .btn{display:inline-block;padding:8px 14px;border-radius:8px;font-weight:600}
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.outline{background:transparent;border:1px solid #e6eaee;color:#111}
+
+    .aside{width:290px}
+    .aside .box{background:var(--card);padding:14px;border-radius:8px;border:1px solid #f0f2f4}
+    .aside h4{margin:0 0 8px;font-size:14px}
+    .aside ul{margin:0;padding-left:16px;font-size:14px;color:#333}
+
+    /* main body */
+    main{max-width:1100px;margin:28px auto;padding:0 20px 80px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:28px}
+    .card{background:var(--card);padding:18px;border-radius:8px;border:1px solid #f0f2f4}
+
+    footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid #eee;background:#fff;margin-top:40px}
+
+    /* responsive */
+    @media (max-width:960px){
+      .hero .hero-card{flex-direction:column;margin:-40px 16px 20px}
+      .grid{grid-template-columns:1fr}
+      .aside{width:100%}
+      nav.main-nav{display:none}
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <h1>Ryman H</h1>
-        <p class="meta">Senior Research Fellow — University of Oxford</p>
+        <a href="/"><h1>Ryman H</h1></a>
+        <div class="meta">Senior Research Fellow — University of Oxford</div>
       </div>
+
       <nav class="main-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/cv.html">CV</a>
         <a href="/publications.html">Publications</a>
-        <a href="/projects/">Projects</a>
+        <a href="/projects.html">Projects</a>
         <a href="/contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO: either image or YouTube. Replace hero.jpg or VIDEO_ID below -->
-<!-- ===== HERO VIDEO ===== -->
-<!-- ===== PROFESSIONAL HERO ===== -->
-<section class="hero-full">
-  <div class="hero-media">
-    <video class="hero-video"
-           autoplay muted loop playsinline preload="metadata"
-           poster="/assets/images/hero.jpg">
+  <!-- HERO -->
+  <section class="hero" aria-label="Intro">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/images/hero.jpg">
       <source src="/assets/media/trimmed_illustration.mp4" type="video/mp4">
-      <!-- fallback -->
+      <!-- fallback text -->
     </video>
+    <div class="overlay" aria-hidden="true"></div>
 
-    <!-- subtle dark overlay to improve contrast -->
-    <div class="hero-overlay"></div>
-  </div>
+    <div class="hero-card container">
+      <div class="left">
+        <h1>Ryman H</h1>
+        <div class="lead">Senior Research Fellow — Soft &amp; Medical Robotics · University of Oxford</div>
+        <p>I develop anatomically realistic phantoms and sensorised robotic systems for clinical training and translational research. Open to Lecturer / Assistant Professor opportunities.</p>
 
-  <div class="hero-content container">
-    <div class="hero-text">
-      <h1>Ryman H</h1>
-      <p class="subtitle">Senior Research Fellow — Soft &amp; Medical Robotics · University of Oxford</p>
-
-      <p class="blurb">
-        I develop anatomically realistic phantoms and sensorised robotic systems for clinical training and translational research.
-        Open to Lecturer / Assistant Professor positions.
-      </p>
-
-      <p class="hero-ctas">
-        <a class="btn primary" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV</a>
-        <a class="btn" href="/publications.html">Publications</a>
-    
-      </p>
-    </div>
-
-    <div class="hero-aside">
-      <!-- optional short list or image tiles -->
-      <div class="selected-pubs">
-        <h4>Selected publications</h4>
-        <ul>
-          <li><strong>Hashem, R.</strong> et al. (2022). <em>SoRSS: A soft robot…</em></li>
-          <li><strong>Hashem, R.</strong> et al. (2021). <em>Ring-shaped soft pneumatic actuator…</em></li>
-        </ul>
-        <a class="small-link" href="/publications.html">Full publications →</a>
+        <p>
+          <a class="btn primary" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV</a>
+          <a class="btn outline" href="/publications.html">Publications</a>
+        </p>
       </div>
+
+      <aside class="aside" aria-label="Selected">
+        <div class="box">
+          <h4>Selected publications</h4>
+          <ul>
+            <li><strong>Hashem, R.</strong> et al. (2022) <em>SoRSS: A soft robot...</em></li>
+            <li><strong>Hashem, R.</strong> et al. (2021) <em>Ring-shaped soft pneumatic actuator...</em></li>
+            <li><a href="/publications.html">Full publications →</a></li>
+          </ul>
+        </div>
+      </aside>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- MAIN -->
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h3>Research</h3>
+        <p>Soft robotics, anatomically accurate phantoms, haptics and sensorisation for medical applications. I work on translational projects with clinical partners and supervise MSc/PhD students.</p>
+        <p><a href="/research.html">Read more →</a></p>
+      </section>
 
-
-  <main class="container">
-    <!-- Timeline / career highlights -->
-    <section class="timeline">
-      <h2>Career highlights</h2>
-      <ol class="timeline-list">
-        <li><strong>Senior Research Fellow</strong> — University of Oxford (current)</li>
-        <li><strong>PhD / Postdoc</strong> — [Institution names, years]</li>
-        <li><strong>Selected grants</strong> — EPSRC, RAEng, etc.</li>
-      </ol>
-    </section>
-
-    <!-- Projects preview -->
-    <section id="projects" class="projects">
-      <h2>Selected projects</h2>
-      <div class="grid">
-        <article class="card">
-          <a href="/projects/rectum-phantom/">
-            <img src="/assets/images/project_rectum.png" alt="Rectum phantom">
-            <div class="card-body">
-              <h3>Rectum phantom — sensorised catheter testing</h3>
-              <p>Anatomically-correct phantom used for device validation and clinician trials.</p>
-            </div>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="/projects/intestine-phantom/">
-            <img src="/assets/images/project_intestine.png" alt="Intestine phantom">
-            <div class="card-body">
-              <h3>Intestine phantom — peristaltic motion</h3>
-              <p>Robotic peristalsis platform for surgical training and device evaluation.</p>
-            </div>
-          </a>
-        </article>
-
-        <!-- copy these blocks to add more -->
-      </div>
-      <p style="margin-top:12px;"><a href="/projects/">See all projects →</a></p>
-    </section>
-
-    <!-- Publications preview -->
-    <section class="publications">
-      <h2>Selected publications</h2>
-      <ul>
-        <li>Hashem, R. et al. (2024). <em>Design of an anatomically realistic rectum phantom</em>. Journal of Medical Robotics.</li>
-        <li>Hashem, R. & Lee, C. (2023). <em>Peristaltic robotic systems for surgical training</em>. Proc. Intl. Robotics Conf.</li>
-      </ul>
-      <p><a href="/publications.html">Full publications →</a></p>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ryman.hashem@eng.ox.ac.uk">ryman.hashem@eng.ox.ac.uk</a></p>
-      <p>Open to Lecturer / Assistant Professor positions — UK & international.</p>
-    </section>
+      <aside class="card">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:ryman.hashem@eng.ox.ac.uk">ryman.hashem@eng.ox.ac.uk</a></p>
+        <p><a href="/cv.html">Full CV</a></p>
+      </aside>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>© Ryman H — University of Oxford</small>
-    </div>
+  <footer>
+    © Ryman H — University of Oxford
   </footer>
 </body>
 </html>
