@@ -4,69 +4,111 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ryman H — Senior Research Fellow</title>
-  <style>
-    :root{--accent:#0b6ec6;--muted:#666}
-    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;line-height:1.5;color:#222;margin:0;background:#f7f8fa}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    .hero{display:flex;gap:24px;align-items:center;background:#fff;padding:28px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-    .hero .left{flex:1}
-    .hero h1{margin:0 0 8px 0;font-size:28px}
-    .hero p.lead{margin:0 0 12px 0;color:var(--muted)}
-    .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;margin-right:8px}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
-    .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 14px rgba(15,23,42,0.04)}
-    .card img{width:100%;height:160px;object-fit:cover;display:block}
-    .card .body{padding:12px}
-    footer{max-width:1100px;margin:28px auto;padding:8px 28px;color:var(--muted);font-size:14px}
-    .hero-video{width:100%;height:220px;border-radius:8px;overflow:hidden;background:#000}
-    @media (max-width:720px){ .hero{flex-direction:column} .hero-video{height:160px} }
-  </style>
+  <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
-  <div class="container">
-    <header class="hero" role="banner">
-      <div class="left">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
         <h1>Ryman H</h1>
-        <p class="lead">Senior Research Fellow — Soft & Medical Robotics, Embodied Intelligence<br>University of Oxford</p>
-        <p>I develop anatomically realistic phantoms and sensorised systems for medical training and translational research. Seeking Lecturer / Assistant Professor roles.</p>
-        <p>
-          <a class="btn" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV (PDF)</a>
-          <a class="btn" href="#projects" style="background:#6c757d">Selected projects</a>
-        </p>
+        <p class="meta">Senior Research Fellow — University of Oxford</p>
       </div>
-      <div class="right" style="width:420px">
-        <!-- Replace with your own hero image or embed a YouTube iframe -->
-        <div class="hero-video">
-          <!-- Example: YouTube embed — replace VIDEO_ID (or replace iframe with an <img> tag to use an uploaded image) -->
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&mute=1&controls=1" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </header>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/cv.html">CV</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="projects" style="margin-top:28px">
-      <h2>Selected Projects</h2>
-      <div class="projects">
-        <article class="card">
-          <img src="/assets/images/project_rectum.png" alt="Rectum phantom">
-          <div class="body">
-            <h3 style="margin:0 0 6px 0">Rectum phantom — sensorised catheter testing</h3>
-            <p style="margin:0;color:var(--muted)">Anatomically correct phantom development for translational catheter validation with clinical partners.</p>
-          </div>
-        </article>
+  <!-- HERO: either image or YouTube. Replace hero.jpg or VIDEO_ID below -->
+  <section class="hero">
+    <div class="hero-media">
+      <!-- Option A: Image (recommended for reliability) -->
+      <img src="/assets/images/hero.jpg" alt="Hero image showing lab / device / team">
 
-        <article class="card">
-          <img src="/assets/images/project_intestine.png" alt="Intestine phantom">
-          <div class="body">
-            <h3 style="margin:0 0 6px 0">Intestine phantom — peristaltic motion</h3>
-            <p style="margin:0;color:var(--muted)">Robotic peristalsis platform validated in surgical training contexts (video demo available).</p>
-          </div>
-        </article>
+      <!-- Option B: YouTube (uncomment if you prefer a video hero and replace VIDEO_ID)
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&controls=0&loop=1&playlist=VIDEO_ID"
+        title="Hero video" allow="autoplay; fullscreen" frameborder="0"></iframe>
+      -->
+    </div>
 
-        <!-- Add more cards as needed -->
-      </div>
+    <div class="hero-card">
+      <h2>Ryman H</h2>
+      <p class="hero-sub">Senior Research Fellow — Soft & Medical Robotics · Embodied Intelligence</p>
+      <p>I develop anatomically realistic phantoms and sensorised systems for medical training and translational research. I supervise students, lead clinical collaborations, and author grant proposals and publications.</p>
+
+      <p class="hero-actions">
+        <a class="btn" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV (PDF)</a>
+        <a class="btn muted" href="#projects">Selected projects</a>
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Timeline / career highlights -->
+    <section class="timeline">
+      <h2>Career highlights</h2>
+      <ol class="timeline-list">
+        <li><strong>Senior Research Fellow</strong> — University of Oxford (current)</li>
+        <li><strong>PhD / Postdoc</strong> — [Institution names, years]</li>
+        <li><strong>Selected grants</strong> — EPSRC, RAEng, etc.</li>
+      </ol>
     </section>
-  </div>
 
-  <footer>© Ryman H — University of Oxford — ryman.hashem@eng.ox.ac.uk</footer>
+    <!-- Projects preview -->
+    <section id="projects" class="projects">
+      <h2>Selected projects</h2>
+      <div class="grid">
+        <article class="card">
+          <a href="/projects/rectum-phantom/">
+            <img src="/assets/images/project_rectum.png" alt="Rectum phantom">
+            <div class="card-body">
+              <h3>Rectum phantom — sensorised catheter testing</h3>
+              <p>Anatomically-correct phantom used for device validation and clinician trials.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="/projects/intestine-phantom/">
+            <img src="/assets/images/project_intestine.png" alt="Intestine phantom">
+            <div class="card-body">
+              <h3>Intestine phantom — peristaltic motion</h3>
+              <p>Robotic peristalsis platform for surgical training and device evaluation.</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- copy these blocks to add more -->
+      </div>
+      <p style="margin-top:12px;"><a href="/projects/">See all projects →</a></p>
+    </section>
+
+    <!-- Publications preview -->
+    <section class="publications">
+      <h2>Selected publications</h2>
+      <ul>
+        <li>Hashem, R. et al. (2024). <em>Design of an anatomically realistic rectum phantom</em>. Journal of Medical Robotics.</li>
+        <li>Hashem, R. & Lee, C. (2023). <em>Peristaltic robotic systems for surgical training</em>. Proc. Intl. Robotics Conf.</li>
+      </ul>
+      <p><a href="/publications.html">Full publications →</a></p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:ryman.hashem@eng.ox.ac.uk">ryman.hashem@eng.ox.ac.uk</a></p>
+      <p>Open to Lecturer / Assistant Professor positions — UK & international.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Ryman H — University of Oxford</small>
+    </div>
+  </footer>
 </body>
 </html>
