@@ -1,0 +1,40 @@
+/* assets/css/site.css - core styles inspired by the example site */
+:root{--accent:#0b6ec6;--muted:#667;--bg:#f7f8fa}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;line-height:1.5;color:#222;margin:0;background:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.site-header{background:#fff;border-bottom:1px solid #ececec}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 28px}
+.brand h1{margin:0;font-size:18px}
+.brand .meta{margin:0;color:var(--muted);font-size:13px}
+.main-nav a{margin-left:14px;color:#222;text-decoration:none;font-size:14px}
+.main-nav a:hover{text-decoration:underline}
+
+.hero{display:flex;gap:28px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.95));align-items:center}
+.hero-media{flex:1;max-width:640px;border-radius:8px;overflow:hidden;box-shadow:0 8px 22px rgba(15,23,42,0.06)}
+.hero-media img, .hero-media iframe{width:100%;height:100%;display:block}
+.hero-card{flex:0 0 420px;background:#fff;padding:22px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.hero-card h2{margin:0 0 6px 0}
+.hero-sub{color:var(--muted);margin:0 0 12px 0}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;margin-right:8px}
+.btn.muted{background:#6c757d}
+
+main.container{padding-top:12px;padding-bottom:48px}
+.timeline{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);margin-bottom:18px}
+.timeline-list{margin:0;padding-left:18px}
+
+.projects .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px}
+.card{background:#fff;border-radius:8px;overflow:hidden;display:block;text-decoration:none;color:inherit;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card-body{padding:12px}
+
+.publications, .contact{background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);margin-top:18px}
+
+.site-footer{padding:18px 0;background:transparent;color:var(--muted);text-align:center;border-top:1px solid #eee}
+
+@media (max-width:920px){
+  .hero{flex-direction:column}
+  .hero-card{width:100%}
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .main-nav{margin-top:8px}
+}
