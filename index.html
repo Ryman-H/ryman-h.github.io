@@ -24,28 +24,40 @@
   </header>
 
   <!-- HERO: either image or YouTube. Replace hero.jpg or VIDEO_ID below -->
-  <section class="hero">
-    <div class="hero-media">
-      <!-- Option A: Image (recommended for reliability) -->
-      <img src="/assets/images/hero.jpg" alt="Hero image showing lab / device / team">
+<!-- ===== HERO VIDEO ===== -->
+<section class="hero-outer">
+  <div class="hero-media-wrap">
+    <video class="hero-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="metadata">
+      <source src="/assets/media/trimmed_illustration.mp4" type="video/mp4">
+    </video>
+  </div>
 
-      <!-- Option B: YouTube (uncomment if you prefer a video hero and replace VIDEO_ID)
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&controls=0&loop=1&playlist=VIDEO_ID"
-        title="Hero video" allow="autoplay; fullscreen" frameborder="0"></iframe>
-      -->
-    </div>
+  <div class="hero-card container">
+    <div class="hero-left">
+      <h1>Ryman H</h1>
+      <p class="lead">
+        Senior Research Fellow — Soft & Medical Robotics · University of Oxford
+      </p>
 
-    <div class="hero-card">
-      <h2>Ryman H</h2>
-      <p class="hero-sub">Senior Research Fellow — Soft & Medical Robotics · Embodied Intelligence</p>
-      <p>I develop anatomically realistic phantoms and sensorised systems for medical training and translational research. I supervise students, lead clinical collaborations, and author grant proposals and publications.</p>
+      <p>
+        I develop anatomically realistic phantoms and sensorised robotic systems
+        for medical training and translational research.
+      </p>
 
       <p class="hero-actions">
-        <a class="btn" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV (PDF)</a>
-        <a class="btn muted" href="#projects">Selected projects</a>
+        <a class="btn" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">CV</a>
+        <a class="btn muted" href="/publications.html">Publications</a>
+        <a class="btn muted" href="/radlab.html">RADLAB</a>
       </p>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <main class="container">
     <!-- Timeline / career highlights -->
