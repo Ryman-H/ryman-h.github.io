@@ -38,62 +38,48 @@ main.container{padding-top:12px;padding-bottom:48px}
   .header-inner{flex-direction:column;align-items:flex-start}
   .main-nav{margin-top:8px}
 }
-/* ===== HERO VIDEO STYLE ===== */
-.hero-outer {
-  position: relative;
-  margin-bottom: 32px;
-}
+<!-- ===== PROFESSIONAL HERO ===== -->
+<section class="hero-full">
+  <div class="hero-media">
+    <video class="hero-video"
+           autoplay muted loop playsinline preload="metadata"
+           poster="/assets/images/hero.jpg">
+      <source src="/assets/media/trimmed_illustration.mp4" type="video/mp4">
+      <!-- fallback -->
+    </video>
 
-.hero-media-wrap {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  overflow: hidden;
-  background: #000;
-}
+    <!-- subtle dark overlay to improve contrast -->
+    <div class="hero-overlay"></div>
+  </div>
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.92;
-}
+  <div class="hero-content container">
+    <div class="hero-text">
+      <h1>Ryman H</h1>
+      <p class="subtitle">Senior Research Fellow — Soft &amp; Medical Robotics · University of Oxford</p>
 
-.hero-card {
-  position: relative;
-  margin-top: -110px;
-  background: rgba(255,255,255,0.96);
-  padding: 22px 26px;
-  border-radius: 10px;
-  box-shadow: 0 14px 30px rgba(8,18,31,0.08);
-  max-width: 1100px;
-  z-index: 5;
-}
+      <p class="blurb">
+        I develop anatomically realistic phantoms and sensorised robotic systems for clinical training and translational research.
+        Open to Lecturer / Assistant Professor positions.
+      </p>
 
-.hero-left h1 {
-  margin: 0;
-  font-size: 26px;
-}
+      <p class="hero-ctas">
+        <a class="btn primary" href="/Ryman_Hashem_CV_Imperial_25.pdf" target="_blank">Download CV</a>
+        <a class="btn" href="/publications.html">Publications</a>
+        <a class="btn ghost" href="/radlab.html">RADLAB</a>
+      </p>
+    </div>
 
-.hero-left .lead {
-  margin: 6px 0 12px;
-  color: #555;
-}
+    <div class="hero-aside">
+      <!-- optional short list or image tiles -->
+      <div class="selected-pubs">
+        <h4>Selected publications</h4>
+        <ul>
+          <li><strong>Hashem, R.</strong> et al. (2022). <em>SoRSS: A soft robot…</em></li>
+          <li><strong>Hashem, R.</strong> et al. (2021). <em>Ring-shaped soft pneumatic actuator…</em></li>
+        </ul>
+        <a class="small-link" href="/publications.html">Full publications →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-.hero-actions .btn {
-  margin-right: 8px;
-}
-
-@media (max-width: 900px) {
-  .hero-media-wrap {
-    height: 260px;
-  }
-  .hero-card {
-    margin-top: -70px;
-    padding: 16px 18px;
-  }
-}
