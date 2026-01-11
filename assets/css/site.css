@@ -144,18 +144,18 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
 
 /* right column (photo) — fixed width, aligned to the top */
 .about-photo{
-  flex:0 0 320px;
+  flex:0 0 384px;
   display:flex;
   align-items:flex-start;
   justify-content:center;
   padding-top:6px;
 }
 .about-photo img{
-  width:320px;
+  width:384px;
   height:auto;
   border-radius:4px;
   display:block;
-  filter:grayscale(100%);
+ /* filter:grayscale(100%);*/
 }
 
 /* typography */
