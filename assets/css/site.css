@@ -30,8 +30,20 @@ a:hover{text-decoration:underline}
 .header-inner{
   max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;
 }
-.brand h1{margin:0;font-size:18px}
-.brand .meta{font-size:13px;color:var(--muted)}
+.brand h1{
+  margin:0;
+  font-size:18px;
+  color:#000;
+}
+
+.brand .meta{
+  font-size:13px;
+  color:#000;
+}
+.brand{
+  margin-top:6px;
+}
+
 .main-nav a{margin-left:18px;font-size:14px;color:#111}
 
 /* hero */
