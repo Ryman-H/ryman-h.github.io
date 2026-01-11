@@ -130,16 +130,16 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   max-width:900px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:120px 1fr; /* image | text */
-  gap:40px;
+  grid-template-columns:1fr 260px; /* text | image */
+  gap:48px;
   align-items:start;
 }
 
 .about-photo img{
-  width:120px;
+  width:260px;
   border-radius:4px;
   display:block;
-  filter:grayscale(100%);
+  /*filter:grayscale(100%);*/
 }
 
 .about-text h2{
