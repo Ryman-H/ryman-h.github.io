@@ -119,3 +119,49 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   .main-nav{display:none}
   .container{padding:40px 12px}
 }
+
+/* About section — image left, text right */
+#about{
+  padding:100px 20px;
+  border-bottom:1px solid #f0f2f4;
+}
+
+.about-wrap{
+  max-width:900px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:120px 1fr; /* image | text */
+  gap:40px;
+  align-items:start;
+}
+
+.about-photo img{
+  width:120px;
+  border-radius:4px;
+  display:block;
+  filter:grayscale(100%);
+}
+
+.about-text h2{
+  margin:0 0 14px;
+  font-size:22px;
+}
+
+.about-text p{
+  margin:0 0 16px;
+  max-width:700px;
+  color:#222;
+}
+
+/* mobile */
+@media (max-width:800px){
+  .about-wrap{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .about-photo img{
+    width:120px;
+  }
+}
+
