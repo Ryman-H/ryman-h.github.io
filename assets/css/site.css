@@ -230,19 +230,25 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   min-height:360px;
 }
 
-/* media area keeps consistent framing */
+/* Research thrusts: show full image (no crop) */
 .thrust-media{
-  width:100%;
-  aspect-ratio:16/9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f4f6f8;   /* neutral background for letterboxing */
   overflow:hidden;
-  background:#f4f6f8;
 }
-.thrust-media img, .thrust-media video{
+
+.thrust-media img,
+.thrust-media video{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;   /* FULL image, no cropping */
+  object-position:center;
+  transform:none;       /* disable any zoom */
   display:block;
 }
+
 
 /* body */
 .thrust-body{
