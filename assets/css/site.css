@@ -230,40 +230,61 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   min-height:360px;
 }
 
-/* Research thrusts: show full image (no crop) */
+/* Research thrusts: image area reduced so title is primary */
 .thrust-media{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f4f6f8;   /* neutral background for letterboxing */
+  background:#f4f6f8;        /* neutral background for letterboxing */
   overflow:hidden;
+  aspect-ratio:4 / 3;        /* smaller visual footprint than wide banners */
+  max-height:240px;          /* limit how tall the image area can grow */
 }
 
+/* Show full image without crop but scale it down so it doesn't dominate */
 .thrust-media img,
 .thrust-media video{
-  width:100%;
-  height:100%;
-  object-fit:contain;   /* FULL image, no cropping */
+  width:auto;                /* let image keep natural aspect */
+  max-width:85%;             /* make the image visibly smaller than card width */
+  max-height:100%;
+  object-fit:contain;        /* no cropping */
   object-position:center;
-  transform:none;       /* disable any zoom */
+  transform:none;            /* no zoom by default */
   display:block;
 }
 
-
-/* body */
+/* body (centered so title is focal) */
 .thrust-body{
   padding:20px;
   display:flex;
   flex-direction:column;
   gap:8px;
   flex:1 1 auto;
+  text-align:center;         /* center titles and description */
 }
-.thrust-body h3{ margin:0; font-size:18px; color:var(--text); }
-.thrust-body p{ margin:0; color:#333; line-height:1.55; font-size:15px; }
+.thrust-body h3{
+  margin:16px 0 6px;         /* breathing room above the title */
+  font-size:18px;
+  color:var(--text);
+}
+.thrust-body p{
+  margin:0;
+  color:#333;
+  line-height:1.55;
+  font-size:15px;
+}
 
-/* subtle hover */
-.thrust-card:hover{ transform:translateY(-6px); box-shadow:0 16px 40px rgba(15,23,42,0.12); }
-.thrust-card:hover .thrust-media img{ transform:scale(1.03); transition:transform .45s ease; }
+/* subtle hover for card elevation only (image remains stable) */
+.thrust-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(15,23,42,0.12);
+}
+
+/* Keep hover-image scale subtle and optional — small effect only */
+.thrust-card:hover .thrust-media img{
+  transform:scale(1.02);
+  transition:transform .35s ease;
+}
 
 /* stretch columns on very wide screens so cards fill container rhythm */
 @media (min-width:1600px){
@@ -273,8 +294,10 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
 /* responsive */
 @media (max-width:1100px){
   .thrust-grid{ grid-template-columns:repeat(2, 1fr); }
+  .thrust-media{ max-height:220px; }
 }
 @media (max-width:700px){
   .thrust-grid{ grid-template-columns:1fr; }
-  .thrust-media{ aspect-ratio:4/3; }
+  .thrust-media{ aspect-ratio:4/3; max-height:200px; }
+  .thrust-media img{ max-width:90%; }
 }
