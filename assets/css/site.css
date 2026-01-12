@@ -63,21 +63,27 @@ a:hover{text-decoration:underline}
   width:100%;
 }
 
-/* reuse thrust-card visual style but ensure figure-specific sizing */
+/* Show full image (no crop) scaled down to fit the card */
 .figure .thrust-media{
-  aspect-ratio:16/10;
+  display:flex;               /* centre contained image */
+  align-items:center;
+  justify-content:center;
+  background:#f4f6f8;        /* gentle neutral background for letterbox areas */
+  overflow:hidden;
 }
-/* Fix image framing in gallery cards */
+
+/* full-image behaviour */
 .figure .thrust-media img,
-.figure .thrust-media video {
-  width: 100%;
-  height: 100%;
-  /*object-fit: cover;   */      /* keep crop behaviour */
-  object-position: 50% 45%;  /* tweak focal point (50% left/right, 45% up/down) */
-  transform: scale(1.08);    /* subtle zoom in — change number to 1.05 / 1.10 if desired */
-  transform-origin: center;
-  transition: transform .45s ease; /* smooth hover transition if used */
+.figure .thrust-media video{
+  width:100%;
+  height:100%;
+  object-fit:contain;         /* <-- show entire image, no crop */
+  object-position:center;
+  transform:none;             /* disable previous zoom */
+  transition:none;
+  display:block;
 }
+
 
 /* Optional: zoom only on hover (uncomment to use) */
 /*
