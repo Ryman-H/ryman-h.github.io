@@ -185,16 +185,26 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
 }
 
 
-/* Research thrusts — 3 image cards in Antonio style */
+/* GLOBAL container width used across the site */
+.container{
+  max-width:1600px;
+  margin:0 auto;
+  padding:80px 32px;
+  box-sizing:border-box;
+}
+
+/* Research thrusts — fill the container rhythm */
+#research { padding-top:12px; padding-bottom:48px; }
+
 .thrust-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:28px;
-  margin-top:22px;
-  align-items:start;
+  width:100%;
+  align-items:stretch;
 }
 
-/* Card */
+/* Card: equal-height, image on top, body below */
 .thrust-card{
   background:#fff;
   border-radius:10px;
@@ -203,51 +213,41 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   display:flex;
   flex-direction:column;
   transition:transform .22s ease, box-shadow .22s ease;
-  min-height:320px;
+  min-height:360px;
 }
 
-/* media */
+/* media area keeps consistent framing */
 .thrust-media{
   width:100%;
-  aspect-ratio:16/10; /* consistent framed image */
+  aspect-ratio:16/9;
   overflow:hidden;
   background:#f4f6f8;
 }
-.thrust-media img{
+.thrust-media img, .thrust-media video{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
-  transition:transform .45s ease;
 }
 
 /* body */
 .thrust-body{
-  padding:18px 18px 22px;
+  padding:20px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
   flex:1 1 auto;
 }
-.thrust-body h3{
-  margin:0;
-  font-size:18px;
-  color:var(--text);
-}
-.thrust-body p{
-  margin:0;
-  color:#333;
-  line-height:1.55;
-  font-size:14px;
-}
+.thrust-body h3{ margin:0; font-size:18px; color:var(--text); }
+.thrust-body p{ margin:0; color:#333; line-height:1.55; font-size:15px; }
 
-/* hover effect */
-.thrust-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 16px 40px rgba(15,23,42,0.12);
-}
-.thrust-card:hover .thrust-media img{
-  transform:scale(1.04);
+/* subtle hover */
+.thrust-card:hover{ transform:translateY(-6px); box-shadow:0 16px 40px rgba(15,23,42,0.12); }
+.thrust-card:hover .thrust-media img{ transform:scale(1.03); transition:transform .45s ease; }
+
+/* stretch columns on very wide screens so cards fill container rhythm */
+@media (min-width:1600px){
+  .thrust-grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
 /* responsive */
@@ -258,4 +258,3 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   .thrust-grid{ grid-template-columns:1fr; }
   .thrust-media{ aspect-ratio:4/3; }
 }
-
