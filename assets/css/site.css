@@ -138,8 +138,8 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
 /* left column (text) — flexible and allowed to grow */
 .about-text{
   flex:1 1 auto;
-  min-width:500px; /* prevents collapsing on wide screens */
-  max-width:900px; /* keeps line-length readable */
+  min-width:700px; /* prevents collapsing on wide screens */
+  max-width:1100px; /* keeps line-length readable */
 }
 
 /* right column (photo) — fixed width, aligned to the top */
