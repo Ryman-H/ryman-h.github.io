@@ -114,7 +114,7 @@ a:hover{ text-decoration:underline; }
 
 /* Section title */
 .career-timeline h2 {
-  font-size: 28px;        /* smaller than 42 for visual rhythm with other headings */
+  font-size: 18px;        /* smaller than 42 for visual rhythm with other headings */
   margin: 0 0 28px;
   font-weight: 700;
 }
