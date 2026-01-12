@@ -183,3 +183,79 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   .about-photo img{ width:140px; }
   .about-text{ max-width:100%; min-width:0; }
 }
+
+
+/* Research thrusts — 3 image cards in Antonio style */
+.thrust-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:28px;
+  margin-top:22px;
+  align-items:start;
+}
+
+/* Card */
+.thrust-card{
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
+  transition:transform .22s ease, box-shadow .22s ease;
+  min-height:320px;
+}
+
+/* media */
+.thrust-media{
+  width:100%;
+  aspect-ratio:16/10; /* consistent framed image */
+  overflow:hidden;
+  background:#f4f6f8;
+}
+.thrust-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+}
+
+/* body */
+.thrust-body{
+  padding:18px 18px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1 1 auto;
+}
+.thrust-body h3{
+  margin:0;
+  font-size:18px;
+  color:var(--text);
+}
+.thrust-body p{
+  margin:0;
+  color:#333;
+  line-height:1.55;
+  font-size:14px;
+}
+
+/* hover effect */
+.thrust-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(15,23,42,0.12);
+}
+.thrust-card:hover .thrust-media img{
+  transform:scale(1.04);
+}
+
+/* responsive */
+@media (max-width:1100px){
+  .thrust-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:700px){
+  .thrust-grid{ grid-template-columns:1fr; }
+  .thrust-media{ aspect-ratio:4/3; }
+}
+
