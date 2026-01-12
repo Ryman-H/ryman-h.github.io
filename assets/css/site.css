@@ -120,42 +120,43 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   .container{padding:40px 12px}
 }
 
-/* About: stable two-column layout (text left, photo right) */
+/* About: robust two-column layout (text left, photo right) */
 #about{
   padding:80px 20px;
   border-bottom:1px solid #f0f2f4;
 }
 
+/* container: limit total width but allow flexible interior layout */
 .about-wrap{
-  max-width:1600px;
+  max-width:1600px;       /* overall page rhythm — adjust if you want wider/narrower */
   margin:0 auto;
   display:flex;
-  gap:0px;
-  align-items:center;
+  gap:40px;               /* space between text and image */
+  align-items:center;     /* vertically center text to image */
   justify-content:space-between;
 }
 
-/* left column (text) — flexible and allowed to grow */
+/* text column: truly flexible */
 .about-text{
-  flex:1 1 auto;
-  min-width:800px; /* prevents collapsing on wide screens */
-  max-width:1200px; /* keeps line-length readable */
+  /* allow the text to shrink below its content width if needed (min-width:0) */
+  flex:1 1 0%;
+  min-width:0;            /* important — lets flex shrinking work correctly */
+  max-width:calc(100% - 520px); /* keep the text column at most the remaining space after the image */
+  box-sizing:border-box;
 }
 
-/* right column (photo) — fixed width, aligned to the top */
+/* photo column: fixed-size anchor */
 .about-photo{
-  flex:0 0 500px;
+  flex:0 0 520px;         /* <-- change this number to resize image (ex: 420, 384, 600) */
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  padding-top:6px;
 }
 .about-photo img{
-  width:500px;
+  width:520px;            /* <-- match this to the flex basis above */
   height:auto;
   border-radius:4px;
   display:block;
- /* filter:grayscale(100%);*/
 }
 
 /* typography */
@@ -182,4 +183,3 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   .about-photo img{ width:140px; }
   .about-text{ max-width:100%; min-width:0; }
 }
-
