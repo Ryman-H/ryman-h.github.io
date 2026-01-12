@@ -377,41 +377,32 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
    ========================================================================== */
 
 /* ==== Publications (homepage) ==== */
-#publications{
-  border-bottom:1px solid #f0f2f4;
-}
-
-.pub-year{
-  margin-bottom:28px;
-}
-
-.pub-year h3{
-  font-size:16px;
-  font-weight:600;
-  color:var(--muted);
-  margin:0 0 10px;
-}
-
-.pub-list-home{
+/* ==== Recent Publications (chronological, no numbering) ==== */
+.pub-top-plain{
   list-style:none;
   padding:0;
   margin:0;
+  max-width:1100px;
 }
 
-.pub-list-home li{
-  margin-bottom:10px;
-  line-height:1.55;
+.pub-top-plain li{
+  margin-bottom:14px;
   font-size:15px;
+  line-height:1.55;
   color:#222;
-  max-width:1100px; /* keeps text readable */
 }
 
-.pub-list-home em{
+.pub-top-plain em{
   font-style:italic;
 }
 
+.pub-top-plain .status{
+  color:var(--muted);
+  font-size:14px;
+}
+
 .pub-links{
-  margin-top:20px;
+  margin-top:18px;
   font-size:15px;
 }
 
@@ -423,7 +414,4 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   margin:0 8px;
   color:var(--muted);
 }
-
-
-/* === FORCE-TUNE: timeline marker alignment (override any earlier rules) === */
 
