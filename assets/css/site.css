@@ -74,7 +74,7 @@ a:hover{text-decoration:underline}
   height: 100%;
   object-fit: cover;         /* keep crop behaviour */
   object-position: 50% 45%;  /* tweak focal point (50% left/right, 45% up/down) */
-  transform: scale(1.08);    /* subtle zoom in — change number to 1.05 / 1.10 if desired */
+  transform: scale(0.8);    /* subtle zoom in — change number to 1.05 / 1.10 if desired */
   transform-origin: center;
   transition: transform .45s ease; /* smooth hover transition if used */
 }
