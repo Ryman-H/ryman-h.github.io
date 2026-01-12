@@ -67,6 +67,26 @@ a:hover{text-decoration:underline}
 .figure .thrust-media{
   aspect-ratio:16/10;
 }
+/* Fix image framing in gallery cards */
+.figure .thrust-media img,
+.figure .thrust-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* keep crop behaviour */
+  object-position: 50% 45%;  /* tweak focal point (50% left/right, 45% up/down) */
+  transform: scale(1.08);    /* subtle zoom in — change number to 1.05 / 1.10 if desired */
+  transform-origin: center;
+  transition: transform .45s ease; /* smooth hover transition if used */
+}
+
+/* Optional: zoom only on hover (uncomment to use) */
+/*
+.figure:hover .thrust-media img,
+.figure:hover .thrust-media video {
+  transform: scale(1.08);
+}
+*/
+
 .figure .thrust-body{ padding:14px; }
 
 /* meta line smaller */
