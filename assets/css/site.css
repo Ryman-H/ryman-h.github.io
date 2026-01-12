@@ -101,6 +101,129 @@ a:hover{ text-decoration:underline; }
 .hero-title h1{ margin:0; font-size:36px; font-weight:700 }
 .hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95 }
 
+
+/* ==== CAREER TIMELINE (fits site rhythm & tokens) ==== */
+.career-timeline {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--section-vertical-pad) var(--site-pad);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+/* Section title */
+.career-timeline h2 {
+  font-size: 28px;        /* smaller than 42 for visual rhythm with other headings */
+  margin: 0 0 28px;
+  font-weight: 700;
+}
+
+/* Timeline container: left rule + spacing */
+.timeline {
+  position: relative;
+  border-left: 4px solid rgba(0,0,0,0.08); /* softer than pure black */
+  padding-left: 56px;
+  display: block;
+}
+
+/* Each event row (desktop: grid with small left column for year) */
+.event {
+  display: grid;
+  grid-template-columns: 140px 1fr;   /* year | content */
+  column-gap: 40px;
+  margin-bottom: 40px;
+  align-items: start;
+  position: relative;
+}
+
+/* small circular marker on the timeline */
+.event::before{
+  content: "";
+  position: absolute;
+  left: -10px;            /* aligns over the left border */
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+}
+
+/* Year column */
+.year {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  display:flex;
+  align-items:flex-start;
+  padding-top:4px;
+}
+
+/* Content column */
+.content h3 {
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.content p {
+  font-size: 15px;
+  margin: 0 0 8px;
+  line-height: 1.6;
+  color:#333;
+}
+
+/* Optional meta / small text (role, institution) */
+.content .meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top:6px;
+}
+
+/* Visual grouping (card-like) for longer items (optional) */
+.event.carded .content{
+  background:#fff;
+  padding:14px;
+  border-radius:8px;
+  box-shadow:0 8px 22px rgba(15,23,42,0.04);
+}
+
+/* Tighten last item spacing */
+.event:last-child{ margin-bottom:0; }
+
+/* Responsive: stack on small screens */
+@media (max-width:880px){
+  .timeline { padding-left: 28px; border-left-width:3px; }
+  .event {
+    grid-template-columns: 1fr;  /* stack year above content */
+    row-gap: 8px;
+    padding-left: 0;
+  }
+  .event::before{
+    left: -8px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+  }
+  .year {
+    order: -1;                  /* show year above content */
+    font-size: 15px;
+    margin-bottom:6px;
+  }
+  .content h3{ font-size:17px; }
+  .content p{ font-size:15px; }
+}
+
+/* Small-screen micro-adjust */
+@media (max-width:480px){
+  .career-timeline { padding:40px 16px; }
+  .timeline { padding-left:18px; }
+  .event::before{ left:-6px; top:6px; width:12px; height:12px; border-width:3px; }
+}
+
+
 /* ==== GALLERY / PROJECT CARDS ==== */
 /* Grid */
 .gallery-grid{
@@ -315,46 +438,4 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
    - To change gaps between cards: edit --card-gap
    ========================================================================== */
 
-
-.career-timeline {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  font-family: "Inter", sans-serif;
-}
-
-.career-timeline h2 {
-  font-size: 42px;
-  margin-bottom: 60px;
-}
-
-.timeline {
-  position: relative;
-  border-left: 4px solid #111;
-  padding-left: 60px;
-}
-
-.event {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  margin-bottom: 60px;
-  column-gap: 40px;
-}
-
-.year {
-  font-size: 20px;
-  font-weight: 600;
-  color: #555;
-}
-
-.content h3 {
-  font-size: 26px;
-  margin: 0 0 8px 0;
-}
-
-.content p {
-  font-size: 18px;
-  margin: 4px 0;
-  line-height: 1.6;
-}
 
