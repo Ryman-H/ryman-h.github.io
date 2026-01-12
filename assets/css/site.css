@@ -314,3 +314,47 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
    - To make all sections narrower site-wide: change --page-max to 1100px
    - To change gaps between cards: edit --card-gap
    ========================================================================== */
+
+
+.career-timeline {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  font-family: "Inter", sans-serif;
+}
+
+.career-timeline h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+.timeline {
+  position: relative;
+  border-left: 4px solid #111;
+  padding-left: 60px;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  margin-bottom: 60px;
+  column-gap: 40px;
+}
+
+.year {
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+}
+
+.content h3 {
+  font-size: 26px;
+  margin: 0 0 8px 0;
+}
+
+.content p {
+  font-size: 18px;
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
