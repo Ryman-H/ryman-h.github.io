@@ -439,4 +439,30 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
    - To change gaps between cards: edit --card-gap
    ========================================================================== */
 
+/* === FORCE-TUNE: timeline marker alignment (override any earlier rules) === */
+.career-timeline .timeline .event {
+  position: relative !important;    /* make sure the marker can be positioned */
+  align-items: start !important;    /* grid baseline consistent */
+}
+
+.career-timeline .timeline .event::before{
+  content: "";
+  position: absolute !important;
+  left: -11px !important;           /* center on vertical rule */
+  top: 6px !important;              /* tune this to align with year text */
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  border: 4px solid var(--accent) !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.06) !important;
+  z-index: 2 !important;
+}
+
+/* Ensure year baseline matches marker */
+.career-timeline .timeline .event .year{
+  padding-top: 2px !important;
+  line-height: 1.2 !important;
+  display:flex; align-items:flex-start;
+}
 
