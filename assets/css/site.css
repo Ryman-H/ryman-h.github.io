@@ -141,7 +141,7 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   /* allow the text to shrink below its content width if needed (min-width:0) */
   flex:1 1 0%;
   min-width:0;            /* important — lets flex shrinking work correctly */
-  max-width:calc(120% - 520px); /* keep the text column at most the remaining space after the image */
+  max-width:calc(100%); /* keep the text column at most the remaining space after the image */
   box-sizing:border-box;
 }
 
