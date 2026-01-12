@@ -1,224 +1,212 @@
+/* ==========================================================================
+   SITE STYLES (clean, organized)
+   - Change top-level values in :root
+   - Each section is labeled and self-contained
+   ========================================================================== */
+
+/* ==== ROOT / TOKENS ==== */
 :root{
-  --accent:#0b6ec6;
-  --text:#111;
-  --muted:#6b7280;
-  --bg:#ffffff;
+  --accent: #0b6ec6;
+  --text:   #111;
+  --muted:  #6b7280;
+  --bg:     #ffffff;
+
+  /* Layout widths */
+  --page-max: 1600px;    /* main site rhythm (change to 1100px if you prefer narrower) */
+  --narrow-max: 1100px;  /* use for small internal containers (hero card etc.) */
+
+  /* Spacing */
+  --site-pad: 32px;
+  --section-vertical-pad: 80px;
+  --card-gap: 28px;
 }
 
+/* ==== GLOBAL RESET & TYPO ==== */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing:antialiased;
 }
 
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-.container{max-width:1100px;margin:0 auto;padding:80px 20px}
+/* ==== GLOBAL CONTAINERS ==== */
+/* Use .container for page sections that should follow the main rhythm */
+.container{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--section-vertical-pad) var(--site-pad);
+}
 
-/* header */
+/* Narrow container for small interior blocks (e.g., header inner) */
+.narrow {
+  max-width: var(--narrow-max);
+  margin: 0 auto;
+  padding: 0 var(--site-pad);
+}
+
+/* ==== HEADER ==== */
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
 }
+
 .header-inner{
-  max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;
-}
-.brand h1{
-  margin:0;
-  font-size:18px;
-  color:#000;
-}
-
-.brand .meta{
-  font-size:13px;
-  color:#000;
-}
-.brand{
-  margin-top:25px;
+  max-width: var(--narrow-max);
+  margin: 0 auto;
+  padding: 14px var(--site-pad);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.main-nav a{margin-left:18px;font-size:14px;color:#111}
+/* Brand (name + meta) */
+.brand h1{ margin:0; font-size:18px; color:#000; }
+.brand .meta{ font-size:13px; color:#000; margin-top:6px; }
 
-/* hero */
-.hero{position:relative;height:70vh;background:#000;display:block;overflow:hidden}
-.hero video{width:100%;height:100%;object-fit:cover;object-position:50% 50%;background:#000;display:block}
-.hero-title{position:absolute;bottom:40px;left:40px;color:#fff}
-.hero-title h1{margin:0;font-size:36px;font-weight:700}
-.hero-title p{margin:6px 0 0;font-size:16px;opacity:.95}
+/* Primary nav */
+.main-nav a{ margin-left:18px; font-size:14px; color:#111 }
 
-/* Gallery: use the thrust/grid card style but tuned for gallery */
+/* ==== HERO (video background + title card) ==== */
+.hero{
+  position:relative;
+  height:70vh;
+  background:#000;
+  overflow:hidden;
+}
+
+.hero video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 50%;
+  display:block;
+}
+
+.hero-title{
+  position:absolute;
+  bottom:40px;
+  left:40px;
+  color:#fff;
+}
+
+.hero-title h1{ margin:0; font-size:36px; font-weight:700 }
+.hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95 }
+
+/* ==== GALLERY / PROJECT CARDS ==== */
+/* Grid */
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr); /* three across at full width */
-  gap:28px;
-  margin-top:22px;
+  grid-template-columns:repeat(3, 1fr);
+  gap: var(--card-gap);
+  margin-top: 22px;
   align-items:start;
   width:100%;
 }
 
-/* Show full image (no crop) scaled down to fit the card */
-.figure .thrust-media{
-  display:flex;               /* centre contained image */
-  align-items:center;
-  justify-content:center;
-  background:#f4f6f8;        /* gentle neutral background for letterbox areas */
+/* Card wrapper (figure) */
+.figure{
+  background:#fff;
+  border-radius:10px;
   overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
 }
 
-/* full-image behaviour */
+/* Media: show full image (contain) centered, letterbox background */
+.figure .thrust-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f4f6f8;       /* neutral background for letterbox areas */
+  overflow:hidden;
+  aspect-ratio: 3/2;        /* card media shape */
+  max-height: 320px;        /* change if you want taller/shorter cards */
+}
+
+/* Full-image behavior: no crop */
 .figure .thrust-media img,
 .figure .thrust-media video{
   width:100%;
   height:100%;
-  object-fit:contain;         /* <-- show entire image, no crop */
+  object-fit:contain;       /* show entire image with letterbox if needed */
   object-position:center;
-  transform:none;             /* disable previous zoom */
-  transition:none;
+  transform:none;
   display:block;
 }
 
+/* Body */
+.figure .thrust-body{ padding:14px; }
+.figure .figure-meta{ margin-top:6px; color:var(--muted); font-size:13px; }
 
-/* Optional: zoom only on hover (uncomment to use) */
+/* Optional hover (uncomment to enable) */
 /*
 .figure:hover .thrust-media img,
-.figure:hover .thrust-media video {
-  transform: scale(1.08);
+.figure:hover .thrust-media video{
+  transform:scale(1.06);
+  transition: transform .35s ease;
 }
 */
 
-.figure .thrust-body{ padding:14px; }
+/* ==== ABOUT SECTION (two-column) ==== */
+#about{ padding: var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
 
-/* meta line smaller */
-.figure-meta{ margin-top:6px; color:var(--muted); font-size:13px; }
-
-/* ensure anchor covers media only */
-.figure .thrust-media{ display:block; }
-.figure a{ color:inherit; text-decoration:none; }
-
-/* responsive adjustments */
-@media (max-width:1100px){
-  .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
-}
-@media (max-width:700px){
-  .gallery-grid{ grid-template-columns:1fr; }
-  .figure .thrust-media{ aspect-ratio:4/3; }
-}
-
-/* publications list smaller */
-.pub-list { max-width:900px;margin:0 auto;padding:0 20px 60px; }
-
-/* sections */
-section{border-bottom:1px solid #f0f2f4}
-section h2{font-size:22px;margin:0 0 12px}
-section p{max-width:700px;margin:0 0 16px}
-
-/* footer */
-footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
-
-/* responsive */
-@media(max-width:1000px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .container{padding:60px 16px}
-}
-@media(max-width:700px){
-  .gallery-grid{grid-template-columns:1fr}
-  .hero-title h1{font-size:28px}
-  .main-nav{display:none}
-  .container{padding:40px 12px}
-}
-
-/* About: robust two-column layout (text left, photo right) */
-#about{
-  padding:80px 20px;
-  border-bottom:1px solid #f0f2f4;
-}
-
-/* container: limit total width but allow flexible interior layout */
 .about-wrap{
-  max-width:1600px;       /* overall page rhythm — adjust if you want wider/narrower */
+  max-width: var(--page-max);
   margin:0 auto;
   display:flex;
-  gap:40px;               /* space between text and image */
-  align-items:center;     /* vertically center text to image */
+  gap:40px;                /* space between text and image — change here */
+  align-items:center;
   justify-content:space-between;
 }
 
-/* text column: truly flexible */
+/* Left: flexible text column */
 .about-text{
-  /* allow the text to shrink below its content width if needed (min-width:0) */
-  flex:1 1 0%;
-  min-width:0;            /* important — lets flex shrinking work correctly */
-  max-width:calc(100%); /* keep the text column at most the remaining space after the image */
+  flex: 1 1 0%;
+  min-width:0;             /* important so flex children can shrink */
+  max-width: calc(100% - 540px); /* leave space for photo (adjust if photo width changes) */
   box-sizing:border-box;
 }
 
-/* photo column: fixed-size anchor */
+/* Right: fixed photo column */
 .about-photo{
-  flex:0 0 520px;         /* <-- change this number to resize image (ex: 420, 384, 600) */
+  flex: 0 0 520px;         /* change this to resize the photo area (ex: 420) */
   display:flex;
   align-items:flex-start;
   justify-content:center;
 }
 .about-photo img{
-  width:520px;            /* <-- match this to the flex basis above */
+  width:520px;             /* match the flex basis above */
   height:auto;
   border-radius:4px;
   display:block;
 }
 
-/* typography */
-.about-text h2{
-  margin:0 0 16px;
-  font-size:22px;
-}
-.about-text p{
-  margin:0 0 16px;
-  color:#222;
-  line-height:1.6;
-}
+/* About typography */
+.about-text h2{ margin:0 0 16px; font-size:22px; }
+.about-text p{ margin:0 0 16px; color:#222; line-height:1.6; }
 
-/* responsive: stack on mobile */
-@media (max-width:880px){
-  .about-wrap{
-    flex-direction:column;
-    gap:20px;
-  }
-  .about-photo{
-    flex:0 0 auto;
-    justify-content:flex-start;
-  }
-  .about-photo img{ width:140px; }
-  .about-text{ max-width:100%; min-width:0; }
-}
-
-
-/* GLOBAL container width used across the site */
-.container{
-  max-width:1600px;
-  margin:0 auto;
-  padding:80px 32px;
-  box-sizing:border-box;
-}
-
-/* Research thrusts — fill the container rhythm */
-#research { padding-top:12px; padding-bottom:48px; }
+/* ==== RESEARCH THRUSTS (3 boxes) ==== */
+#research{ padding-top:12px; padding-bottom:48px; }
 
 .thrust-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
-  gap:28px;
+  gap: var(--card-gap);
   width:100%;
   align-items:stretch;
 }
 
-/* Card: equal-height, image on top, body below */
+/* Card: equal-height stack */
 .thrust-card{
   background:#fff;
   border-radius:10px;
@@ -226,44 +214,44 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   box-shadow:0 8px 22px rgba(15,23,42,0.06);
   display:flex;
   flex-direction:column;
-  transition:transform .22s ease, box-shadow .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease;
   min-height:360px;
 }
 
-/* Research thrusts: image area reduced so title is primary */
+/* Image area: smaller so title stands out */
 .thrust-media{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f4f6f8;        /* neutral background for letterboxing */
+  background:#f4f6f8;
   overflow:hidden;
-  aspect-ratio:4 / 3;        /* smaller visual footprint than wide banners */
-  max-height:240px;          /* limit how tall the image area can grow */
+  aspect-ratio:4/3;
+  max-height:240px;         /* change to make image area taller/shorter */
 }
 
-/* Show full image without crop but scale it down so it doesn't dominate */
+/* Show full image but scaled down inside the media area */
 .thrust-media img,
 .thrust-media video{
-  width:auto;                /* let image keep natural aspect */
-  max-width:85%;             /* make the image visibly smaller than card width */
+  width:auto;
+  max-width:85%;            /* control visual dominance of the image (lower => smaller image) */
   max-height:100%;
-  object-fit:contain;        /* no cropping */
+  object-fit:contain;
   object-position:center;
-  transform:none;            /* no zoom by default */
+  transform:none;
   display:block;
 }
 
-/* body (centered so title is focal) */
+/* Thrust body (centered to make title focal) */
 .thrust-body{
   padding:20px;
   display:flex;
   flex-direction:column;
   gap:8px;
   flex:1 1 auto;
-  text-align:center;         /* center titles and description */
+  text-align:center;
 }
 .thrust-body h3{
-  margin:16px 0 6px;         /* breathing room above the title */
+  margin:16px 0 6px;
   font-size:18px;
   color:var(--text);
 }
@@ -274,30 +262,55 @@ footer{text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)}
   font-size:15px;
 }
 
-/* subtle hover for card elevation only (image remains stable) */
+/* Hover elevation */
 .thrust-card:hover{
   transform:translateY(-6px);
   box-shadow:0 16px 40px rgba(15,23,42,0.12);
 }
-
-/* Keep hover-image scale subtle and optional — small effect only */
 .thrust-card:hover .thrust-media img{
   transform:scale(1.02);
   transition:transform .35s ease;
 }
 
-/* stretch columns on very wide screens so cards fill container rhythm */
-@media (min-width:1600px){
-  .thrust-grid{ grid-template-columns: repeat(3, 1fr); }
+/* ==== PUBLICATIONS / OTHER SECTIONS ==== */
+.pub-list { max-width:900px; margin:0 auto; padding:0 20px 60px; }
+
+/* Generic section styles */
+section{ border-bottom:1px solid #f0f2f4; }
+section h2{ font-size:22px; margin:0 0 12px; }
+section p{ max-width:700px; margin:0 0 16px; }
+
+/* ==== FOOTER ==== */
+footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted); }
+
+/* ==== RESPONSIVE RULES ==== */
+@media (max-width:1100px){
+  .gallery-grid, .thrust-grid { grid-template-columns:repeat(2,1fr); }
+  .about-wrap { gap:24px; }
+  .about-photo { flex:0 0 420px; }
+  .about-photo img { width:420px; }
 }
 
-/* responsive */
-@media (max-width:1100px){
-  .thrust-grid{ grid-template-columns:repeat(2, 1fr); }
-  .thrust-media{ max-height:220px; }
+@media (max-width:880px){
+  .about-wrap{ flex-direction:column; gap:20px; }
+  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
+  .about-photo img{ width:140px; }
+  .about-text{ max-width:100%; min-width:0; }
 }
+
 @media (max-width:700px){
-  .thrust-grid{ grid-template-columns:1fr; }
+  .gallery-grid, .thrust-grid{ grid-template-columns:1fr; }
+  .figure .thrust-media{ aspect-ratio:4/3; max-height:220px; }
   .thrust-media{ aspect-ratio:4/3; max-height:200px; }
   .thrust-media img{ max-width:90%; }
+  .container{ padding:40px 12px; }
+  .hero-title h1{ font-size:28px; }
+  .main-nav{ display:none; }
 }
+
+/* ==== QUICK TWEAK NOTES (edit these values) ====
+   - To make about-photo smaller: change .about-photo flex basis & image width (both)
+   - To reduce image dominance in thrusts: lower --thrust-media max-width (max-width:85% -> 70%)
+   - To make all sections narrower site-wide: change --page-max to 1100px
+   - To change gaps between cards: edit --card-gap
+   ========================================================================== */
