@@ -525,41 +525,29 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
 
 
 
-/* === Research-only visual: remove card bg and make images fill === */
+/* === Research section: remove card & media background ONLY === */
 #research .thrust-card {
-  background-color: transparent;   /* remove white card fill */
-  border-radius: 10px;             /* keep rounding for layout */
-  box-shadow: none;                /* remove box shadow if you want fully flat look */
-  /* if you want to keep the hover elevation, keep the existing .thrust-card:hover rule */
+  background: transparent;     /* remove white card */
+  box-shadow: none;            /* optional: remove elevation */
 }
 
-#research .thrust-card .thrust-body {
-  background: transparent;
-  color: inherit;
-}
-
-/* Remove the pale media background inside research section */
 #research .thrust-media {
-  background: transparent;
+  background: transparent;     /* remove pale image background */
 }
 
-/* Make images fill the media area to avoid gaps */
-/* We switch to cover behaviour so the media box is always visually filled. */
+/* keep image smaller than text (your original intent) */
 #research .thrust-media img,
 #research .thrust-media video {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  object-fit: cover;      /* crop-to-fill — avoids showing the background color */
-  object-position: center;
+  width: auto;
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
   display: block;
 }
 
-/* If an image is smaller than container or missing, remove placeholder colour completely */
-#research .thrust-card,
-#research .thrust-card * {
+/* safety: prevent any fallback bg from children */
+#research .thrust-card *,
+#research .thrust-media * {
   background-color: transparent !important;
-  border-color: transparent !important;
 }
 
