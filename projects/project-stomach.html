@@ -1,95 +1,125 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SoRSS — Soft Robotic Gastric Simulator | Ryman Hashem</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1><a href="/" style="color:inherit;text-decoration:none">Ryman Hashem</a></h1>
-      <div class="meta">Senior Research Fellow — University of Oxford</div>
-    </div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/cv.html">CV</a>
-    </nav>
-  </div>
-</header>
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
 
-<main class="container project-page">
+  <main class="project-page">
 
-  <!-- Hero image -->
-  <img src="/assets/images/project_stomach.jpg"
-       alt="SoRSS soft robotic gastric simulator"
-       class="project-hero">
+    <!-- Hero image -->
+    <img src="/assets/images/project_stomach.jpg"
+         alt="SoRSS soft robotic gastric simulator"
+         class="project-hero">
 
-  <h2>SoRSS — Soft Robotic Gastric Simulator</h2>
-  <p class="project-meta">
-    <em>Hashem, R. et al. — Soft Robotics (2022)</em>
-  </p>
+    <h1>SoRSS — Soft Robotic Gastric Simulator</h1>
+    <p class="project-meta">
+      <em>Hashem, R. et al. — Soft Robotics (2022)</em>
+    </p>
 
-  <!-- Short overview -->
-  <p class="project-intro">
-    SoRSS is a fully soft, anatomically realistic robotic simulator of the human stomach,
-    developed to replicate gastric anatomy and peristaltic motility for in-vitro
-    experimentation and medical device testing.
-  </p>
+    <!-- Short overview -->
+    <p class="project-intro">
+      SoRSS is a fully soft, anatomically realistic robotic simulator of the human stomach,
+      developed to reproduce gastric anatomy and antral motility for in-vitro experimentation
+      and medical device testing. The platform enables controlled, repeatable studies of
+      peristaltic waves, lumen occlusion and pressure dynamics under varied conditions.
+    </p>
 
-  <!-- Key points -->
-  <ul class="project-points">
-    <li><strong>Problem:</strong> Lack of controllable, repeatable platforms for studying gastric motility and digestion.</li>
-    <li><strong>Approach:</strong> Distributed ring-shaped soft pneumatic actuators enabling travelling antral contraction waves.</li>
-    <li><strong>Outcome:</strong> Experimentally validated gastric motility and pressure profiles under different conditions.</li>
-    <li><strong>Domain:</strong> Soft robotics, biomimetic organs, gastrointestinal modelling, device evaluation.</li>
-  </ul>
+    <!-- Key points -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong> Few controllable, repeatable experimental platforms exist for studying gastric motility and device evaluation.</li>
+      <li><strong>Approach:</strong> Distributed ring-shaped soft pneumatic actuators and bellows units arranged in zones to emulate fundus, antrum and pylorus behaviour.</li>
+      <li><strong>Validation:</strong> Pressure sensing and video-based measures show realistic contraction waves and occlusion ratios across tested conditions.</li>
+      <li><strong>Domain:</strong> Soft robotics · biomimetic organs · gastrointestinal modelling · medical device testing.</li>
+    </ul>
 
-  <!-- Related publications -->
-  <h3>Related publications</h3>
-  <ul class="project-pubs">
-    <li>
-      <a href="https://scholar.google.com/scholar?q=SoRSS+soft+robotic+stomach+Hashem"
-         target="_blank" rel="noopener">
-        Stomach Robot
+    <!-- Related publications (Google Scholar keyword links) -->
+    <h3>Related publications</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="https://scholar.google.com/scholar?q=SoRSS+soft+robotic+stomach+Hashem"
+           target="_blank" rel="noopener">
+          SoRSS: soft robotic gastric simulator and stomach motility (keyword search)
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=ring+shaped+soft+pneumatic+actuator+Hashem"
+           target="_blank" rel="noopener">
+          Ring-shaped soft pneumatic actuators for biomimetic peristalsis
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=bellows+driven+soft+pneumatic+actuator+Hashem"
+           target="_blank" rel="noopener">
+          Bellows-driven soft pneumatic actuators for large deformation
+        </a>
+      </li>
+    </ul>
+
+    <p class="project-pubs-more">
+      <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">
+        View all publications on Google Scholar →
       </a>
-    </li>
-    <li>
-      <a href="https://scholar.google.com/scholar?q=ring+shaped+soft+pneumatic+actuator+Hashem"
-         target="_blank" rel="noopener">
-        Ring-shaped soft actuators
-      </a>
-    </li>
-    <li>
-      <a href="https://scholar.google.com/scholar?q=bellows+driven+soft+pneumatic+actuator+Hashem"
-         target="_blank" rel="noopener">
-        Bellows-driven soft actuators
-      </a>
-    </li>
-  </ul>
+    </p>
 
-  <p class="project-pubs-more">
-    <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ"
-       target="_blank">
-      View all publications on Google Scholar →
-    </a>
-  </p>
+    <!-- Back link -->
+    <p class="project-back">
+      <a href="/projects/index.html">← Back to Projects</a>
+    </p>
 
-  <!-- Navigation -->
-  <p class="project-back">
-    <a href="/">← Back to Projects</a>
-  </p>
+  </main>
 
-</main>
+  <!-- placeholder for included footer -->
+  <div id="site-footer"></div>
 
-<footer>
-  © Ryman Hashem — University of Oxford
-</footer>
+  <!-- include header/footer and set active nav -->
+  <script>
+    // load includes
+    fetch('/assets/includes/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+        // after header inserted, mark Projects link active
+        try {
+          const navLinks = document.querySelectorAll('.main-nav a[data-nav]');
+          navLinks.forEach(a => a.classList.remove('active'));
+          const projectsLink = document.querySelector('.main-nav a[data-nav="projects"]');
+          if (projectsLink) projectsLink.classList.add('active');
+        } catch (e) { /* ignore */ }
+      });
+
+    fetch('/assets/includes/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+
+  <!-- small style for active nav (if you don't already have it in site.css) -->
+  <style>
+    .main-nav a.active { font-weight:600; text-decoration:underline; }
+  </style>
 
 </body>
 </html>
