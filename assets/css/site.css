@@ -234,13 +234,13 @@ a:hover{ text-decoration:underline; }
 .about-text{
   flex: 1 1 0%;
   min-width:0;             /* important so flex children can shrink */
-  max-width: calc(100% - 540px); /* leave space for photo (adjust if photo width changes) */
+  max-width: calc(100% - 600px); /* leave space for photo (adjust if photo width changes) */
   box-sizing:border-box;
 }
 
 /* Right: fixed photo column */
 .about-photo{
-  flex: 0 0 520px;         /* change this to resize the photo area (ex: 420) */
+  flex: 0 0 600px;         /* change this to resize the photo area (ex: 420) */
   display:flex;
   align-items:flex-start;
   justify-content:center;
