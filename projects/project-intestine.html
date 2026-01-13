@@ -1,54 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Biomimetic Gastric Simulator — Ryman H</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Large Intestine Simulator | Ryman Hashem</title>
+
+  <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1><a href="/" style="color:inherit;text-decoration:none">Ryman H</a></h1>
-      <div class="meta">Senior Research Fellow — University of Oxford</div>
-    </div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/cv.html">CV</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container" style="padding-top:36px;padding-bottom:80px;">
-  <section style="margin-bottom:28px;">
-    <div style="width:100%;height:auto;border-radius:8px;overflow:hidden;background:#000">
-      <img src="/assets/images/project_intestine.jpg" alt="Biomimetic Gastric Simulator" style="width:100%;height:auto;display:block;object-fit:cover;">
-    </div>
-  </section>
+<!-- shared header -->
+<div id="site-header"></div>
 
-  <section>
-    <h2>Biomimetic Gastric Simulator</h2>
-    <p><em>Kazemi, S.; Hashem, R. et al.</em></p>
+<main class="container project-page">
 
-    <p>Short summary: a biomimetic simulator that reproduces antral contraction waves for testing control strategies and validating soft actuator behaviour.</p>
+  <!-- Hero image -->
+  <img src="/assets/images/project_intestine.jpg"
+       alt="Soft robotic large intestine simulator"
+       class="project-hero">
 
-    <ul>
-      <li><strong>Problem:</strong> Need for realistic testing environments for soft actuators and control algorithms.</li>
-      <li><strong>Approach:</strong> Constructed a soft ring-shaped actuator system and implemented closed-loop control to reproduce physiological contraction patterns.</li>
-      <li><strong>Outcome:</strong> Demonstrated effective closed-loop control of soft actuators and published experimental results.</li>
-      <li><strong>Materials & methods:</strong> Pneumatic soft actuators, motion capture / pressure sensing, in-vitro experiments.</li>
-      <li><strong>Links:</strong> <a href="/publications.html">Publication list</a></li>
-    </ul>
+  <h1>Soft Robotic Large Intestine Simulator</h1>
+  <p class="project-meta">
+    <em>Ongoing project — soft robotic organ phantoms & medical training</em>
+  </p>
 
-    <p><a href="/" style="display:inline-block">Back to homepage</a></p>
-  </section>
+  <!-- Short overview -->
+  <p class="project-intro">
+    This project develops a soft robotic simulator of the human large intestine,
+    designed to reproduce colonic anatomy and motility for device testing and
+    medical training. The platform enables controlled, repeatable experiments
+    under dynamic intestinal motion that cannot be captured by static phantoms.
+  </p>
+
+  <!-- Key points -->
+  <ul class="project-points">
+    <li><strong>Problem:</strong> Existing colon phantoms are static and cannot reproduce realistic motility or patient variability.</li>
+    <li><strong>Approach:</strong> Modular soft pneumatic actuators arranged to generate segmental contraction and propagating peristalsis.</li>
+    <li><strong>Simulation:</strong> Finite element analysis used to guide actuator geometry, material selection, and deformation limits.</li>
+    <li><strong>Training focus:</strong> Integration with generative models to create variable, patient-specific training scenarios.</li>
+    <li><strong>Applications:</strong> Colonoscopy training, device evaluation, and studies of colonic transport and interaction.</li>
+  </ul>
+
+
+
+  <!-- Back -->
+  <p class="project-back">
+    <a href="/projects/index.html">← Back to Projects</a>
+  </p>
+
 </main>
 
-<footer>
-  © Ryman H — University of Oxford
-</footer>
+<!-- shared footer -->
+<div id="site-footer"></div>
+
+<!-- include header/footer -->
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
 </body>
 </html>
