@@ -218,77 +218,51 @@ a:hover{ text-decoration:underline; }
 }
 */
 
-/* ==== ABOUT SECTION (two-column) ==== */
-#about{ padding: var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
+/* ==== ABOUT (card-style, robust) ==== */
 
-.about-wrap{
-  max-width: var(--page-max);
-  margin:0 auto;
-  display:flex;
-  gap:10px;                /* space between text and image — change here */
+.about-card{
+  width:100%;
+}
+
+.about-card-inner{
+  display:grid;
+  grid-template-columns: 420px 1fr;  /* image | text */
+  gap:40px;
   align-items:center;
-  justify-content:space-between;
-  box-sizing: border-box;
 }
 
-/* Left: flexible text column */
-.about-text{
-  flex: 1 1 0%;
-  min-width:0;             /* important so flex children can shrink */
-  box-sizing:border-box;
-   /* make text column slightly wider by default, but keep it responsive */
-  padding-right: 8px;
-}
-/* center the text vertically relative to the image contents */
-.about-text > .about-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;          /* vertical centering */
-  height: 100%;
-}
-
-
-/* Right: fixed photo column */
-.about-photo{
-  flex: 0 0 600px; 
-   max-width: 600px;/* change this to resize the photo area (ex: 420) */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-   padding-top: 6px;
-   box-sizing: border-box;
-}
-.about-photo img{
-  width:100%;  
-   max-width:600px;/* match the flex basis above */
+/* image */
+.about-media img{
+  width:100%;
   height:auto;
   border-radius:6px;
   display:block;
-     object-fit: cover;
 }
 
-/* About typography */
-.about-text h2{ margin:0 0 16px; font-size:22px; }
-.about-text p{ margin:0 0 16px; color:#222; line-height:1.6; }
-
-/* RESPONSIVE: stack on smaller screens and scale image down */
-@media (max-width: 1100px){
-  .about-wrap{
-    flex-direction: column-reverse;
-    gap: 22px;
-    align-items: flex-start;
-  }
-  .about-photo{
-    flex: 0 0 auto;
-    max-width: 220px;
-    width: 220px;
-    padding-top:0;
-  }
-  .about-photo img{ width:100%; height:auto; }
-  .about-text > .about-inner { justify-content: flex-start; }
-  .about-text{ padding-right:0; }
+/* text */
+.about-content h2{
+  margin:0 0 16px;
+  font-size:22px;
 }
 
+.about-content p{
+  margin:0 0 16px;
+  line-height:1.6;
+  color:#222;
+  max-width:100%;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .about-card-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .about-media img{
+    max-width:220px;
+  }
+}
 
 
 
