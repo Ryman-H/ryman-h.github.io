@@ -225,7 +225,7 @@ a:hover{ text-decoration:underline; }
   max-width: var(--page-max);
   margin:0 auto;
   display:flex;
-  gap:40px;                /* space between text and image — change here */
+  gap:10px;                /* space between text and image — change here */
   align-items:center;
   justify-content:space-between;
 }
@@ -234,7 +234,6 @@ a:hover{ text-decoration:underline; }
 .about-text{
   flex: 1 1 0%;
   min-width:0;             /* important so flex children can shrink */
-  max-width: calc(100% - 600px); /* leave space for photo (adjust if photo width changes) */
   box-sizing:border-box;
 }
 
@@ -246,7 +245,7 @@ a:hover{ text-decoration:underline; }
   justify-content:center;
 }
 .about-photo img{
-  width:520px;             /* match the flex basis above */
+  width:600px;             /* match the flex basis above */
   height:auto;
   border-radius:4px;
   display:block;
