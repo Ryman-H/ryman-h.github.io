@@ -368,6 +368,44 @@ a:hover{ text-decoration:underline; }
   transform:scale(1.02);
   transition:transform .35s ease;
 }
+/* === Research-only visual: remove card bg and make images fill === */
+#research .thrust-card {
+  background-color: transparent;   /* remove white card fill */
+  border-radius: 10px;             /* keep rounding for layout */
+  box-shadow: none;                /* remove box shadow if you want fully flat look */
+  /* if you want to keep the hover elevation, keep the existing .thrust-card:hover rule */
+}
+
+#research .thrust-card .thrust-body {
+  background: transparent;
+  color: inherit;
+}
+
+/* Remove the pale media background inside research section */
+#research .thrust-media {
+  background: transparent;
+}
+
+/* Make images fill the media area to avoid gaps */
+/* We switch to cover behaviour so the media box is always visually filled. */
+#research .thrust-media img,
+#research .thrust-media video {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;      /* crop-to-fill — avoids showing the background color */
+  object-position: center;
+  display: block;
+}
+
+/* If an image is smaller than container or missing, remove placeholder colour completely */
+#research .thrust-card,
+#research .thrust-card * {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
 
 /* ==== PUBLICATIONS / OTHER SECTIONS ==== */
 .pub-list { max-width:900px; margin:0 auto; padding:0 20px 60px; }
