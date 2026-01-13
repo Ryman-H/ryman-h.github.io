@@ -226,7 +226,7 @@ a:hover{ text-decoration:underline; }
 
 .about-card-inner{
   display:grid;
-  grid-template-columns: 4600px 1fr;  /* image | text */
+  grid-template-columns: 460px 1fr;  /* image | text */
   gap:40px;
   align-items:center;
 }
