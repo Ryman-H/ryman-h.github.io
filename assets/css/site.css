@@ -554,3 +554,69 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   background-color: transparent !important;
 }
 
+/* ==== Project pages (shared) ==== */
+
+.project-page{
+  max-width:1100px;   /* slightly narrower for reading */
+}
+
+.project-hero{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:24px;
+  display:block;
+}
+
+.project-meta{
+  margin:4px 0 18px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.project-intro{
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+  max-width:900px;
+}
+
+.project-points{
+  list-style:none;
+  padding:0;
+  margin:0 0 28px;
+}
+
+.project-points li{
+  margin-bottom:10px;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.project-pubs{
+  list-style:none;
+  padding:0;
+  margin:10px 0 8px;
+}
+
+.project-pubs li{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+.project-pubs a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.project-pubs a:hover{
+  text-decoration:underline;
+}
+
+.project-pubs-more{
+  margin-top:10px;
+  font-size:15px;
+}
+
+.project-back{
+  margin-top:32px;
+}
