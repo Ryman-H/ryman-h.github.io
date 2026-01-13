@@ -228,6 +228,7 @@ a:hover{ text-decoration:underline; }
   gap:10px;                /* space between text and image — change here */
   align-items:center;
   justify-content:space-between;
+  box-sizing: border-box;
 }
 
 /* Left: flexible text column */
@@ -235,25 +236,61 @@ a:hover{ text-decoration:underline; }
   flex: 1 1 0%;
   min-width:0;             /* important so flex children can shrink */
   box-sizing:border-box;
+   /* make text column slightly wider by default, but keep it responsive */
+  padding-right: 8px;
 }
+/* center the text vertically relative to the image contents */
+.about-text > .about-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;          /* vertical centering */
+  height: 100%;
+}
+
 
 /* Right: fixed photo column */
 .about-photo{
-  flex: 0 0 600px;         /* change this to resize the photo area (ex: 420) */
+  flex: 0 0 600px; 
+   max-width: 600px;/* change this to resize the photo area (ex: 420) */
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   justify-content:center;
+   padding-top: 6px;
+   box-sizing: border-box;
 }
 .about-photo img{
-  width:600px;             /* match the flex basis above */
+  width:100%;  
+   max-width:600px;/* match the flex basis above */
   height:auto;
-  border-radius:4px;
+  border-radius:6px;
   display:block;
+     object-fit: cover;
 }
 
 /* About typography */
 .about-text h2{ margin:0 0 16px; font-size:22px; }
 .about-text p{ margin:0 0 16px; color:#222; line-height:1.6; }
+
+/* RESPONSIVE: stack on smaller screens and scale image down */
+@media (max-width: 1100px){
+  .about-wrap{
+    flex-direction: column-reverse;
+    gap: 22px;
+    align-items: flex-start;
+  }
+  .about-photo{
+    flex: 0 0 auto;
+    max-width: 220px;
+    width: 220px;
+    padding-top:0;
+  }
+  .about-photo img{ width:100%; height:auto; }
+  .about-text > .about-inner { justify-content: flex-start; }
+  .about-text{ padding-right:0; }
+}
+
+
+
 
 /* ==== RESEARCH THRUSTS (3 boxes) ==== */
 #research{ padding-top:12px; padding-bottom:48px; }
