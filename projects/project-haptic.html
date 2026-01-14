@@ -1,53 +1,127 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Haptic Glove — Ryman H</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HaptiSuit — Modular Dual-Mode Haptic Actuator | Wing, Hashem &amp; He</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+    .project-source { font-size:13px; color:var(--muted); margin-top:8px; }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1><a href="/" style="color:inherit;text-decoration:none">Ryman H</a></h1>
-      <div class="meta">Senior Research Fellow — University of Oxford</div>
-    </div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/cv.html">CV</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container" style="padding-top:36px;padding-bottom:80px;">
-  <section style="margin-bottom:28px;">
-    <div style="width:100%;height:auto;border-radius:8px;overflow:hidden;background:#000">
-      <img src="/assets/images/project_haptic.jpg" alt="Haptic Glove" style="width:100%;height:auto;display:block;object-fit:cover;">
-    </div>
-  </section>
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
 
-  <section>
-    <h2>Haptic Glove for Grip Training</h2>
-    <p><em>Lei, Y.; Hashem, R. et al.</em></p>
+  <main class="project-page">
 
-    <p>Short summary: a modular glove that provides proprioceptive haptic feedback for grip-force regulation training.</p>
+    <!-- Hero (image / video) -->
+    <img class="project-hero" src="/assets/images/haptisuit-hero.jpg" alt="HaptiSuit — Vibro-Pneumatic Units (VPUs) on chest brace" />
 
-    <ul>
-      <li><strong>Problem:</strong> Training tactile/proprioceptive skills in rehabilitation and skill transfer.</li>
-      <li><strong>Approach:</strong> Modular actuators with multi-frequency output to provide graded force feedback.</li>
-      <li><strong>Outcome:</strong> Prototype validated in lab; manuscript submitted to RoboSoft.</li>
-      <li><strong>Links:</strong> <a href="/publications.html">Publication list</a></li>
+    <h1>HaptiSuit — Modular Dual-Mode Haptic Actuator</h1>
+    <p class="project-meta">
+      <em>Oliver Wing; Ryman Hashem; Liang He — Institute of Biomedical Engineering, University of Oxford</em>
+    </p>
+
+    <!-- Short overview -->
+    <p class="project-intro">
+      HaptiSuit is a modular, full-body haptic system that combines high-frequency vibrotactile actuation with low-frequency pneumatic pressure
+      in compact Vibro-Pneumatic Units (VPUs). Each VPU integrates an ERM vibromotor mounted on a rigid plate and four inflatable silicone air cells,
+      enabling three feedback modes — vibration, sustained pressure, and a composite of both — to broaden the tactile palette available in VR,
+      training, and rehabilitation scenarios. The architecture uses a primary-secondary microcontroller topology for low-latency, scalable control
+      across many VPUs, and the VPU design is validated via FEA, bench characterisation, and preliminary human discrimination studies. :contentReference[oaicite:0]{index=0}
+    </p>
+
+    <!-- Key points -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong> Current wearable haptic systems typically provide either vibration or pneumatic pressure but not both; this limits the range of realistic sensations (impact, texture, sustained force) and reduces immersion for applications that require both transient and sustained cues.</li>
+      <li><strong>Approach:</strong> Design a compact Vibro-Pneumatic Unit (64×64×8 mm) cast in Ecoflex with an embedded PLA mounting plate for an ERM motor and four 10 mm air cells. Control is implemented with a Teensy primary controller communicating over I²C to secondary controllers for vibration (DRV2605 drivers via a multiplexer) and pneumatic regulation (proportional regulators + pressure sensors).</li>
+      <li><strong>Validation:</strong> FEA compared flat vs convex air-cell geometries and informed a convex design for even displacement and reduced hysteresis. Bench tests show force outputs up to ~7 N (safe operating range 20–50 kPa), reliable vibration up to ~200 Hz, and distinct discrimination of combined pressure/vibration patterns in a small participant study (location/intensity identification reported in the paper).</li>
+      <li><strong>Platform:</strong> Modular VPUs mounted on a neoprene brace (or distributed garment), PC GUI for experiment control, and MATLAB/firmware stack for real-time streaming and logging. The design emphasises low cost, scalability, and easy reconfiguration for full-body or localized testing.</li>
+      <li><strong>Domain:</strong> Wearable haptics · virtual reality · rehabilitation and training · multisensory interfaces.</li>
     </ul>
 
-    <p><a href="/" style="display:inline-block">Back to homepage</a></p>
-  </section>
-</main>
+    <!-- Related publications (Google Scholar keyword links) -->
+    <h3>Related publications</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="https://scholar.google.com/scholar?q=full-body+haptic+suit+vibrotactile+pneumatic" target="_blank" rel="noopener">
+          Full-body haptic suits (vibrotactile + pneumatic)
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=multimodal+haptic+actuator+vibration+pressure" target="_blank" rel="noopener">
+          Multimodal haptic actuators — vibration &amp; pressure
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=wearable+haptics+virtual+reality+training" target="_blank" rel="noopener">
+          Wearable haptics for VR training &amp; rehabilitation
+        </a>
+      </li>
+    </ul>
 
-<footer>
-  © Ryman H — University of Oxford
-</footer>
+    <p class="project-pubs-more">
+      <a href="https://scholar.google.com/scholar?q=HaptiSuit+vibropneumatic" target="_blank" rel="noopener">
+        View related works on Google Scholar →
+      </a>
+    </p>
+
+    <p class="project-source">
+      Source: summary derived from the HaptiSuit manuscript uploaded to this site. :contentReference[oaicite:1]{index=1}
+    </p>
+
+    <!-- Back link -->
+    <p class="project-back">
+      <a href="/#gallery">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <!-- placeholder for included footer -->
+  <div id="site-footer"></div>
+
+  <!-- include header/footer and set active nav -->
+  <script>
+    // load includes
+    fetch('/assets/includes/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+        // after header inserted, mark Projects link active
+        try {
+          const navLinks = document.querySelectorAll('.main-nav a[data-nav]');
+          navLinks.forEach(a => a.classList.remove('active'));
+          const projectsLink = document.querySelector('.main-nav a[data-nav="projects"]');
+          if (projectsLink) projectsLink.classList.add('active');
+        } catch (e) { /* ignore */ }
+      });
+
+    fetch('/assets/includes/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+
+  <!-- small style for active nav (if you don't already have it in site.css) -->
+  <style>
+    .main-nav a.active { font-weight:600; text-decoration:underline; }
+  </style>
+
 </body>
 </html>
