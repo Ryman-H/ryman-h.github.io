@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>roprioceptive Glove — Haptic Feedback for Force-Regulation Training | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
+
+  <main class="project-page">
+<!-- Hero (image / video) -->
+
+
+<h1>Proprioceptive Glove — Haptic Feedback for Force-Regulation Training</h1>
+<p class="project-meta">
+  <em>Soft-robotic pneumatic glove system — proprioceptive haptic feedback for grip-force training</em>
+</p>
+
+<!-- Short overview -->
+<p class="project-intro">
+  A soft robotic glove paired with an instrumented racket handle was developed to provide magnitude-specific proprioceptive haptic feedback for grip-force
+  regulation training. The platform integrates a six-axis load cell, surface EMG, and a pneumatic glove whose chamber pressures are modulated in real time.
+  The system delivers adaptive, assistance-on-demand haptic cues (and visual alternatives) to guide users toward target grip magnitudes while preserving
+  natural proprioceptive cues and motor autonomy. Summary and figures derived from the source paper below. :contentReference[oaicite:0]{index=0}
+</p>
+
+<!-- Key points -->
+<ul class="project-points">
+  <li><strong>Problem:</strong> Training continuous grip-force regulation (e.g., in racket sports or rehabilitation) is limited by visual feedback approaches that increase cognitive load and produce poor retention when cues are removed.</li>
+  <li><strong>Approach:</strong> Measure whole-hand force with an embedded six-axis load cell, capture forearm EMG (flexor/extensor), and render magnitude-specific proprioceptive feedback through a pneumatic glove. Feedback modes include ANN-based haptic guidance, spring/damper haptics, and visual line-graph displays.</li>
+  <li><strong>Validation:</strong> A case study showed haptic feedback produced slower initial learning but better retention relative to visual feedback (training RMSE reduction ≈39% and retention errors maintained ≈20% of target). Calibration experiments characterize grip styles, pressure→force coefficients, and EMG→force regression (R² ≈ 0.89, RMSE ≈ 22.24 N for the regression). See figures and charts in the source PDF (pages 3–6) for plots of force, EMG, and pressure traces. :contentReference[oaicite:1]{index=1}</li>
+  <li><strong>Domain:</strong> Haptics · motor learning · wearable soft robotics · sports performance and rehabilitation.</li>
+</ul>
+
+<!-- Related publications (Google Scholar keyword links) -->
+<h3>Related publications</h3>
+<ul class="project-pubs">
+  <li>
+    <a href="https://scholar.google.com/scholar?q=soft+robotic+glove+proprioceptive+feedback" target="_blank" rel="noopener">
+      Soft robotic glove — proprioceptive feedback
+    </a>
+  </li>
+  <li>
+    <a href="https://scholar.google.com/scholar?q=haptic+feedback+grip+training" target="_blank" rel="noopener">
+      Haptic feedback for grip training
+    </a>
+  </li>
+  <li>
+    <a href="https://scholar.google.com/scholar?q=EMG+informed+assist+as+needed+control+pneumatic+glove" target="_blank" rel="noopener">
+      EMG-informed assist-as-needed control
+    </a>
+  </li>
+</ul>
+
+<p class="project-pubs-more">
+  <a href="https://scholar.google.com/scholar?q=proprioceptive+glove+force+training" target="_blank" rel="noopener">
+    View related works on Google Scholar →
+  </a>
+</p>
+
+<p class="project-source">
+  Source paper (used to draft this summary): “A Soft Robotic Glove Providing Proprioceptive Feedback for Grip Force Regulation Training.” See uploaded PDF. :contentReference[oaicite:2]{index=2}
+</p>
+
+<!-- Back link -->
+<p class="project-back">
+  <a href="/#gallery">← Back to Projects</a>
+</p>
+
