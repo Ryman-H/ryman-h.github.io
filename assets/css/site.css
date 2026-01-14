@@ -274,6 +274,58 @@ a:hover{ text-decoration:underline; }
 @media (max-width: 900px){
   .thrust-media.figure-media{ max-height: 220px; }
 }
+/* ===== Fix: force caption to stack under image (CSS-only) ===== */
+
+/* Make the media wrapper a block (no horizontal flex layout) */
+.thrust-media.figure-media {
+  display: block;              /* was flex; set to block so contents flow vertically */
+  text-align: center;          /* centers image horizontally */
+  background: #f4f6f8;
+  aspect-ratio: 3 / 2;
+  max-height: 260px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;                  /* ensure no extra inline spacing */
+}
+
+/* Ensure the image fills the media box while maintaining contain behavior */
+.thrust-media.figure-media img,
+.thrust-media.figure-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transform: none;             /* keep hover transform if you want (handled elsewhere) */
+}
+
+/* Target the caption placed inside the anchor and force it to be full-width below the media */
+.thrust-media.figure-media .thrust-body,
+.thrust-media.figure-media .thrust-body h3{
+  display: block;
+  width: 100%;
+  text-align: left;            /* or center if you prefer */
+  padding: 12px 14px;
+  margin: 0;
+  background: #fff;
+  color: #111;
+}
+
+/* If you prefer the title centered under the image */
+.thrust-media.figure-media .thrust-body h3 {
+  text-align: center;
+}
+
+/* Remove any inline flex alignment applied to anchors elsewhere */
+.thrust-card.figure a.thrust-media.figure-media {
+  align-items: initial !important;
+  justify-content: initial !important;
+}
+
+/* Small viewport tweak */
+@media (max-width: 900px){
+  .thrust-media.figure-media { max-height: 220px; }
+}
 
 
 
