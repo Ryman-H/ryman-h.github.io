@@ -253,7 +253,7 @@ a:hover{ text-decoration:underline; }
 /* 6. Caption footer (always below media) */
 .thrust-body{
   display: block;
-  padding: 10px 14px;
+  padding: 6px 10px;
   background: #ffffff;
   border-top: 1px solid #eef1f4;   /* subtle divider to separate caption */
   box-sizing: border-box;
@@ -267,7 +267,7 @@ a:hover{ text-decoration:underline; }
   /* update this to your site's primary heading font if you use a different variable */
   --site-heading-font: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --site-heading-weight: 600;
-  --site-heading-size: 15px;
+  --site-heading-size: 14px;
 }
 
 /* Title style that matches other headings: consistent family, weight, spacing */
@@ -277,7 +277,7 @@ a:hover{ text-decoration:underline; }
   font-family: var(--site-heading-font);
   font-weight: var(--site-heading-weight);
   font-size: var(--site-heading-size);
-  line-height: 1.35;
+  line-height: 1.2;
   color: #111;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
