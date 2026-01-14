@@ -1,57 +1,128 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SoRSS — Soft Gastric Simulator — Ryman H</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RoSE: Robotic Soft Esophagus (RoSEv2.0) | Bhattacharya, Hashem et al.</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+    .project-source { font-size:13px; color:var(--muted); margin-top:8px; }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1><a href="/" style="color:inherit;text-decoration:none">Ryman H</a></h1>
-      <div class="meta">Senior Research Fellow — University of Oxford</div>
-    </div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/cv.html">CV</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container" style="padding-top:36px;padding-bottom:80px;">
-  <section style="margin-bottom:28px;">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div style="width:100%;height:auto;border-radius:8px;overflow:hidden;background:#000">
-        <img src="/assets/images/project_rectum.jpg" alt="SoRSS Soft Gastric Simulator" style="width:100%;height:auto;display:block;object-fit:cover;">
-      </div>
-    </div>
-  </section>
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
 
-  <section>
-    <h2>SoRSS — Soft Gastric Simulator</h2>
-    <p><em>Hashem, R. et al. — Soft Robotics (2022)</em></p>
+  <main class="project-page">
 
-    <p>Short summary: a soft, anatomically inspired gastric simulator designed to emulate stomach anatomy and motility for device testing and training.</p>
+    <!-- Hero (image / video) -->
+    <img class="project-hero" src="/assets/images/rose-hero.jpg" alt="RoSE robotic soft esophagus — setup photo" />
 
-    <ul>
-      <li><strong>Problem:</strong> Lack of realistic, repeatable gastric phantoms for device validation and training.</li>
-      <li><strong>Approach:</strong> Design and build a soft, ring-shaped simulator with controllable motility and embedded sensing to emulate antral contractions.</li>
-      <li><strong>Outcome:</strong> A validated soft simulator used for closed-loop control experiments and early-stage device testing.</li>
-      <li><strong>Materials & methods:</strong> Soft pneumatic actuators, embedded sensors, benchtop testing and closed-loop control experiments.</li>
-      <li><strong>Links:</strong> <a href="/publications.html">Publication list</a> • <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank">Google Scholar</a></li>
+    <h1>RoSE — Robotic Soft Esophagus (RoSEv2.0)</h1>
+    <p class="project-meta">
+      <em>Bhattacharya, D.; Hashem, R.; Cheng, L. K.; Xu, W. — IEEE Transactions on Industrial Electronics (2022)</em>
+    </p>
+
+    <!-- Short overview -->
+    <p class="project-intro">
+      RoSEv2.0 (Robotic Soft Esophagus) is an instrumented, anatomically inspired soft-robotic conduit
+      developed to provide a reproducible in-vitro platform for studying esophageal peristalsis and
+      for testing endoprosthetic stents under physiologically relevant bolus-swallow conditions.
+      The device combines a multi-layer pneumatic soft conduit, embedded time-of-flight and pressure
+      sensing, and a model-predictive control (MPC) system based on sparse identification of nonlinear
+      dynamics (SINDYc) to generate and accurately track prescribed peristaltic waveforms for migration
+      testing and transport experiments. :contentReference[oaicite:1]{index=1}
+    </p>
+
+    <!-- Key points -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong> In vitro stent testing and quantitative studies of esophageal transport require a platform that reproduces realistic geometry, dynamic peristalsis, and measurable state feedback — capabilities lacking in prior open-loop test rigs.</li>
+      <li><strong>Approach:</strong> RoSEv2.0 uses a 12-layer soft pneumatic conduit with local whorls of chambers, external PDMS casing with an array of TOF (distance) sensors and valve pressure sensors, and an MPC controller built on discrete-time SINDYc models to synthesize time-shifted peristaltic waves.</li>
+      <li><strong>Validation:</strong> The MPC produced repeatable peristaltic waves (example: 20 mm·s⁻¹ speed, 75 mm wavelength, amplitudes 5–10 mm), enabled closed-loop determination of valve/pressure commands for full lumen occlusion, and was used to run stent migration tests with varying bolus viscosities.</li>
+      <li><strong>Domain:</strong> Soft robotics · continuum actuators · data-driven control (SINDYc + MPC) · in-vitro medical device testing.</li>
     </ul>
 
-    <p><a href="/projects/project-rectum.html" style="display:inline-block;margin-right:12px">Permalink</a>
-       <a href="/" style="display:inline-block">Back to homepage</a></p>
-  </section>
-</main>
+    <!-- Related publications (Google Scholar keyword links) -->
+    <h3>Related publications</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="https://scholar.google.com/scholar?q=Robotic+soft+esophagus+RoSE+Bhattacharya" target="_blank" rel="noopener">
+          Robotic soft esophagus (RoSE)
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=SINDYc+model+predictive+control+soft+robotics" target="_blank" rel="noopener">
+          SINDYc + MPC for soft robots
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=esophageal+stent+migration+in+vitro+testing" target="_blank" rel="noopener">
+          In-vitro stent migration testing
+        </a>
+      </li>
+    </ul>
 
-<footer>
-  © Ryman H — University of Oxford
-</footer>
+    <p class="project-pubs-more">
+      <a href="https://scholar.google.com/scholar?q=Bhattacharya+Hashem+Robotic+Soft+Esophagus" target="_blank" rel="noopener">
+        View related works on Google Scholar →
+      </a>
+    </p>
+
+    <p class="project-source">
+      Source paper (paper used to draft this summary): Bhattacharya et al., “Nonlinear Model Predictive Control of a Robotic Soft Esophagus,” IEEE Trans. Ind. Electron., 2022. (See uploaded PDF.) :contentReference[oaicite:2]{index=2}
+    </p>
+
+    <!-- Back link -->
+    <p class="project-back">
+      <a href="/#gallery">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <!-- placeholder for included footer -->
+  <div id="site-footer"></div>
+
+  <!-- include header/footer and set active nav -->
+  <script>
+    // load includes
+    fetch('/assets/includes/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+        // after header inserted, mark Projects link active
+        try {
+          const navLinks = document.querySelectorAll('.main-nav a[data-nav]');
+          navLinks.forEach(a => a.classList.remove('active'));
+          const projectsLink = document.querySelector('.main-nav a[data-nav="projects"]');
+          if (projectsLink) projectsLink.classList.add('active');
+        } catch (e) { /* ignore */ }
+      });
+
+    fetch('/assets/includes/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+
+  <!-- small style for active nav (if you don't already have it in site.css) -->
+  <style>
+    .main-nav a.active { font-weight:600; text-decoration:underline; }
+  </style>
+
 </body>
 </html>
