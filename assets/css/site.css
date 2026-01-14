@@ -162,170 +162,153 @@ a:hover{ text-decoration:underline; }
 
 
 
-/* ===========================
-   FORCE 4-COLUMN PROJECT GALLERY
-   Place this AFTER any existing gallery CSS
-   =========================== */
+/* ------------------------------------------------------------------
+   PROJECT GALLERY — Consolidated (4-column, consistent media sizing,
+   caption below, and normalized title font)
+   ------------------------------------------------------------------ */
 
-/* Target the exact container classes used in your markup for higher specificity */
+/* 1. Grid layout */
 .thrust-grid.gallery-grid{
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: var(--card-gap, 20px) !important;
-  margin-top: 22px !important;
-  width: 100% !important;
-  align-items: start !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--card-gap, 22px);
+  margin-top: 22px;
+  width: 100%;
+  align-items: start;
 }
 
-/* Responsive fallbacks (still specific) */
-@media (max-width: 1200px){
-  .thrust-grid.gallery-grid{
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-}
+/* responsive */
+@media (max-width:1200px){ .thrust-grid.gallery-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:900px){  .thrust-grid.gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:520px){  .thrust-grid.gallery-grid{ grid-template-columns: 1fr; } }
 
-@media (max-width: 900px){
-  .thrust-grid.gallery-grid{
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-@media (max-width: 520px){
-  .thrust-grid.gallery-grid{
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* ===========================
-   CARD: image + title compact
-   =========================== */
-
+/* 2. Card container */
 .thrust-card.figure{
+  padding: 0;                     /* ensure media can be full width */
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
   display: flex;
   flex-direction: column;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-sizing: border-box;
 }
 
-/* Card hover lift */
+/* hover lift */
 .thrust-card.figure:hover{
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.10);
 }
 
-/* Media container (letterbox) */
-.thrust-media.figure-media{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f4f6f8;
-  aspect-ratio: 3 / 2;
-  max-height: 260px;
-  overflow: hidden;
-}
-
-/* Image behavior: contain so full subject shows */
-.thrust-media.figure-media img,
-.thrust-media.figure-media video{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+/* 3. Clickable media wrapper (anchors only wrap the media) */
+.thrust-media-link{
   display: block;
-  transition: transform 0.35s ease;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
 }
 
-/* Gentle zoom on hover (only image) */
-.thrust-card.figure:hover .thrust-media.figure-media img{
+/* 4. Media container (force full width & expected height) */
+.thrust-media{
+  display: block;               /* takes full width of card */
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0;
+  background: #f4f6f8;
+  aspect-ratio: 3 / 2;          /* consistent thumbnail shape */
+  max-height: 260px;            /* adjust to taste */
+  overflow: hidden;
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+}
+
+/* 5. Image & video behavior: force fill the media box */
+.thrust-media img,
+.thrust-media video{
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;            /* change to 'contain' if you want no cropping */
+  object-position: center;
+  transition: transform .35s ease;
+  box-sizing: border-box;
+}
+
+/* gentle zoom on hover */
+.thrust-card.figure:hover .thrust-media img{
   transform: scale(1.04);
 }
 
-/* Title area (inside the link for larger click target) */
-.thrust-body.figure-body{
-  padding: 12px 14px;
-  background: #fff;
+/* reduce media height on narrow screens */
+@media (max-width:900px){
+  .thrust-media{ max-height: 220px; }
 }
 
-.thrust-body.figure-body h3,
-.thrust-body.figure-body strong{
+/* 6. Caption footer (always below media) */
+.thrust-body{
+  display: block;
+  padding: 10px 14px;
+  background: #ffffff;
+  border-top: 1px solid #eef1f4;   /* subtle divider to separate caption */
+  box-sizing: border-box;
+}
+
+/* 7. Title typography — normalize to site heading styles
+   Adjust font-family to your site variable or preferred stack.
+   This ensures the title renders like the rest of your page headings.
+*/
+:root{
+  /* update this to your site's primary heading font if you use a different variable */
+  --site-heading-font: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --site-heading-weight: 600;
+  --site-heading-size: 15px;
+}
+
+/* Title style that matches other headings: consistent family, weight, spacing */
+.thrust-body h3,
+.thrust-body strong{
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--site-heading-font);
+  font-weight: var(--site-heading-weight);
+  font-size: var(--site-heading-size);
   line-height: 1.35;
   color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;         /* clamp to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
-/* If you're still showing .figure-meta elsewhere remove/hide it */
-.thrust-body.figure-body .figure-meta{
-  display: none;
-}
-
-/* Accessibility: focus outline for keyboard users */
-.thrust-card.figure a:focus-visible{
+/* Accessibility: keyboard focus for clickable media */
+.thrust-media-link:focus-visible{
   outline: 3px solid var(--accent, #2563eb);
   outline-offset: 4px;
   border-radius: 8px;
 }
 
-/* Small tweak: reduce media height on narrow viewports to keep cards compact */
-@media (max-width: 900px){
-  .thrust-media.figure-media{ max-height: 220px; }
-}
-/* ===== Fix: force caption to stack under image (CSS-only) ===== */
-
-/* Make the media wrapper a block (no horizontal flex layout) */
-.thrust-media.figure-media {
-  display: block;              /* was flex; set to block so contents flow vertically */
-  text-align: center;          /* centers image horizontally */
-  background: #f4f6f8;
-  aspect-ratio: 3 / 2;
-  max-height: 260px;
-  overflow: hidden;
-  position: relative;
-  padding: 0;                  /* ensure no extra inline spacing */
+/* 8. Safety: reset any stray inline-flex/inset paddings that might be defined elsewhere */
+.thrust-card.figure *,
+.thrust-card.figure *::before,
+.thrust-card.figure *::after{
+  box-sizing: inherit;
 }
 
-/* Ensure the image fills the media box while maintaining contain behavior */
-.thrust-media.figure-media img,
-.thrust-media.figure-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  transform: none;             /* keep hover transform if you want (handled elsewhere) */
-}
-
-/* Target the caption placed inside the anchor and force it to be full-width below the media */
-.thrust-media.figure-media .thrust-body,
-.thrust-media.figure-media .thrust-body h3{
-  display: block;
-  width: 100%;
-  text-align: left;            /* or center if you prefer */
-  padding: 12px 14px;
-  margin: 0;
-  background: #fff;
-  color: #111;
-}
-
-/* If you prefer the title centered under the image */
-.thrust-media.figure-media .thrust-body h3 {
-  text-align: center;
-}
-
-/* Remove any inline flex alignment applied to anchors elsewhere */
-.thrust-card.figure a.thrust-media.figure-media {
-  align-items: initial !important;
-  justify-content: initial !important;
-}
-
-/* Small viewport tweak */
-@media (max-width: 900px){
-  .thrust-media.figure-media { max-height: 220px; }
-}
+/* 9. Optional debug outlines (comment out or remove when satisfied) */
+/*
+.thrust-media.debug { outline: 2px dashed rgba(0,128,255,0.25); background: rgba(0,128,255,0.02); }
+.thrust-card.figure.debug { outline: 2px dashed rgba(0,200,0,0.12); }
+*/
 
 
 
