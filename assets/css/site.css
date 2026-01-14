@@ -1,11 +1,11 @@
 /* ==========================================================================
-   SITE STYLES (cleaned)
-   - Consolidated gallery / thrust rules
-   - Enforced compact caption padding
-   - Normalised title font family & sizing
+   SITE STYLES (clean, organized)
+   - Top-level tokens in :root
+   - Gallery/thrust styles consolidated
+   - Research-specific overrides preserved
    ========================================================================== */
 
-/* ==== ROOT / TOKENS (single definition) ==== */
+/* ==== ROOT / TOKENS ==== */
 :root{
   --accent: #0b6ec6;
   --text:   #111;
@@ -22,25 +22,26 @@
   --card-gap: 28px;
   --about-photo-basis: 520px;
 
-  /* Heading font stack for project titles (use same family as site headings) */
+  /* Heading font stack for project titles */
   --site-heading-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --site-heading-weight: 600;
   --site-heading-size: 14px;
 }
 
 /* ==== GLOBAL RESET & TYPO ==== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+* { box-sizing: border-box; }
+html,body { margin: 0; padding: 0; }
+
 body{
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
-a{ color:var(--accent); text-decoration:none; }
-a:hover{ text-decoration:underline; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* ==== GLOBAL CONTAINERS ==== */
 .container{
@@ -55,15 +56,99 @@ a:hover{ text-decoration:underline; }
   padding: 0 var(--site-pad);
 }
 
-/* ==== HEADER / HERO / TIMELINE / ABOUT (unchanged) ==== */
-/* ... Keep your existing header/hero/timeline/about CSS as-is ... */
-/* (I did not modify these sections; they remain compatible.) */
+/* ==== HEADER ==== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner{
+  max-width: var(--narrow-max);
+  margin: 0 auto;
+  padding: 14px var(--site-pad);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand h1{ margin:0; font-size:18px; color:#000; }
+.brand .meta{ font-size:13px; color:#000; margin-top:6px; }
+.main-nav a{ margin-left:18px; font-size:14px; color:#111; }
+
+/* ==== HERO (video background + title card) ==== */
+.hero{ position:relative; height:70vh; background:#000; overflow:hidden; }
+.hero video{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
+
+.hero-title{ position:absolute; bottom:40px; left:40px; color:#fff; }
+.hero-title h1{ margin:0; font-size:36px; font-weight:700; }
+.hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95; }
+
+/* ===== CAREER TIMELINE ===== */
+.career-timeline{ max-width:1600px; margin:0 auto; padding:80px 32px; }
+.career-timeline h2{ font-size:28px; margin-bottom:32px; }
+.timeline{ border-left:2px solid #e5e7eb; padding-left:48px; }
+.event{ display:grid; grid-template-columns:140px 1fr; column-gap:40px; margin-bottom:36px; }
+.year{ font-size:15px; font-weight:600; color:#6b7280; }
+.content h3{ font-size:18px; margin:0 0 6px; }
+.content p{ margin:0 0 6px; font-size:15px; line-height:1.6; }
+
+@media (max-width:880px){
+  .timeline{ padding-left:24px; }
+  .event{ grid-template-columns:1fr; row-gap:6px; }
+  .year{ font-size:14px; }
+}
+
+/* -----------------------------
+   ABOUT SECTION (two-column)
+   ----------------------------- */
+#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
+
+.about-wrap{
+  max-width:var(--page-max);
+  margin:0 auto;
+  display:flex;
+  gap:40px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.about-text{
+  flex:1 1 0%;
+  min-width:0;
+  box-sizing:border-box;
+  text-align:justify;
+}
+
+.about-photo{
+  flex:0 0 var(--about-photo-basis);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+.about-photo img{
+  width:var(--about-photo-basis);
+  height:auto;
+  border-radius:6px;
+  display:block;
+  object-fit:cover;
+}
+
+@media (max-width:880px){
+  .about-wrap{ flex-direction:column; gap:20px; align-items:flex-start; }
+  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
+  .about-photo img{ width:140px; }
+  .about-text{ text-align:left; }
+}
 
 /* ------------------------------------------------------------------
-   PROJECT GALLERY — Consolidated (4-column, consistent sizing)
+   PROJECT GALLERY — Consolidated (4-column)
    ------------------------------------------------------------------ */
 
-/* Grid layout: 4 columns desktop, responsive down to 1 */
+/* 1. Grid layout */
 .thrust-grid.gallery-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -76,9 +161,9 @@ a:hover{ text-decoration:underline; }
 @media (max-width:900px){  .thrust-grid.gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width:520px){  .thrust-grid.gallery-grid{ grid-template-columns: 1fr; } }
 
-/* Card base */
+/* 2. Card container */
 .thrust-card.figure{
-  padding: 0;                     /* remove inner card padding to allow full-width media */
+  padding: 0;
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -89,13 +174,13 @@ a:hover{ text-decoration:underline; }
   box-sizing: border-box;
 }
 
-/* visual lift on hover */
+/* hover lift */
 .thrust-card.figure:hover{
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(15,23,42,0.10);
 }
 
-/* clickable wrapper for the media only (semantic) */
+/* clickable wrapper for the media */
 .thrust-media-link{
   display: block;
   width: 100%;
@@ -103,18 +188,15 @@ a:hover{ text-decoration:underline; }
   color: inherit;
 }
 
-/* MEDIA: force full width & consistent height
-   - use object-fit: cover for dense gallery look (no side gaps)
-   - change to 'contain' if you prefer no cropping
-*/
+/* 4. Media container (force full width & expected height) */
 .thrust-media{
   display: block;
   width: 100%;
   padding: 0;
   margin: 0;
   background: #f4f6f8;
-  aspect-ratio: 3 / 2;      /* change to 4/3 or 16/9 if you want shorter/wider thumbnails */
-  max-height: 260px;        /* reduce this number to make media area shorter */
+  aspect-ratio: 3 / 2;
+  max-height: 260px; /* change this to make media area taller/shorter */
   overflow: hidden;
   box-sizing: border-box;
   border-top-left-radius: 10px;
@@ -122,15 +204,13 @@ a:hover{ text-decoration:underline; }
   position: relative;
 }
 
-/* IMAGE behavior: fill the media box
-   Keep width/height 100% to avoid the "image-box smaller than card" issue.
-*/
+/* 5. Image & video behavior */
 .thrust-media img,
 .thrust-media video{
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* choose 'contain' to avoid cropping */
+  object-fit: cover; /* set to 'contain' to preserve whole image */
   object-position: center;
   margin: 0;
   padding: 0;
@@ -138,20 +218,20 @@ a:hover{ text-decoration:underline; }
   box-sizing: border-box;
 }
 
-/* gentle hover zoom */
+/* gentle zoom */
 .thrust-card.figure:hover .thrust-media img{
   transform: scale(1.04);
 }
 
-/* adjust media height for smaller viewports */
+/* reduce media height on narrower screens */
 @media (max-width:900px){
   .thrust-media{ max-height: 220px; }
 }
 
-/* CAPTION / TITLE: compact padding & normalized type */
+/* 6. Caption footer (always below media) */
 .thrust-body{
   display: block;
-  padding: 6px 8px;         /* compact padding applied directly here */
+  padding: 6px 8px; /* compact padding */
   background: #ffffff;
   border-top: 1px solid #eef1f4;
   box-sizing: border-box;
@@ -159,7 +239,7 @@ a:hover{ text-decoration:underline; }
   height: auto;
 }
 
-/* Title typography — use site heading stack and match weight/size */
+/* 7. Title typography — normalize to site heading styles */
 .thrust-body h3,
 .thrust-body strong{
   margin: 0;
@@ -171,14 +251,14 @@ a:hover{ text-decoration:underline; }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: -webkit-box;
-  -webkit-line-clamp: 2;   /* clamp to max 2 lines */
+  -webkit-line-clamp: 2;   /* clamp to 2 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
 }
 
-/* Accessibility focus for media link */
+/* Accessibility: keyboard focus for clickable media */
 .thrust-media-link:focus-visible{
   outline: 3px solid var(--accent);
   outline-offset: 4px;
@@ -191,13 +271,9 @@ a:hover{ text-decoration:underline; }
 .thrust-card.figure *::after{ box-sizing: inherit; }
 
 /* ------------------------------------------------------------------
-   RESEARCH THRUSTS (3 boxes) — keep special appearance
-   (these selectors intentionally target different markup under #research)
+   RESEARCH THRUSTS (3 boxes) — special appearance
    ------------------------------------------------------------------ */
-#research{
-  padding-top:12px;
-  padding-bottom:48px;
-}
+#research{ padding-top:12px; padding-bottom:48px; }
 
 #research .thrust-grid{
   display:grid;
@@ -207,7 +283,6 @@ a:hover{ text-decoration:underline; }
   align-items:stretch;
 }
 
-/* research cards: equal-height */
 #research .thrust-card{
   background:#fff;
   border-radius:10px;
@@ -230,7 +305,6 @@ a:hover{ text-decoration:underline; }
   max-height:240px;
 }
 
-/* for research, images are contained and smaller than full width */
 #research .thrust-media img,
 #research .thrust-media video{
   width:auto;
@@ -241,7 +315,6 @@ a:hover{ text-decoration:underline; }
   display:block;
 }
 
-/* research body: keep original layout */
 #research .thrust-body{
   padding:20px;
   display:flex;
@@ -273,14 +346,12 @@ a:hover{ text-decoration:underline; }
 }
 
 /* ------------------------------------------------------------------
-   PROJECT PAGES, THRUST FOOTER, OTHER SECTIONS
-   (unchanged; included to keep site consistent)
+   Other sections / responsive rules (kept intact)
    ------------------------------------------------------------------ */
 
-/* Keep your existing project-page rules and other site rules exactly as before.
-   (I trimmed duplicates and kept the sections that mattered for the gallery.) */
+/* Publications, teaching, other, research, project pages... (keep your original styles) */
 
-/* Responsive overrides (keep them at end so they take precedence) */
+/* Responsive overrides (keep at end so they take precedence) */
 @media (max-width:1100px){
   .thrust-grid{ grid-template-columns:repeat(2, 1fr); }
   .thrust-media{ max-height:220px; }
@@ -299,8 +370,9 @@ a:hover{ text-decoration:underline; }
   .main-nav{ display:none; }
 }
 
-/* Optional debug outlines (comment out for production) */
-/*
+/* Optional debug outlines (uncomment while testing)
 .thrust-media.debug { outline: 2px dashed rgba(0,128,255,0.25); background: rgba(0,128,255,0.02); }
 .thrust-card.figure.debug { outline: 2px dashed rgba(0,200,0,0.12); }
 */
+
+/* End of cleaned stylesheet */
