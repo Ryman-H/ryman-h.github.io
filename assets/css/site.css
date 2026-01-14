@@ -101,7 +101,6 @@ a:hover{ text-decoration:underline; }
 .hero-title h1{ margin:0; font-size:36px; font-weight:700 }
 .hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95 }
 
-
 /* ===== CAREER TIMELINE — CLEAN (NO CIRCLES) ===== */
 
 .career-timeline{
@@ -160,6 +159,52 @@ a:hover{ text-decoration:underline; }
   }
 }
 
+* -----------------------------
+   ABOUT SECTION (two-column)
+   ----------------------------- */
+/* Section wrapper */
+#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
+
+/* inner two-column layout */
+.about-wrap{
+  max-width:var(--page-max);
+  margin:0 auto;
+  display:flex;
+  gap:40px;               /* change this to enlarge/reduce space between image & text */
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* left: text column (flexible) */
+.about-text{
+  flex:1 1 0%;
+  min-width:0;            /* required so the text can shrink on narrow screens */
+  box-sizing:border-box;
+  text-align:justify;     /* user requested justified text */
+}
+
+/* right: photo column (fixed basis matched to image width) */
+.about-photo{
+  flex:0 0 var(--about-photo-basis); /* change the variable to scale the photo */
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.about-photo img{
+  width:var(--about-photo-basis);
+  height:auto;
+  border-radius:6px;
+  display:block;
+  object-fit:cover;
+}
+
+/* responsive: stack for small screens */
+@media (max-width:880px){
+  .about-wrap{ flex-direction:column; gap:20px; align-items:flex-start; }
+  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
+  .about-photo img{ width:140px; }
+  .about-text{ text-align:left; }
+}
 
 
 /* ------------------------------------------------------------------
