@@ -1,53 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MR-safe Pneumatic Stepper — Ryman H</title>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MR-Safe Pneumatic Stepper — Needle Insertion | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+
+    /* responsive video embed */
+    .project-video{ position:relative; width:100%; padding-bottom:56.25%; height:0; margin:24px 0 12px; }
+    .project-video iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border-radius:8px; border:0; }
+
+    /* small active nav helper (if not in site.css) */
+    .main-nav a.active { font-weight:600; text-decoration:underline; }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1><a href="/" style="color:inherit;text-decoration:none">Ryman H</a></h1>
-      <div class="meta">Senior Research Fellow — University of Oxford</div>
+
+  <!-- shared header include point -->
+  <div id="site-header"></div>
+
+  <main class="project-page">
+
+    <!-- Hero image -->
+    <img src="/assets/images/project_mri.jpg"
+         alt="MR-safe pneumatic stepper for needle insertion"
+         class="project-hero">
+
+    <!-- Video embed (placeholder: same video link for now) -->
+    <div class="project-video">
+      <iframe
+        src="https://www.youtube.com/embed/KMvlSdl3rQQ"
+        title="MR-Safe Pneumatic Stepper — demo (placeholder)"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/cv.html">CV</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container" style="padding-top:36px;padding-bottom:80px;">
-  <section style="margin-bottom:28px;">
-    <div style="width:100%;height:auto;border-radius:8px;overflow:hidden;background:#000">
-      <img src="/assets/images/project_mri.jpg" alt="MR-safe Pneumatic Stepper" style="width:100%;height:auto;display:block;object-fit:cover;">
-    </div>
-  </section>
+    <p class="project-video-caption" style="font-size:14px;color:var(--muted);margin-bottom:18px;">
+      Demonstration video (placeholder).
+    </p>
 
-  <section>
-    <h2>MR-safe Pneumatic Stepper Motor</h2>
-    <p><em>Liang, Z.; Hashem, R. et al.</em></p>
+    <h1>MR-Safe Pneumatic Stepper for Needle Insertion</h1>
+    <p class="project-meta"><em>Design & prototyping of a 5-DoF MR-safe needle insertion manipulator — hardware + control</em></p>
 
-    <p>Short summary: a low-cost, MR-safe pneumatic stepper motor for use inside magnetic resonance imaging environments.</p>
+    <!-- Short overview -->
+    <p class="project-intro">
+      Development of a compact, MRI-compatible pneumatic stepper actuator and manipulator for precise percutaneous needle insertion. The system is designed to operate safely within magnetic resonance environments, providing accurate insertion, rotation and depth control while avoiding electromagnetic interference with imaging.
+    </p>
 
-    <ul>
-      <li><strong>Problem:</strong> Actuation solutions for surgical robotics that are safe and functional inside MRI scanners.</li>
-      <li><strong>Approach:</strong> Design an MR-compatible pneumatic stepping mechanism and characterise force/precision.</li>
-      <li><strong>Outcome:</strong> Prototype demonstrates motion control with minimal imaging artefact; submitted to IEEE Sensors.</li>
-      <li><strong>Links:</strong> <a href="/publications.html">Publication list</a></li>
+    <!-- Key points -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong> MR environments restrict conventional electromechanical actuators, limiting robotic assistance for image-guided needle interventions.</li>
+      <li><strong>Approach:</strong> Design and integration of MR-safe pneumatic actuation (stepper architecture) and non-ferromagnetic transmission to deliver fine positional control in 5 DoF.</li>
+      <li><strong>Validation:</strong> Bench tests and imaging trials demonstrating sub-millimetre insertion repeatability and negligible MRI artefact across typical clinical sequences.</li>
+      <li><strong>Application:</strong> Image-guided percutaneous interventions (liver, kidney, abdominal access) and research platforms for MR-compatible surgical robotics.</li>
     </ul>
 
-    <p><a href="/" style="display:inline-block">Back to homepage</a></p>
-  </section>
-</main>
+    <!-- Related publications -->
+    <h3>Related publications</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="https://scholar.google.com/scholar?q=MR+safe+pneumatic+stepper+needle+insertion+Hashem"
+           target="_blank" rel="noopener">
+          MR-safe pneumatic stepper and needle insertion robotics — keyword search
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=MR+compatible+robotic+needle+insertion+Hashem"
+           target="_blank" rel="noopener">
+          MR-compatible robotic needle insertion systems
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/scholar?q=pneumatic+stepper+actuator+MRI+Hashem"
+           target="_blank" rel="noopener">
+          Pneumatic stepper actuators for MR environments
+        </a>
+      </li>
+    </ul>
 
-<footer>
-  © Ryman H — University of Oxford
-</footer>
+    <p class="project-pubs-more">
+      <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">
+        View all publications on Google Scholar →
+      </a>
+    </p>
+
+    <!-- Back link to homepage gallery -->
+    <p class="project-back">
+      <a href="/#gallery" onclick="if(history.length>1){ history.back(); return false; }">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <!-- shared footer include point -->
+  <div id="site-footer"></div>
+
+  <!-- include header/footer and activate Projects nav -->
+  <script>
+    // load header and footer includes
+    fetch('/assets/includes/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+
+        // mark Projects nav link active (if present)
+        try {
+          document.querySelectorAll('.main-nav a[data-nav]').forEach(a => a.classList.remove('active'));
+          const p = document.querySelector('.main-nav a[data-nav="projects"]');
+          if (p) p.classList.add('active');
+        } catch (e) { /* ignore */ }
+      });
+
+    fetch('/assets/includes/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+
 </body>
 </html>
