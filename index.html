@@ -505,38 +505,69 @@ translation beyond controlled laboratory settings.
 
       <!-- Contact text -->
       <div class="contact-text">
-        <p>
-          Email is the best way to reach me for academic enquiries,
-          collaborations, and supervision opportunities.
-        </p>
-
-        <p>
-          <strong>Email:</strong><br>
-          <a href="mailto:ryman.hashem@eng.ox.ac.uk">
-            ryman.hashem@eng.ox.ac.uk
-          </a>
+        <p>Email is the best way to reach me for academic enquiries and collaborations.</p>
+        <p><strong>Email:</strong> <a href="mailto:ryman.hashem@eng.ox.ac.uk">ryman.hashem@eng.ox.ac.uk</a></p>
+        <p style="margin-top:10px;color:var(--muted);font-size:14px;">
+          If a QR does not load, use the direct link under the QR.
         </p>
       </div>
 
       <!-- QR codes -->
       <div class="contact-qr">
 
-        <div class="qr-item">
-          <img src="/assets/images/qr-whatsapp.png"
-               alt="WhatsApp QR code">
-          <span>WhatsApp</span>
+        <div class="qr-item" id="qr-whatsapp-wrap">
+          <img id="qr-whatsapp"
+               src="/assets/images/qr-whatsapp.png"
+               alt="WhatsApp QR code"
+               loading="lazy">
+          <a id="qr-whatsapp-link" href="https://wa.me/+447522123226" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
-        <div class="qr-item">
-          <img src="/assets/images/qr-linked.JPG"
-               alt="LinkedIn QR code">
-          <span>LinkedIn</span>
+        <div class="qr-item" id="qr-linkedin-wrap">
+          <img id="qr-linkedin"
+               src="/assets/images/qr-linked.JPG"
+               alt="LinkedIn QR code"
+               loading="lazy">
+          <a id="qr-linkedin-link" href="https://www.linkedin.com/in/rymem" target="_blank" rel="noopener">LinkedIn</a>
         </div>
 
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // graceful fallback + console logging for debugging
+  function attachQrFallback(imgId, wrapId, linkId, fallbackUrl) {
+    const img = document.getElementById(imgId);
+    const wrap = document.getElementById(wrapId);
+    const link = document.getElementById(linkId);
+
+    // if image fails, hide it and show the fallback link clearly
+    img.addEventListener('error', () => {
+      console.error('QR image failed to load:', img.src);
+      img.style.display = 'none';
+      link.style.display = 'inline-block';
+      link.style.marginTop = '8px';
+      link.style.color = 'var(--accent)';
+      link.textContent = (link.textContent || 'Open link');
+    });
+
+    // If loaded successfully, ensure link is shown still (clickable)
+    img.addEventListener('load', () => {
+      console.log('QR loaded OK:', img.src);
+      // leave link visible — it's a fallback/click target
+    });
+
+    // if the fallbackUrl was provided, update the anchor
+    if (fallbackUrl && link) link.href = fallbackUrl;
+  }
+
+  // Update these with your actual phone/LinkedIn URLs
+  attachQrFallback('qr-whatsapp', 'qr-whatsapp-wrap', 'qr-whatsapp-link', 'https://wa.me/+447522123226');
+  attachQrFallback('qr-linkedin', 'qr-linkedin-wrap', 'qr-linkedin-link', 'https://www.linkedin.com/in/rymem/');
+</script>
+
 
 <footer>
   © Ryman Hashem — University of Oxford
