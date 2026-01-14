@@ -684,4 +684,50 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   .contact-qr{ justify-content:flex-start; }
 }
 
+/* existing CSS above */
+/* ------------------ */
+/* gallery, about, projects, contact, etc... */
+
+
+/* =====================================================
+   Per-card image scaling (ADD THIS AT THE VERY BOTTOM)
+   ===================================================== */
+
+.figure{
+  --img-fit: cover;
+  --img-initial-scale: 1;
+  --img-hover-scale: 1.03;
+  --img-transition: 350ms;
+}
+
+.figure .thrust-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#f4f6f8;
+}
+
+.figure .thrust-media img,
+.figure .thrust-media video{
+  width:100%;
+  height:100%;
+  object-fit: var(--img-fit);
+  object-position: center;
+  transform: scale(var(--img-initial-scale));
+  transition: transform var(--img-transition) ease;
+  display:block;
+}
+
+.figure:hover .thrust-media img,
+.figure:hover .thrust-media video{
+  transform: scale(var(--img-hover-scale));
+}
+
+@media (max-width:700px){
+  .figure:hover .thrust-media img,
+  .figure:hover .thrust-media video{
+    transform: scale(var(--img-initial-scale));
+  }
+}
 
