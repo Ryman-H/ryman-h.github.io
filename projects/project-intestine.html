@@ -3,67 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Large Intestine Simulator | Ryman Hashem</title>
+  <title>oLi — Soft Robotic Large Intestine | Ryman Hashem</title>
 
+  <!-- main site CSS -->
   <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
 </head>
 
 <body>
 
-<!-- shared header -->
-<div id="site-header"></div>
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
 
-<main class="container project-page">
+  <main class="project-page">
 
   <!-- Hero image -->
-  <img src="/assets/images/project_intestine.jpg"
-       alt="Soft robotic large intestine simulator"
-       class="project-hero">
+  <!-- Hero (image / video) -->
+<img class="project-hero" src="/assets/images/soli-hero.jpg" alt="SoLi — Soft Robotic Large Intestine phantom" />
 
-  <h1>Soft Robotic Large Intestine Simulator</h1>
-  <p class="project-meta">
-    <em>Ongoing project — soft robotic organ phantoms & medical training</em>
-  </p>
+<h1>SoLi — Soft Robotic Large Intestine</h1>
+<p class="project-meta">
+  <em>R. Hashem, A. Escobar, E. Devlin, A. Stilli &amp; D. Stoyanov — (project)</em>
+</p>
 
-  <!-- Short overview -->
-  <p class="project-intro">
-    This project develops a soft robotic simulator of the human large intestine,
-    designed to reproduce colonic anatomy and motility for device testing and
-    medical training. The platform enables controlled, repeatable experiments
-    under dynamic intestinal motion that cannot be captured by static phantoms.
-  </p>
+<!-- Short overview -->
+<p class="project-intro">
+  SoLi is a modular soft-robotic phantom that reproduces the anatomy and dynamic motility of the large intestine for training and device testing.
+  Using independently actuated silicone ring (haustral) units, SoLi generates physiologically inspired peristalsis and segmentation patterns while
+  supporting pressure monitoring, FEA validation and controlled transport experiments. The platform is intended for colonoscopy training, device validation,
+  and research into GI biomechanics under repeatable, observable conditions.
+</p>
 
-  <!-- Key points -->
-  <ul class="project-points">
-    <li><strong>Problem:</strong> Existing colon phantoms are static and cannot reproduce realistic motility or patient variability.</li>
-    <li><strong>Approach:</strong> Modular soft pneumatic actuators arranged to generate segmental contraction and propagating peristalsis.</li>
-    <li><strong>Simulation:</strong> Finite element analysis used to guide actuator geometry, material selection, and deformation limits.</li>
-    <li><strong>Training focus:</strong> Integration with generative models to create variable, patient-specific training scenarios.</li>
-    <li><strong>Applications:</strong> Colonoscopy training, device evaluation, and studies of colonic transport and interaction.</li>
-  </ul>
+<!-- Key points -->
+<ul class="project-points">
+  <li><strong>Problem:</strong> Existing colonoscopy phantoms are mostly static or provide limited mechanical response and cannot reproduce the
+    large intestine’s active motility (peristalsis, segmentation) needed for realistic procedure training and device evaluation.</li>
+  <li><strong>Approach:</strong> SoLi uses modular hollow silicone ring actuators (haustra) cast from 3D-printed moulds, each tube independently
+    pneumatically driven and arranged to match anatomical curvature. The design and material properties were tuned with finite-element analysis
+    (Ogden hyperelastic model) to achieve realistic deformation and lumen dynamics.</li>
+  <li><strong>Validation:</strong> The system was tested with sequential inflation patterns to demonstrate forward mass movement of test payloads,
+    internal pressure verification to ensure physiological ranges, viscosity-variation transport trials, and durability cycling to assess longevity.</li>
+  <li><strong>Platform:</strong> The electropneumatic control stack comprises proportional regulators, vacuum generators and multiplexed valves
+    driven from MATLAB/Simulink via an Arduino interface to allow precise timing, bidirectional pressure control, and flexible motility programs.</li>
+  <li><strong>Domain:</strong> Surgical training · soft-robotic organ phantoms · device evaluation · biomechanics.</li>
+</ul>
+
+<!-- Related publications (Google Scholar keyword links) -->
 
 
+<p class="project-pubs-more">
+  <a href="https://scholar.google.com/scholar?q=colon+training+phantom+soft+robotics" target="_blank" rel="noopener">
+    View related works on Google Scholar →
+  </a>
+</p>
 
-  <!-- Back -->
-  <p class="project-back">
-    <a href="/projects/index.html">← Back to Projects</a>
-  </p>
-
-</main>
-
-<!-- shared footer -->
-<div id="site-footer"></div>
-
-<!-- include header/footer -->
-<script>
-  fetch('/assets/includes/header.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-header').innerHTML = html);
-
-  fetch('/assets/includes/footer.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-footer').innerHTML = html);
-</script>
-
-</body>
-</html>
+<!-- Back link -->
+<p class="project-back">
+  <a href="/#gallery">← Back to Projects</a>
+</p>
