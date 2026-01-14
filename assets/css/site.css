@@ -815,3 +815,53 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
     transform: none;
   }
 }
+
+
+/* ===== Strong override: reduce caption padding and height =====
+   Place at the end of your main stylesheet (or in a file loaded last)
+   This covers both caption-outside-link and caption-inside-link markup.
+   ===== */
+
+.thrust-card.figure .thrust-body,
+.thrust-card.figure figcaption.thrust-body,
+.thrust-card.figure .thrust-media-link .thrust-body,
+.thrust-card.figure .thrust-media + .thrust-body {
+  padding: 6px 8px !important;     /* compact padding: top/bottom 6px, left/right 8px */
+  background: #fff !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure the title itself is compact (font-size + line-height) */
+.thrust-card.figure .thrust-body h3,
+.thrust-card.figure .thrust-body strong {
+  margin: 0 !important;
+  font-size: 14px !important;      /* slightly smaller */
+  line-height: 1.15 !important;    /* tighter leading */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;            /* keep up to 2 lines but compact */
+  -webkit-box-orient: vertical;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: normal !important;
+}
+
+/* If any rule elsewhere forces extra height via min-height, remove it here */
+.thrust-card.figure .thrust-body,
+.thrust-card.figure figcaption.thrust-body {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* Accessibility: keep focus outline but avoid extra vertical shift */
+.thrust-media-link:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Debug helper (temporary): show computed padding visually
+   Remove or comment out after you confirm the padding changed.
+*/
+/*
+.thrust-card.figure.debug .thrust-body {
+  outline: 2px dashed rgba(255,0,0,0.25) !important;
+}
+*/
