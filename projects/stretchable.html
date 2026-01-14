@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stretchable Wearable Sensors | Ryman Hashem</title>
+
+  <!-- reuse the SAME CSS as all other projects -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main class="container project-page">
+
+  <!-- Hero image -->
+  <img src="/assets/images/soft_sensor.png"
+       alt="Stretchable wearable sensors"
+       class="project-hero">
+
+  <h1>Stretchable Wearable Sensors for Joint Tracking</h1>
+  <p class="project-meta">
+    <em>Cha, L.; Hashem, R. — RoboSoft</em>
+  </p>
+
+  <!-- Overview -->
+  <p class="project-intro">
+    This project develops stretchable, textile-integrated strain sensors for
+    wearable monitoring of joint motion, enabling robust measurement of elbow
+    and knee kinematics during movement and physical activity.
+  </p>
+
+  <!-- Unified bullets (same template as stomach/MRI) -->
+  <ul class="project-points">
+    <li><strong>Problem:</strong>
+      Wearable strain sensors often suffer from fragile electrical connections
+      and poor mechanical integration with textiles, limiting durability and
+      repeatability in real-world use.
+    </li>
+
+    <li><strong>Approach:</strong>
+      A hybrid fabrication process combining multi-material direct ink writing
+      with automated embroidery to integrate stretchable conductive sensors
+      directly into fabric substrates.
+    </li>
+
+    <li><strong>Validation:</strong>
+      Mechanical testing and on-body experiments demonstrate high stretchability,
+      linear strain response, and reliable joint-angle tracking during elbow and
+      knee motion.
+    </li>
+
+    <li><strong>Domain:</strong>
+      Wearable sensing · soft electronics · textile integration · sports and
+      rehabilitation monitoring.
+    </li>
+  </ul>
+
+  <!-- Related publications via Scholar -->
+  <h3>Related publications</h3>
+  <ul class="project-pubs">
+    <li>
+      <a href="https://scholar.google.com/scholar?q=stretchable+wearable+sensors+Cha+Hashem"
+         target="_blank" rel="noopener">
+        Stretchable wearable sensors and textile-integrated strain sensing
+      </a>
+    </li>
+  </ul>
+
+  <p class="project-pubs-more">
+    <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ"
+       target="_blank" rel="noopener">
+      View all publications on Google Scholar →
+    </a>
+  </p>
+
+  <p class="project-back">
+    <a href="/#gallery">← Back to Projects</a>
+  </p>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
+</body>
+</html>
