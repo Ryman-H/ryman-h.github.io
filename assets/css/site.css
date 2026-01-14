@@ -639,11 +639,7 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   border-radius:8px;
 }
 
-/* ==== Contact section with QR codes ==== */
-#contact{
-  border-bottom:1px solid #f0f2f4;
-}
-
+/* Contact QR layout */
 .contact-grid{
   display:grid;
   grid-template-columns: 1fr auto;
@@ -651,25 +647,17 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   align-items:center;
 }
 
-/* text */
-.contact-text p{
-  margin:0 0 14px;
-  font-size:16px;
-  line-height:1.6;
-}
-
-/* QR container */
 .contact-qr{
   display:flex;
   gap:28px;
 }
 
-/* individual QR */
 .qr-item{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px;
+  gap:10px;
+  text-align:center;
 }
 
 .qr-item img{
@@ -679,11 +667,18 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   background:#fff;
   padding:6px;
   box-shadow:0 6px 18px rgba(15,23,42,0.06);
+  display:block;
 }
 
-.qr-item span{
+.qr-item a{
+  display:block;
   font-size:14px;
   color:var(--muted);
+  text-decoration:none;
+}
+.qr-item a:hover{
+  color:var(--accent);
+  text-decoration:underline;
 }
 
 /* responsive */
@@ -692,8 +687,7 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
     grid-template-columns:1fr;
     gap:32px;
   }
-  .contact-qr{
-    justify-content:flex-start;
-  }
+  .contact-qr{ justify-content:flex-start; }
 }
+
 
