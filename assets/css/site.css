@@ -162,64 +162,62 @@ a:hover{ text-decoration:underline; }
 
 
 
-/* =========================================
-   GALLERY / PROJECT CARDS (COMPACT)
-   ========================================= */
+/* ===========================
+   FORCE 4-COLUMN PROJECT GALLERY
+   Place this AFTER any existing gallery CSS
+   =========================== */
 
-/* Grid layout */
-.gallery-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--card-gap, 20px);
-  margin-top: 22px;
-  width: 100%;
-  align-items: start;
+/* Target the exact container classes used in your markup for higher specificity */
+.thrust-grid.gallery-grid{
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--card-gap, 20px) !important;
+  margin-top: 22px !important;
+  width: 100% !important;
+  align-items: start !important;
 }
 
-/* Responsive behavior */
+/* Responsive fallbacks (still specific) */
 @media (max-width: 1200px){
-  .gallery-grid{
-    grid-template-columns: repeat(3, 1fr);
+  .thrust-grid.gallery-grid{
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
 @media (max-width: 900px){
-  .gallery-grid{
-    grid-template-columns: repeat(2, 1fr);
+  .thrust-grid.gallery-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 520px){
-  .gallery-grid{
-    grid-template-columns: 1fr;
+  .thrust-grid.gallery-grid{
+    grid-template-columns: 1fr !important;
   }
 }
 
-/* =========================================
-   CARD
-   ========================================= */
+/* ===========================
+   CARD: image + title compact
+   =========================== */
 
-.figure{
+.thrust-card.figure{
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-/* Optional hover affordance */
-.figure:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+/* Card hover lift */
+.thrust-card.figure:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
 }
 
-/* =========================================
-   MEDIA (IMAGE / VIDEO)
-   ========================================= */
-
-.figure .thrust-media{
+/* Media container (letterbox) */
+.thrust-media.figure-media{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,25 +227,30 @@ a:hover{ text-decoration:underline; }
   overflow: hidden;
 }
 
-/* Full image, no cropping */
-.figure .thrust-media img,
-.figure .thrust-media video{
+/* Image behavior: contain so full subject shows */
+.thrust-media.figure-media img,
+.thrust-media.figure-media video{
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
+  transition: transform 0.35s ease;
 }
 
-/* =========================================
-   TITLE ONLY
-   ========================================= */
+/* Gentle zoom on hover (only image) */
+.thrust-card.figure:hover .thrust-media.figure-media img{
+  transform: scale(1.04);
+}
 
-.figure .thrust-body{
+/* Title area (inside the link for larger click target) */
+.thrust-body.figure-body{
   padding: 12px 14px;
+  background: #fff;
 }
 
-.figure .thrust-body h3{
+.thrust-body.figure-body h3,
+.thrust-body.figure-body strong{
   margin: 0;
   font-size: 15px;
   font-weight: 600;
@@ -255,20 +258,22 @@ a:hover{ text-decoration:underline; }
   color: #111;
 }
 
-/* Optional link styling */
-.figure a{
-  color: inherit;
-  text-decoration: none;
-  display: block;
+/* If you're still showing .figure-meta elsewhere remove/hide it */
+.thrust-body.figure-body .figure-meta{
+  display: none;
 }
 
-/* Accessibility focus */
-.figure a:focus-visible{
-  outline: 2px solid var(--accent, #2563eb);
-  outline-offset: 3px;
-  border-radius: 6px;
+/* Accessibility: focus outline for keyboard users */
+.thrust-card.figure a:focus-visible{
+  outline: 3px solid var(--accent, #2563eb);
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
+/* Small tweak: reduce media height on narrow viewports to keep cards compact */
+@media (max-width: 900px){
+  .thrust-media.figure-media{ max-height: 220px; }
+}
 
 
 
