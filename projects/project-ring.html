@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Biologically Inspired Ring-Shaped Soft Pneumatic Actuator (RiSPA) | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
+
+  <main class="project-page">
+
+    <!-- Hero image (leave blank or add an image path if available) -->
+    <div class="project-video">
+      <iframe
+        src=""
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h1>A Biologically Inspired Ring-Shaped Soft Pneumatic Actuator (RiSPA)</h1>
+
+    <p class="project-meta">R. Hashem, S. Kazemi, M. Stommel, L. K. Cheng, W. Xu — Soft Robotics, 2022</p>
+
+    <!-- Overview -->
+    <p class="project-intro">
+      RiSPA is a ring-shaped soft pneumatic actuator designed to mimic the radial contractions of
+      the gastrointestinal tract (notably the stomach antrum). Constructed from multiple bellows-style
+      SPAs embedded in a soft ring frame with integrated range sensors, RiSPA achieves large
+      occlusion ratios and supports both symmetrical and asymmetrical contraction patterns suitable
+      for bio-inspired peristaltic tasks, sensing-enabled control, and organ-simulator testbeds.
+    </p>
+
+    <!-- Key project bullets -->
+    <ul class="project-points">
+      <li><strong>Design:</strong>
+        A ring frame houses five bellows-driven soft pneumatic actuators (SPAs) and an embedded range-sensor (RS)
+        package. The soft layer and frame were selected to reproduce an antrum-like segment with a 50 mm relaxed diameter.
+      </li>
+
+      <li><strong>Modeling:</strong>
+        RiSPA is modeled as a decoupled set of mass–spring–damper (MSD) elements (one per SPA), producing a
+        state-space representation suitable for linear control design and offline LQR synthesis.
+      </li>
+
+      <li><strong>Control:</strong>
+        An offline linear–quadratic regulator (LQR) static gain is used to track desired occlusion profiles. Simulations
+        and experimentally applied control signals demonstrate regulation to 40%, 60%, and 80% occlusion with low error.
+      </li>
+
+      <li><strong>Validation:</strong>
+        Experimental setup with proportional valves, pressure sensors, and an electromagnetic tracker was used for
+        calibration and validation. Results show good agreement with simulations: occlusion errors ≤ ~1.5%–1% for
+        larger occlusions and acceptable repeatability across repeated trials.
+      </li>
+
+      <li><strong>Applications:</strong>
+        Biomimetic stomach/intestine simulators, peristaltic pumping, soft grippers and bio-inspired actuators where
+        large radial contractions and embedded sensing are required.
+      </li>
+    </ul>
+
+ <!-- Related publication -->
+    <h3>Related publication</h3>
+    <ul class="project-pubs">
+      <li>
+        <a
+          href="https://scholar.google.com/scholar?q=A+Biologically+Inspired+Ring-Shaped+Soft+Pneumatic+Actuator+for+Large+Deformations+Hashem"
+          target="_blank"
+          rel="noopener"
+        >
+        </a>
+      </li>
+    </ul>
+
+    <p class="project-pubs-more">
+      <a
+        href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ"
+        target="_blank"
+        rel="noopener"
+      >
+        View related publications on Google Scholar →
+      </a>
+    </p>
+  </p>
+
+    <p class="project-back">
+      <a href="/#gallery">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
+</body>
+</html>
