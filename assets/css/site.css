@@ -372,50 +372,6 @@ a:hover { text-decoration: underline; }
   .thrust-grid { grid-template-columns: 1fr; }
 }
 
-/* ---- 2) Force About layout: text LEFT, image RIGHT (robust selector) */
-/* Use non-child combinator so it works even if your HTML is nested differently */
-
-#about .about-wrap {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 28px !important;
-}
-
-/* Text column always first (left) */
-#about .about-wrap .about-text {
-  order: 0 !important;
-  flex: 1 1 0% !important;
-  min-width: 0 !important;
-  text-align: left !important;
-}
-
-/* Photo always second (right) and constrained */
-#about .about-wrap .about-photo {
-  order: 1 !important;
-  flex: 0 0 var(--about-photo-basis) !important;
-  max-width: 38% !important;    /* prevents huge image; change to 30% if you want smaller */
-  padding-left: 20px !important;
-  box-sizing: border-box !important;
-}
-
-/* Photo image fits the column */
-#about .about-wrap .about-photo img {
-  width: 100% !important;
-  max-width: var(--about-photo-basis) !important;
-  height: auto !important;
-  display:block !important;
-  object-fit: cover !important;
-}
-
-/* Mobile: stacked layout, natural order */
-@media (max-width:880px){
-  #about .about-wrap { flex-direction: column !important; gap: 20px !important; }
-  #about .about-wrap .about-text,
-  #about .about-wrap .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
-  #about .about-wrap .about-photo img { width: 140px !important; }
-}
 
 /* About 2 column
 /* FORCE about: text on LEFT, image on RIGHT (override any previous rules) */
