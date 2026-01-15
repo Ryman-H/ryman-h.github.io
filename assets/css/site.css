@@ -178,7 +178,7 @@ a:hover{ text-decoration:underline; }
   gap: var(--card-gap, 22px);
   margin-top: 22px;
   width: 100%; 
-   justify-items: center;     /* centers the child card inside each grid cell */
+   justify-items: stretch;     /* centers the child card inside each grid cell */
   align-items: start;
 }
 
@@ -207,6 +207,8 @@ a:hover{ text-decoration:underline; }
   box-sizing: border-box;
   min-height: 0;       /* explicitly allow gallery cards to shrink */
      align-items: stretch;
+    justify-self: stretch;    /* force this card to fill its grid area */
+  align-self: start;
 
 }
 
