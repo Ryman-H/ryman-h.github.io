@@ -531,16 +531,59 @@ a:hover { text-decoration: underline; }
 .contact-grid { outline: 2px dashed rgba(0,200,0,0.12); }
 .thrust-card.figure .thrust-media { outline: 2px dashed rgba(128,0,255,0.12); }
 */
-/* FIX ABOUT IMAGE SIZE — FINAL */
+/* === RESTORE: gallery 4-col + fix About layout (paste at VERY END) === */
 
-#about .about-wrap .about-photo{
-  flex: 0 0 auto;
-  max-width: 360px;
-  padding-left: 20px;
+/* Force gallery to 4 columns */
+.thrust-grid.gallery-grid,
+.gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--card-gap, 22px) !important;
 }
 
-#about .about-wrap .about-photo img{
-  width: 100%;
-  max-width: 360px;
-  height: auto;
+/* Keep generic thrust-grid (non-gallery) at 3 columns */
+.thrust-grid:not(.gallery-grid) {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--card-gap, 22px) !important;
+}
+
+/* ABOUT: force text left, image right and constrain image width */
+#about .about-wrap {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 28px !important;
+}
+
+#about .about-wrap .about-text {
+  order: 0 !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+#about .about-wrap .about-photo {
+  order: 1 !important;
+  flex: 0 0 360px !important;   /* change 360px if you want a different fixed width */
+  max-width: 360px !important;
+  padding-left: 20px !important;
+  box-sizing: border-box !important;
+}
+
+#about .about-wrap .about-photo img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+/* Mobile: stacked layout */
+@media (max-width:880px){
+  #about .about-wrap { flex-direction: column !important; gap: 20px !important; }
+  #about .about-wrap .about-text,
+  #about .about-wrap .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
+  #about .about-wrap .about-photo img { width: 140px !important; }
 }
