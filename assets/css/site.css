@@ -243,7 +243,7 @@ a:hover{ text-decoration:underline; }
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* switch to 'contain' if you prefer letterboxing */
+  object-fit: contain; /* switch to 'contain' if you prefer letterboxing */
   object-position: center;
   margin: 0;
   padding: 0;
@@ -266,7 +266,7 @@ a:hover{ text-decoration:underline; }
   display: flex;                  /* center content vertically */
   align-items: center;
   justify-content: center;
-  padding: 8px 10px;               /* compact padding */
+  padding: 10px 12px;               /* compact padding */
   background: #ffffff;
   border-top: 1px solid #eef1f4;
   box-sizing: border-box;
@@ -282,7 +282,7 @@ a:hover{ text-decoration:underline; }
   margin: 0;
   font-family: var(--site-heading-font);
   font-weight: var(--site-heading-weight);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.2;
   text-align: center;
   color: #111;
