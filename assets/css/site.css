@@ -235,6 +235,7 @@ a:hover { text-decoration: underline; }
   background: #ffffff;
   border-top: 1px solid #eef1f4;
   box-sizing: border-box;
+  object-position: center;
   min-height: 0;
   height: auto;
 }
