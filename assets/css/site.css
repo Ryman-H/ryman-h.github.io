@@ -377,3 +377,157 @@ a:hover { text-decoration: underline; }
 */
 
 /* End of cleaned stylesheet */
+/* ===============================
+   PATCH: fix about + contact + gallery conflicts
+   Paste this at the END of your main CSS file
+   =============================== */
+
+/* ---- 1) Restore safe default for generic thrust-grid (3 cols)
+   Some parts of the site (research) expect .thrust-grid to be 3-columns.
+   Keep .thrust-grid.gallery-grid = 4 columns (explicit for gallery).
+*/
+.thrust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap, 22px);
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Make gallery-specific grid 4 columns as intended */
+.thrust-grid.gallery-grid,
+.gallery-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+/* Responsive fallbacks (ensure consistent behavior) */
+@media (max-width:1200px){
+  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .thrust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:900px){
+  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .thrust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:700px){
+  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: 1fr !important; }
+  .thrust-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- 2) Force About layout: text LEFT, image RIGHT (robust selector) */
+/* Use non-child combinator so it works even if your HTML is nested differently */
+
+#about .about-wrap {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 28px !important;
+}
+
+/* Text column always first (left) */
+#about .about-wrap .about-text {
+  order: 0 !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+/* Photo always second (right) and constrained */
+#about .about-wrap .about-photo {
+  order: 1 !important;
+  flex: 0 0 var(--about-photo-basis) !important;
+  max-width: 38% !important;    /* prevents huge image; change to 30% if you want smaller */
+  padding-left: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Photo image fits the column */
+#about .about-wrap .about-photo img {
+  width: 100% !important;
+  max-width: var(--about-photo-basis) !important;
+  height: auto !important;
+  display:block !important;
+  object-fit: cover !important;
+}
+
+/* Mobile: stacked layout, natural order */
+@media (max-width:880px){
+  #about .about-wrap { flex-direction: column !important; gap: 20px !important; }
+  #about .about-wrap .about-text,
+  #about .about-wrap .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
+  #about .about-wrap .about-photo img { width: 140px !important; }
+}
+
+/* ---- 3) Fix contact QR grid and QR image sizing
+   Ensure contact-grid uses 2 columns (text | QR) and QR thumbnail is constrained.
+*/
+.contact-grid {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 32px !important;
+  align-items: center !important;
+}
+
+/* Ensure QR column remains compact and QR image is the expected size */
+.contact-grid .contact-qr {
+  display:flex !important;
+  gap: 24px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.contact-grid .qr-item img,
+.contact-qr .qr-item img {
+  width: 120px !important;
+  height: 120px !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  padding: 6px !important;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06) !important;
+}
+
+/* Mobile: stack contact content */
+@media (max-width:900px){
+  .contact-grid{ grid-template-columns: 1fr !important; }
+  .contact-grid .contact-qr{ justify-content: flex-start !important; }
+}
+
+/* ---- 4) Small safeguard: ensure thrust-media doesn't inherit unwanted inline sizes */
+/* Prevent other rules from making the image box smaller than its card */
+.thrust-card.figure,
+.figure {
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.thrust-card.figure .thrust-media,
+.figure .thrust-media {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* Make the image fully fill the media box (cover mode keeps no side gaps) */
+.thrust-card.figure .thrust-media img,
+.figure .thrust-media img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: cover !important; /* change to contain if you prefer no cropping */
+  object-position: center !important;
+  display: block !important;
+}
+
+/* ---- 5) Debug helpers (temporary) */
+/* Uncomment to visualize boxes while testing */
+/*
+#about .about-wrap { outline: 2px dashed rgba(0,128,255,0.12); }
+#about .about-wrap .about-photo { outline: 2px dashed rgba(255,0,0,0.10); }
+.contact-grid { outline: 2px dashed rgba(0,200,0,0.12); }
+.thrust-card.figure .thrust-media { outline: 2px dashed rgba(128,0,255,0.12); }
+*/
