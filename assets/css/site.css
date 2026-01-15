@@ -593,145 +593,137 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
 }
 
 
-/* ---------------------------
-   Other cards — card-grid style
-   --------------------------- */
+/* ===============================
+   Other section — inset card style
+   =============================== */
 
-#other {
-  border-bottom: 1px solid #f0f2f4;
-  padding-bottom: 28px;
+#other{
+  border-bottom:1px solid #f0f2f4;
+  padding-bottom: 32px;
 }
 
 /* grid */
-.other-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-top: 24px;
+.other-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:28px;
+  margin-top:24px;
 }
 
 /* clickable wrapper */
-.other-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  border-radius: 12px;
+.other-card-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  height:100%;
+  border-radius:14px;
 }
 
-/* card */
-.other-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  transition: transform .18s ease, box-shadow .18s ease;
-  height: 100%;
-  border: 1px solid rgba(15,23,42,0.02);
-  box-sizing: border-box;
+/* CARD — outer white box */
+.other-card{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;                     /* 🔑 INNER MARGIN */
+  box-shadow:0 20px 45px rgba(15,23,42,0.07);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  height:100%;
+  border:1px solid rgba(15,23,42,0.03);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 
-/* media (top image) — keep consistent ratio and padding inside */
-.other-card-media {
-  width: 100%;
-  height: 210px;
-  background: #f7fafc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* IMAGE — smaller than card */
+.other-card-media{
+  width:100%;
+  height:170px;                     /* 🔑 IMAGE SMALLER */
+  border-radius:12px;
+  background:#f7fafc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 
-/* image fills the media area (cover for visual style) */
-.other-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* image behavior */
+.other-card-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-/* body */
-.other-card-body {
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  text-align: center;
+/* TEXT BODY */
+.other-card-body{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  text-align:center;
 }
 
 /* small uppercase kicker */
-.other-kicker {
-  font-size: 12px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: #9aa0a6;
-  font-weight: 700;
+.other-kicker{
+  font-size:12px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:#9aa0a6;
+  font-weight:700;
 }
 
 /* title */
-.other-title {
-  margin: 0;
-  font-size: 18px;
-  color: var(--text);
-  font-weight: 700;
+.other-title{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+  color:var(--text);
 }
 
 /* description */
-.other-desc {
-  margin: 0;
-  color: #444;
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 38rem;
-  margin-left: auto;
-  margin-right: auto;
+.other-desc{
+  margin:0;
+  font-size:14px;
+  line-height:1.55;
+  color:#444;
 }
 
-/* CTA button-like */
-.other-cta-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 6px;
-}
-.other-cta {
-  display: inline-block;
-  background: #222;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+/* CTA */
+.other-cta-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:6px;
 }
 
-/* hover/focus */
+.other-cta{
+  background:#222;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* hover / focus */
 .other-card-link:hover .other-card,
-.other-card-link:focus .other-card,
-.other-card-link:active .other-card {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(15,23,42,0.12);
+.other-card-link:focus-visible .other-card{
+  transform:translateY(-10px);
+  box-shadow:0 35px 70px rgba(15,23,42,0.12);
 }
 
-/* focus outline (keyboard accessible) */
-.other-card-link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 6px rgba(11,110,198,0.10);
-  border-radius: 12px;
+/* keyboard focus */
+.other-card-link:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 6px rgba(11,110,198,0.12);
+  border-radius:14px;
 }
 
-/* responsive: 2 cols, 1 col */
-@media (max-width: 1200px) {
-  .other-grid { grid-template-columns: repeat(2, 1fr); }
-  .other-card-media { height: 180px; }
+/* responsive */
+@media (max-width:1200px){
+  .other-grid{ grid-template-columns:repeat(2,1fr); }
 }
-@media (max-width: 700px) {
-  .other-grid { grid-template-columns: 1fr; }
-  .other-card-media { height: 160px; }
+@media (max-width:700px){
+  .other-grid{ grid-template-columns:1fr; }
+  .other-card-media{ height:150px; }
 }
-
 
 
 /* === Research section: remove card & media background ONLY === */
