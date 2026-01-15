@@ -280,14 +280,21 @@ a:hover{ text-decoration:underline; }
   text-overflow: ellipsis;
   word-break: break-word;
 }
-
+/* Hide any paragraph/extra text inside caption so only title appears */
+.thrust-body p{
+  display: none;
+}
 /* Accessibility: keyboard focus for clickable media */
 .thrust-media-link:focus-visible{
   outline: 3px solid var(--accent);
   outline-offset: 4px;
   border-radius: 8px;
 }
-
+/* Slightly reduce caption height on narrow screens */
+@media (max-width:900px){
+  .thrust-body{ padding: 6px 8px; min-height: 40px; }
+  .thrust-body h3{ font-size: 11px; }
+}
 /* Safety: ensure consistent box-sizing inside cards */
 .thrust-card.figure *,
 .thrust-card.figure *::before,
