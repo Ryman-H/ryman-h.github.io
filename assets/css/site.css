@@ -267,7 +267,7 @@ a:hover{ text-decoration:underline; }
   margin: 0;
   font-family: var(--site-heading-font);
   font-weight: var(--site-heading-weight);
-  font-size: var(--site-heading-size);
+  font-size: 12;
   line-height: 1.2;
   color: #111;
   -webkit-font-smoothing: antialiased;
