@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Composite Stretchable Sensors — Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="project-page">
+
+    <div class="project-video">
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <h1>Composite Stretchable Sensors</h1>
+
+    <p class="project-meta">
+      D. Hardman, R. Hashem, F. Iida — RoboSoft 2023.
+    </p>
+
+    <p class="project-intro">
+      Stretchable composite sensors (hydrogel–silicone channels and composite skins) designed to detect large asymmetric deformations
+      in soft manipulators. These sensors provide robust proprioceptive signals (finger position/shape) and exteroceptive cues (object contact / asymmetry). :contentReference[oaicite:3]{index=3}
+    </p>
+
+    <ul class="project-points">
+      <li><strong>Problem:</strong> Soft manipulators lack reliable integrated sensing that survives large strains and gives actionable signals for control.</li>
+      <li><strong>Approach:</strong> Embed stretchable composite channels (hydrogel/silicone) within manipulator skins and use shaped placements to detect bifurcation/asymmetric deformation.</li>
+      <li><strong>Validation:</strong> Tensile and cyclic testing, delamination and survivability checks, and integration into a soft manipulator demonstration with clear detection of asymmetric buckling events.</li>
+      <li><strong>Outcome:</strong> Sensors sustain large strains (>200%), detect asymmetry reliably, and can be used for simple threshold-based control strategies (slip/bifurcation detection).</li>
+    </ul>
+
+    <h3>Practical notes</h3>
+    <ul class="project-points">
+      <li>Place sensors across expected bending/buckling regions and route leads away from high-strain anchor points.</li>
+      <li>Use thresholded or transient detection before moving to full state-estimators — this gives a fast route to robustness.</li>
+      <li>Good fit for grippers that must detect shape/offset of objects or for hands that need cheap, embedded proprioception.</li>
+    </ul>
+
+    <h3>Resources</h3>
+    <ul class="project-pubs">
+      <li><a href="https://scholar.google.com/scholar?q=Composite+Stretchable+Sensors+for+the+Detection+of+Asymmetric+Deformations+in+a+Soft+Manipulator+Hardman+Hashem" target="_blank" rel="noopener">Composite Stretchable Sensors — RoboSoft 2023</a></li>
+      <li><a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">Author profile — Google Scholar</a></li>
+    </ul>
+
+    <p class="project-back"><a href="/#gallery">← Back to Projects</a></p>
+  </main>
+
+  <div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html').then(r=>r.text()).then(html=>document.getElementById('site-header').innerHTML=html);
+  fetch('/assets/includes/footer.html').then(r=>r.text()).then(html=>document.getElementById('site-footer').innerHTML=html);
+</script>
+</body>
+</html>
