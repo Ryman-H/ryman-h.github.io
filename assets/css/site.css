@@ -101,48 +101,6 @@ a:hover { text-decoration: underline; }
   .year{ font-size:14px; }
 }
 
-/* About 2 column
-/* FORCE about: text on LEFT, image on RIGHT (override any previous rules) */
-.about-wrap {
-  display: flex !important;
-  flex-direction: row !important; /* ensure horizontal layout on wide screens */
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-/* Make sure text is first (left) and image is second (right) */
-.about-wrap > .about-text {
-  order: 0 !important;
-  flex: 1 1 0% !important;
-  min-width: 0 !important;
-  text-align: left !important;
-}
-
-/* Image column forced to the right */
-.about-wrap > .about-photo {
-  order: 1 !important;
-  flex: 0 0 var(--about-photo-basis) !important;
-  max-width: 40% !important;   /* adjust percent if you want smaller image */
-  padding-left: 20px !important;
-  box-sizing: border-box !important;
-}
-
-/* Ensure the image fits its column */
-.about-wrap > .about-photo img {
-  width: 100% !important;
-  max-width: var(--about-photo-basis) !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: cover !important;
-}
-
-/* Preserve responsive stacked behaviour on narrow screens */
-@media (max-width:880px){
-  .about-wrap { flex-direction: column !important; }
-  .about-wrap > .about-text,
-  .about-wrap > .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
-  .about-wrap > .about-photo img { width: 140px !important; }
-}
 
 /* ------------------------------------------------------------------
    PROJECT GALLERY — Consolidated (4-column)
@@ -459,131 +417,46 @@ a:hover { text-decoration: underline; }
   #about .about-wrap .about-photo img { width: 140px !important; }
 }
 
-/* ---- 3) Fix contact QR grid and QR image sizing
-   Ensure contact-grid uses 2 columns (text | QR) and QR thumbnail is constrained.
-*/
-.contact-grid {
-  display: grid !important;
-  grid-template-columns: 1fr auto !important;
-  gap: 32px !important;
-  align-items: center !important;
-}
-
-/* Ensure QR column remains compact and QR image is the expected size */
-.contact-grid .contact-qr {
-  display:flex !important;
-  gap: 24px !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-}
-
-.contact-grid .qr-item img,
-.contact-qr .qr-item img {
-  width: 120px !important;
-  height: 120px !important;
-  max-width: 120px !important;
-  max-height: 120px !important;
-  object-fit: cover !important;
-  border-radius: 6px !important;
-  padding: 6px !important;
-  box-shadow: 0 6px 18px rgba(15,23,42,0.06) !important;
-}
-
-/* Mobile: stack contact content */
-@media (max-width:900px){
-  .contact-grid{ grid-template-columns: 1fr !important; }
-  .contact-grid .contact-qr{ justify-content: flex-start !important; }
-}
-
-/* ---- 4) Small safeguard: ensure thrust-media doesn't inherit unwanted inline sizes */
-/* Prevent other rules from making the image box smaller than its card */
-.thrust-card.figure,
-.figure {
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
-
-.thrust-card.figure .thrust-media,
-.figure .thrust-media {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: block !important;
-}
-
-/* Make the image fully fill the media box (cover mode keeps no side gaps) */
-.thrust-card.figure .thrust-media img,
-.figure .thrust-media img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  object-fit: cover !important; /* change to contain if you prefer no cropping */
-  object-position: center !important;
-  display: block !important;
-}
-
-/* ---- 5) Debug helpers (temporary) */
-/* Uncomment to visualize boxes while testing */
-/*
-#about .about-wrap { outline: 2px dashed rgba(0,128,255,0.12); }
-#about .about-wrap .about-photo { outline: 2px dashed rgba(255,0,0,0.10); }
-.contact-grid { outline: 2px dashed rgba(0,200,0,0.12); }
-.thrust-card.figure .thrust-media { outline: 2px dashed rgba(128,0,255,0.12); }
-*/
-/* === RESTORE: gallery 4-col + fix About layout (paste at VERY END) === */
-
-/* Force gallery to 4 columns */
-.thrust-grid.gallery-grid,
-.gallery-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: var(--card-gap, 22px) !important;
-}
-
-/* Keep generic thrust-grid (non-gallery) at 3 columns */
-.thrust-grid:not(.gallery-grid) {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: var(--card-gap, 22px) !important;
-}
-
-/* ABOUT: force text left, image right and constrain image width */
-#about .about-wrap {
+/* About 2 column
+/* FORCE about: text on LEFT, image on RIGHT (override any previous rules) */
+.about-wrap {
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: row !important; /* ensure horizontal layout on wide screens */
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 28px !important;
 }
 
-#about .about-wrap .about-text {
+/* Make sure text is first (left) and image is second (right) */
+.about-wrap > .about-text {
   order: 0 !important;
   flex: 1 1 0% !important;
   min-width: 0 !important;
   text-align: left !important;
 }
 
-#about .about-wrap .about-photo {
+/* Image column forced to the right */
+.about-wrap > .about-photo {
   order: 1 !important;
-  flex: 0 0 360px !important;   /* change 360px if you want a different fixed width */
-  max-width: 360px !important;
+  flex: 0 0 var(--about-photo-basis) !important;
+  max-width: 40% !important;   /* adjust percent if you want smaller image */
   padding-left: 20px !important;
   box-sizing: border-box !important;
 }
 
-#about .about-wrap .about-photo img {
+/* Ensure the image fits its column */
+.about-wrap > .about-photo img {
   width: 100% !important;
+  max-width: var(--about-photo-basis) !important;
   height: auto !important;
-  max-width: 100% !important;
   display: block !important;
   object-fit: cover !important;
 }
 
-/* Mobile: stacked layout */
+/* Preserve responsive stacked behaviour on narrow screens */
 @media (max-width:880px){
-  #about .about-wrap { flex-direction: column !important; gap: 20px !important; }
-  #about .about-wrap .about-text,
-  #about .about-wrap .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
-  #about .about-wrap .about-photo img { width: 140px !important; }
+  .about-wrap { flex-direction: column !important; }
+  .about-wrap > .about-text,
+  .about-wrap > .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
+  .about-wrap > .about-photo img { width: 140px !important; }
 }
+
