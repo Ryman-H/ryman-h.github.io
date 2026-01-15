@@ -267,7 +267,7 @@ a:hover{ text-decoration:underline; }
   margin: 0;
   font-family: var(--site-heading-font);
   font-weight: var(--site-heading-weight);
-  font-size: 12;
+  font-size: 12px;
   line-height: 1.2;
   text-align:center;
   color: #111;
@@ -584,7 +584,7 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   gap:10px;
 }
 
-/*.other-card h3{
+.other-card h3{
   margin:0;
   font-size:14px;
   color:var(--text);
