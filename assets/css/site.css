@@ -833,47 +833,70 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   }
 }
 
-/* ===== Gallery: force compact centered title and hide extra text ===== */
-/* Put this at the very end of site.css (or the page <style>) */
+/* === Gallery-only overrides (4-column projects gallery) ===
+   Targets only .thrust-grid.gallery-grid to avoid touching #research or other card sets.
+   Place this at the END of site.css so it takes precedence.
+*/
 
-.thrust-card.figure .thrust-body,
-.thrust-card.figure .thrust-body * { box-sizing: border-box; }
-
-.thrust-card.figure .thrust-body {
-  padding: 8px 10px !important;
-  background: #ffffff !important;
-  border-top: 1px solid #eef1f4 !important;
-  min-height: 44px !important;
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body {
+  padding: 8px 10px;                 /* compact caption padding */
+  background: #ffffff;
+  border-top: 1px solid #eef1f4;
+  box-sizing: border-box;
+  min-height: 48px;                  /* reserve vertical room for the title */
+  height: auto;
+  display: block;
 }
 
-/* target both h3 and strong (some pages use strong instead) */
-.thrust-card.figure .thrust-body h3,
-.thrust-card.figure .thrust-body strong {
-  margin: 0 !important;
-  font-family: var(--site-heading-font) !important;
-  font-weight: var(--site-heading-weight) !important;
-  font-size: 12px !important;       /* small title size */
-  line-height: 1.2 !important;
-  text-align: center !important;
-  color: #111 !important;
+/* Title: small, centered, clamped to 2 lines */
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body h3,
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body strong {
+  margin: 0;
+  font-family: var(--site-heading-font);
+  font-weight: var(--site-heading-weight);
+  font-size: 12px;                   /* use px or rem — this is intentionally small */
+  line-height: 1.2;                  /* needed for reliable clamping */
+  text-align: center;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 2 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  word-break: break-word !important;
+  /* 2-line clamp (works in modern Blink/WebKit browsers) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
-/* hide any non-title text inside caption (keeps only title visible) */
-.thrust-card.figure .thrust-body p,
-.thrust-card.figure .thrust-body .subtitle {
-  display: none !important;
+/* Hide any extra paragraph text in gallery captions so only the title remains visible */
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body p {
+  display: none;
 }
 
-/* Responsive tweak */
+/* If some captions use a .caption-sub or .subtitle class, hide that too */
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body .subtitle,
+.thrust-grid.gallery-grid .thrust-card.figure .thrust-body .caption-sub {
+  display: none;
+}
+
+/* Keep keyboard focus outline for media links (accessibility) */
+.thrust-grid.gallery-grid .thrust-media-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Small screens: slightly smaller type and less min-height */
 @media (max-width:900px) {
-  .thrust-card.figure .thrust-body { min-height: 40px !important; padding: 6px 8px !important; }
-  .thrust-card.figure .thrust-body h3,
-  .thrust-card.figure .thrust-body strong { font-size: 11px !important; }
+  .thrust-grid.gallery-grid .thrust-card.figure .thrust-body {
+    min-height: 40px;
+    padding: 6px 8px;
+  }
+  .thrust-grid.gallery-grid .thrust-card.figure .thrust-body h3,
+  .thrust-grid.gallery-grid .thrust-card.figure .thrust-body strong {
+    font-size: 11px;
+  }
 }
+
