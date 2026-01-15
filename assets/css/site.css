@@ -638,7 +638,7 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   width:100%;
   height:170px;                     /* 🔑 IMAGE SMALLER */
   border-radius:12px;
-  background:#f7fafc;
+  background:transparent;
   display:flex;
   align-items:center;
   justify-content:center;
