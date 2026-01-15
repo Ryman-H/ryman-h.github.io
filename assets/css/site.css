@@ -210,7 +210,7 @@ a:hover { text-decoration: underline; }
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* set to 'contain' to preserve whole image */
+  object-fit: contain; /* set to 'contain' to preserve whole image */
   object-position: center;
   margin: 0;
   padding: 0;
@@ -231,7 +231,7 @@ a:hover { text-decoration: underline; }
 /* 6. Caption footer (always below media) */
 .thrust-body{
   display: block;
-  padding: 6px 8px; /* compact padding */
+  padding: 8px 10px; /* compact padding */
   background: #ffffff;
   border-top: 1px solid #eef1f4;
   box-sizing: border-box;
