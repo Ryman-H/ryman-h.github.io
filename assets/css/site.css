@@ -101,47 +101,47 @@ a:hover { text-decoration: underline; }
   .year{ font-size:14px; }
 }
 
-/* -----------------------------
-   ABOUT SECTION (two-column)
-   ----------------------------- */
-#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
-
-.about-wrap{
-  max-width:var(--page-max);
-  margin:0 auto;
-  display:flex;
-  gap:40px;
-  align-items:center;
-  justify-content:space-between;
+/* About 2 column
+/* FORCE about: text on LEFT, image on RIGHT (override any previous rules) */
+.about-wrap {
+  display: flex !important;
+  flex-direction: row !important; /* ensure horizontal layout on wide screens */
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
-.about-text{
-  flex:1 1 0%;
-  min-width:0;
-  box-sizing:border-box;
-  text-align:justify;
+/* Make sure text is first (left) and image is second (right) */
+.about-wrap > .about-text {
+  order: 0 !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  text-align: left !important;
 }
 
-.about-photo{
-  flex:0 0 var(--about-photo-basis);
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
+/* Image column forced to the right */
+.about-wrap > .about-photo {
+  order: 1 !important;
+  flex: 0 0 var(--about-photo-basis) !important;
+  max-width: 40% !important;   /* adjust percent if you want smaller image */
+  padding-left: 20px !important;
+  box-sizing: border-box !important;
 }
 
-.about-photo img{
-  width:var(--about-photo-basis);
-  height:auto;
-  border-radius:6px;
-  display:block;
-  object-fit:cover;
+/* Ensure the image fits its column */
+.about-wrap > .about-photo img {
+  width: 100% !important;
+  max-width: var(--about-photo-basis) !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: cover !important;
 }
 
+/* Preserve responsive stacked behaviour on narrow screens */
 @media (max-width:880px){
-  .about-wrap{ flex-direction:column; gap:20px; align-items:flex-start; }
-  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
-  .about-photo img{ width:140px; }
-  .about-text{ text-align:left; }
+  .about-wrap { flex-direction: column !important; }
+  .about-wrap > .about-text,
+  .about-wrap > .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
+  .about-wrap > .about-photo img { width: 140px !important; }
 }
 
 /* ------------------------------------------------------------------
