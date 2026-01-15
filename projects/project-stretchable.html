@@ -3,111 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Wearable Stretchable Sensors — DIW+Embroidery & Mesoscale Morphology | Ryman Hashem</title>
+  <title>Wearable Stretchable Sensors | Ryman Hashem</title>
 
-  <!-- main site CSS -->
   <link rel="stylesheet" href="/assets/css/site.css" />
   <style>
-    /* local adjustments for project pages (kept small) */
     .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
-    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
     .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
     .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
     .project-points{ list-style:none; padding:0; margin:0 0 20px; }
-    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
-    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
-    .project-pubs li{ margin-bottom:8px; font-size:15px; }
-    .project-pubs a{ color:var(--accent); text-decoration:none; }
-    .project-pubs a:hover{ text-decoration:underline; }
+    .project-points li{ margin-bottom:10px; font-size:15px; }
+    .project-pubs{ list-style:none; padding:0; }
     .project-back{ margin-top:28px; }
-    .direction-list{ margin-top:8px; padding-left:18px; }
-    .direction-list li{ margin-bottom:10px; }
-    .note { color:var(--muted); font-size:13px; margin-top:8px; }
   </style>
 </head>
 
 <body>
+<div id="site-header"></div>
 
-  <!-- placeholder for included header -->
-  <div id="site-header"></div>
+<main class="project-page">
 
-  <main class="project-page">
+  <div class="project-video">
+    <iframe src="" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-    <!-- Hero media placeholder -->
-    <div class="project-video">
-      <iframe
-        src=""
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
+  <h1>Wearable Stretchable Sensors</h1>
 
-    <h1>Wearable Stretchable Sensors — Practical Directions for Textile Integration</h1>
+  <p class="project-meta">
+    L. Cha, R. Hashem et al. — RoboSoft / Wearable Robotics
+  </p>
 
-    <p class="project-meta">
-      Lukas Cha, R. Hashem et al. — DIW + Embroidery;  
-      Naoki Tano, R. Hashem et al. — Mesoscale hydrogel morphologies
-    </p>
+  <p class="project-intro">
+    A wearable sensing platform based on stretchable, textile-integrated strain sensors designed
+    for joint tracking in real-world movement. The work focuses on robust fabrication, comfort,
+    and repeatability rather than laboratory-only sensing, targeting applications in sports
+    science, rehabilitation, and injury prevention.
+  </p>
 
-    <!-- Short overview (concise) -->
-    <p class="project-intro">
-      Two complementary research directions combined into a single wearable-sensors programme:
-      (1) a scalable production route — multi-material direct-ink-writing of layered resistive sensors directly onto textiles with automated embroidery for strong mechanical and electrical integration; and
-      (2) morphology-led sensitivity control — using mesoscale cellular patterns (lattice, auxetic, honeycomb) to tune sensitivity and directionality without changing chemistry.
-    </p>
+  <ul class="project-points">
+    <li><strong>Problem:</strong> Wearable sensors often fail outside the lab due to fragile wiring,
+      poor textile integration, and motion artefacts.</li>
 
-    <!-- Short bullets matching other project pages -->
-    <ul class="project-points">
-      <li><strong>Problem:</strong> Wearable sensors must be accurate, comfortable, durable, and manufacturable for real-world and sports settings.</li>
-      <li><strong>Approach:</strong> Combine DIW + embroidered interconnects for robust production with morphology tuning (cell pattern/size/thickness) to set sensitivity and directional response.</li>
-      <li><strong>Validation:</strong> Bench tensile cycles, on-body elbow/knee tests, and repeatability trials — current prototypes show promising linearity and useful joint-tracking accuracy for prototype systems.</li>
-      <li><strong>Key result:</strong> A practical pathway to produce washable, textile-integrated sensors whose sensitivity is tuned by geometry (not just material), enabling fast designer iteration for sports and wearable applications.</li>
-    </ul>
+    <li><strong>Approach:</strong> Multi-material direct ink writing of stretchable resistive sensors
+      directly onto fabric, combined with automated embroidery for mechanical anchoring and
+      electrical interconnects.</li>
 
-    <!-- Short design directions (concise) -->
-    <h3>Design directions (practical)</h3>
-    <ul class="project-points direction-list">
-      <li><strong>Choose morphology by goal:</strong> lattice for high sensitivity; auxetic for isotropy; honeycomb for softer feel.</li>
-      <li><strong>Use cell size as a coarse knob:</strong> larger cells → higher sensitivity; smaller cells → more robust baseline behavior.</li>
-      <li><strong>Production pairing:</strong> DIW-print multilayer pads onto garment → automated embroidery for perimeter anchoring and conductive leads → encapsulate with thin silicone for durability.</li>
-      <li><strong>Placement for wearables:</strong> put high-sensitivity patches over joints (elbow, knee) and auxetic patches on regions needing bidirectional capture (shoulder, torso).</li>
-      <li><strong>Sport science focus:</strong> target sampling, calibration and mounting to minimise motion artefacts; prioritize comfort, sweat resistance and washability for field trials.</li>
-    </ul>
+    <li><strong>Validation:</strong> Bench testing and on-body experiments on the elbow and knee,
+      demonstrating repeatable joint-angle tracking during dynamic motion.</li>
 
-    <!-- Applications and next steps -->
-    <h3>Applications & next steps</h3>
-    <ul class="project-points">
-      <li>Wearable joint tracking for sports performance and rehabilitation (training load, technique feedback).</li>
-      <li>Smart garments with localized patches for motion capture and injury prevention.</li>
-      <li>Roadmap: produce a combined prototype sleeve with lattice + auxetic patches, run a short sports-science pilot (10 users) to evaluate comfort, signal quality, and basic metric correlation vs optical motion capture.</li>
-    </ul>
+    <li><strong>Outcome:</strong> A scalable fabrication route for washable, comfortable wearable
+      sensors suitable for sports monitoring and human movement analysis.</li>
+  </ul>
 
-    <!-- Short resource links (concise, like other pages) -->
-    <h3>Related publications</h3>
-    <ul class="project-pubs">
-      <li><a href="https://scholar.google.com/scholar?q=Multi-material+Direct+Ink+Writing+and+Embroidery+for+Stretchable+Wearable+Sensors+Lukas+Cha" target="_blank" rel="noopener">DIW + Embroidery — Cha et al.</a></li>
-      <li><a href="https://scholar.google.com/scholar?q=Variable+Response+Characteristics+of+a+Soft+Sensorized+Hydrogel+using+Mesoscale+Cellular+Structures+Tano" target="_blank" rel="noopener">Mesoscale morphology — Tano et al.</a></li>
-      <li><a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">View all publications on Google Scholar</a></li>
-    </ul>
+  <h3>Applications</h3>
+  <ul class="project-points">
+    <li>Sports performance analysis and training feedback</li>
+    <li>Rehabilitation and return-to-play monitoring</li>
+    <li>Wearable systems for injury prevention and load management</li>
+  </ul>
 
-    <p class="project-back">
-      <a href="/#gallery">← Back to Projects</a>
-    </p>
-
-  </main>
-
-  <div id="site-footer"></div>
-
-<script>
-  fetch('/assets/includes/header.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-header').innerHTML = html);
-
-  fetch('/assets/includes/footer.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-footer').innerHTML = html);
-</script>
-
-</body>
-</html>
+  <h3>Related publication</h3>
+  <ul class="project-pubs">
+    <li>
+      <a href="https://scholar.google.com/scholar?q=Multi-material+Direct+Ink+Writing+and+Embroidery+for+Stretchable+Wearable+Sensors
