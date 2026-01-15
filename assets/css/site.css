@@ -266,7 +266,7 @@ a:hover{ text-decoration:underline; }
   display: flex;                  /* center content vertically */
   align-items: center;
   justify-content: center;
-  padding: 6px 8px;               /* compact padding */
+  padding: 8px 10px;               /* compact padding */
   background: #ffffff;
   border-top: 1px solid #eef1f4;
   box-sizing: border-box;
@@ -282,7 +282,7 @@ a:hover{ text-decoration:underline; }
   margin: 0;
   font-family: var(--site-heading-font);
   font-weight: var(--site-heading-weight);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.2;
   text-align: center;
   color: #111;
