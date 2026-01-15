@@ -584,9 +584,9 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   gap:10px;
 }
 
-.other-card h3{
+/*.other-card h3{
   margin:0;
-  font-size:18px;
+  font-size:14px;
   color:var(--text);
 }
 
