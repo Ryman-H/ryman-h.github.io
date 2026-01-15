@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harnessing Symmetry Breaking in Soft Robotics | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    /* local adjustments for project pages (kept small) */
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- placeholder for included header -->
+  <div id="site-header"></div>
+
+  <main class="project-page">
+
+    <!-- Hero image (keep blank — add project image if you have one) -->
+    <div class="project-video">
+      <iframe
+        src=""
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h1>Harnessing Symmetry Breaking in Soft Robotics: A Novel Approach for Underactuated Fingers</h1>
+
+    <p class="project-meta">R. Hashem, T. Howison, A. Stilli, D. Stoyanov, W. Xu, F. Iida — IROS 2024</p>
+
+    <!-- Overview -->
+    <p class="project-intro">
+      This work investigates how underactuated soft ring actuators (RiSPA) can be made to perform robust in-hand manipulation
+      by intentionally harnessing symmetry breaking and self-organisation. Instead of fighting buckling and morphological nonlinearities,
+      the method uses them: a ring of soft bellows (fingers) exhibits coordinated buckling that can be guided by frequency, duty cycle,
+      and small perturbations to rotate an object clockwise or counterclockwise using a single pressure input. The approach is validated
+      in simulation and with physical experiments showing repeatable object rotation and clear operating envelopes for frequency and pressure.
+    </p>
+
+    <!-- Unified bullets (same template as stomach/MRI) -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong>
+        Controlling multi-degree, soft inflatable actuators for in-hand manipulation is difficult because compliance and buckling
+        create many degrees of freedom and unpredictable behavior with standard control strategies.
+      </li>
+
+      <li><strong>Approach:</strong>
+        Use a ring-shaped soft pneumatic actuator (RiSPA) and exploit symmetry breaking and self-organisation. By selecting amplitude,
+        frequency and duty cycle of the pressure signal (and applying a brief perturbation), the actuator’s natural buckling causes coordinated
+        finger motion that rotates objects with minimal explicit control. A simplified Simulink model (prismatic + rotational joints) and
+        MATLAB parameter identification are used alongside empirical tests.
+      </li>
+
+      <li><strong>Validation:</strong>
+        Buckling tests (cantilever model), pressure thresholds (Table I), simulation sweeps over frequency/duty cycle, and physical experiments
+        demonstrate reliable CCW rotation without perturbation and controllable CW rotation after a perturbation (optimal perturbation ≈ 2 Hz, 70% duty).
+      </li>
+
+      <li><strong>Key results:</strong>
+        The actuator achieved sustained rotations (12 rotations in 25s CCW) with ≈5% simulation/experiment error for CCW, and CW rotations
+        were achievable post-perturbation (with larger discrepancy attributed to friction and tuning). Object shape affects repeatability
+        (cylindrical ≈90% repeatability; square ≈40%).
+      </li>
+
+      <li><strong>Domain / Applications:</strong>
+        Soft manipulation, underactuated hands, surgical/medical robotics testbeds, dexterous soft grippers, and bio-inspired robotic systems.
+      </li>
+    </ul>
+
+    <!-- Related publications via the paper you uploaded -->
+    <h3>Related publication</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="/assets/papers/hashem_symmetry_breaking_IROS2024.pdf" target="_blank" rel="noopener">
+          Harnessing Symmetry Breaking in Soft Robotics: A Novel Approach for Underactuated Fingers — IROS 2024 (paper PDF)
+        </a>
+        <br/><small style="color:var(--muted)">*Place the paper PDF at <code>/assets/papers/hashem_symmetry_breaking_IROS2024.pdf</code> on your site so this link works.</small>
+      </li>
+    </ul>
+
+    <p class="project-pubs-more">
+      <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">
+        View author publications on Google Scholar →
+      </a>
+    </p>
+
+    <p class="project-back">
+      <a href="/#gallery">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
+</body>
+</html>
