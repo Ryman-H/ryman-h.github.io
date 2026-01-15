@@ -832,3 +832,48 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
     transform: none;
   }
 }
+
+/* ===== Gallery: force compact centered title and hide extra text ===== */
+/* Put this at the very end of site.css (or the page <style>) */
+
+.thrust-card.figure .thrust-body,
+.thrust-card.figure .thrust-body * { box-sizing: border-box; }
+
+.thrust-card.figure .thrust-body {
+  padding: 8px 10px !important;
+  background: #ffffff !important;
+  border-top: 1px solid #eef1f4 !important;
+  min-height: 44px !important;
+}
+
+/* target both h3 and strong (some pages use strong instead) */
+.thrust-card.figure .thrust-body h3,
+.thrust-card.figure .thrust-body strong {
+  margin: 0 !important;
+  font-family: var(--site-heading-font) !important;
+  font-weight: var(--site-heading-weight) !important;
+  font-size: 12px !important;       /* small title size */
+  line-height: 1.2 !important;
+  text-align: center !important;
+  color: #111 !important;
+
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  word-break: break-word !important;
+}
+
+/* hide any non-title text inside caption (keeps only title visible) */
+.thrust-card.figure .thrust-body p,
+.thrust-card.figure .thrust-body .subtitle {
+  display: none !important;
+}
+
+/* Responsive tweak */
+@media (max-width:900px) {
+  .thrust-card.figure .thrust-body { min-height: 40px !important; padding: 6px 8px !important; }
+  .thrust-card.figure .thrust-body h3,
+  .thrust-card.figure .thrust-body strong { font-size: 11px !important; }
+}
