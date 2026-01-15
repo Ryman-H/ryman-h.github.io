@@ -531,3 +531,16 @@ a:hover { text-decoration: underline; }
 .contact-grid { outline: 2px dashed rgba(0,200,0,0.12); }
 .thrust-card.figure .thrust-media { outline: 2px dashed rgba(128,0,255,0.12); }
 */
+/* FIX ABOUT IMAGE SIZE — FINAL */
+
+#about .about-wrap .about-photo{
+  flex: 0 0 auto;
+  max-width: 360px;
+  padding-left: 20px;
+}
+
+#about .about-wrap .about-photo img{
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
