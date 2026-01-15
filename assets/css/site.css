@@ -1,7 +1,7 @@
 /* ==========================================================================
-   SITE STYLES (complete)
-   - Tokens, global reset, layout, hero, about, career timeline, gallery,
-     research thrusts, teaching, publications, contact, footer, responsive.
+   SITE STYLES (clean, organized)
+   - Change top-level values in :root
+   - Each section is labeled and self-contained
    ========================================================================== */
 
 /* ==== ROOT / TOKENS ==== */
@@ -12,44 +12,38 @@
   --bg:     #ffffff;
 
   /* Layout widths */
-  --page-max: 1600px;
-  --narrow-max: 1100px;
+  --page-max: 1600px;    /* main site rhythm (change to 1100px if you prefer narrower) */
+  --narrow-max: 1100px;  /* use for small internal containers (hero card etc.) */
 
   /* Spacing */
   --site-pad: 32px;
   --section-vertical-pad: 80px;
   --card-gap: 28px;
-  --about-photo-basis: 520px;
-
-  /* Heading font stack for project titles */
-  --site-heading-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --site-heading-weight: 600;
-  --site-heading-size: 14px;
 }
 
 /* ==== GLOBAL RESET & TYPO ==== */
-* { box-sizing: border-box; }
-html,body { margin: 0; padding: 0; }
-
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing:antialiased;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
 /* ==== GLOBAL CONTAINERS ==== */
+/* Use .container for page sections that should follow the main rhythm */
 .container{
   max-width: var(--page-max);
   margin: 0 auto;
   padding: var(--section-vertical-pad) var(--site-pad);
 }
 
+/* Narrow container for small interior blocks (e.g., header inner) */
 .narrow {
   max-width: var(--narrow-max);
   margin: 0 auto;
@@ -74,282 +68,211 @@ a:hover { text-decoration: underline; }
   align-items:center;
 }
 
+/* Brand (name + meta) */
 .brand h1{ margin:0; font-size:18px; color:#000; }
 .brand .meta{ font-size:13px; color:#000; margin-top:6px; }
-.main-nav a{ margin-left:18px; font-size:14px; color:#111; }
+
+/* Primary nav */
+.main-nav a{ margin-left:18px; font-size:14px; color:#111 }
 
 /* ==== HERO (video background + title card) ==== */
-.hero{ position:relative; height:70vh; background:#000; overflow:hidden; }
-.hero video{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
-
-.hero-title{ position:absolute; bottom:40px; left:40px; color:#fff; }
-.hero-title h1{ margin:0; font-size:36px; font-weight:700; }
-.hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95; }
-
-/* -----------------------------
-   CAREER TIMELINE
-   ----------------------------- */
-#career{
-  padding: var(--section-vertical-pad) var(--site-pad);
-  border-bottom: 1px solid #f0f2f4;
-  box-sizing: border-box;
-}
-
-#career .container{
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0;
-}
-
-/* If you prefer a heading size for the section */
-#career h2{
-  font-size: 28px;
-  margin-bottom: 24px;
-}
-
-/* vertical timeline with left column for years */
-#career .timeline{
+.hero{
   position:relative;
-  padding-left:64px;
-  border-left:4px solid #f0f2f4;
+  height:70vh;
+  background:#000;
+  overflow:hidden;
 }
 
-/* event grid */
-#career .event{
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:20px;
-  margin-bottom:44px;
-  align-items:start;
-}
-
-#career .event .year{
-  color:var(--muted);
-  font-weight:600;
+.hero video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 50%;
   display:block;
+}
+
+.hero-title{
+  position:absolute;
+  bottom:40px;
+  left:40px;
+  color:#fff;
+}
+
+.hero-title h1{ margin:0; font-size:36px; font-weight:700 }
+.hero-title p{ margin:6px 0 0; font-size:16px; opacity:.95 }
+
+
+/* ===== CAREER TIMELINE — CLEAN (NO CIRCLES) ===== */
+
+.career-timeline{
+  max-width:1600px;
+  margin:0 auto;
+  padding:80px 32px;
+}
+
+.career-timeline h2{
+  font-size:28px;
+  margin-bottom:32px;
+}
+
+/* vertical line only */
+.timeline{
+  border-left:2px solid #e5e7eb;
+  padding-left:48px;
+}
+
+/* each entry */
+.event{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  column-gap:40px;
+  margin-bottom:36px;
+}
+
+/* year */
+.year{
   font-size:15px;
+  font-weight:600;
+  color:#6b7280;
 }
 
-/* content text */
-#career .event .content h3{ margin:0 0 6px 0; font-size:18px; color:var(--text); }
-#career .event .content p{ margin:6px 0; color:#333; line-height:1.6; }
-
-/* decorative circle on timeline left (uses ::before) */
-#career .event::before{
-  content:"";
-  width:18px; height:18px;
-  border-radius:50%;
-  background:#fff;
-  border:4px solid var(--accent);
-  position:relative;
-  left:-58px;
-  top:6px;
-  display:inline-block;
+/* content */
+.content h3{
+  font-size:18px;
+  margin:0 0 6px;
 }
 
-/* responsive timeline */
+.content p{
+  margin:0 0 6px;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* mobile */
 @media (max-width:880px){
-  #career .event{ grid-template-columns:1fr; padding-left:0; }
-  #career .timeline{ border-left:0; padding-left:0; }
-  #career .event::before{ left:0; position:static; margin-bottom:8px; display:block; }
+  .timeline{ padding-left:24px; }
+  .event{
+    grid-template-columns:1fr;
+    row-gap:6px;
+  }
+  .year{
+    font-size:14px;
+  }
 }
 
-/* ===== CAREER END ===== */
 
-/* -----------------------------
-   ABOUT SECTION (two-column)
-   ----------------------------- */
-#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
 
-.about-card {
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 var(--site-pad);
-  box-sizing: border-box;
-}
-
-.about-card-inner {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--section-vertical-pad) 0;
-  box-sizing: border-box;
-}
-
-/* left: media block (image/video) */
-.about-media {
-  flex: 0 0 var(--about-photo-basis);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-.about-media img {
-  width: 100%;
-  max-width: var(--about-photo-basis);
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  object-fit: cover;
-}
-
-/* right: text/content column */
-.about-content {
-  flex: 1 1 0%;
-  min-width: 0;            /* allows text to shrink on small screens */
-  box-sizing: border-box;
-  text-align: justify;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.about-content h2 { margin-top: 0; font-size: 24px; }
-.about-content p { margin: 0 0 12px; }
-
-/* responsive: stack for small screens */
-@media (max-width:880px){
-  .about-card-inner{ flex-direction:column; gap:20px; align-items:flex-start; }
-  .about-media{ flex:0 0 auto; justify-content:flex-start; }
-  .about-media img{ width:140px; max-width:140px; }
-  .about-content{ text-align:left; }
-}
-
-/* ------------------------------------------------------------------
-   PROJECT GALLERY — Consolidated (4-column)
-   ------------------------------------------------------------------ */
-
-/* 1. Grid layout */
-.thrust-grid.gallery-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--card-gap, 22px);
+/* ==== GALLERY / PROJECT CARDS ==== */
+/* Grid */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap: var(--card-gap);
   margin-top: 22px;
-  width: 100%;
-  align-items: start;
-}
-@media (max-width:1200px){ .thrust-grid.gallery-grid{ grid-template-columns: repeat(3, 1fr); } }
-@media (max-width:900px){  .thrust-grid.gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width:520px){  .thrust-grid.gallery-grid{ grid-template-columns: 1fr; } }
-
-/* 2. Card container */
-.thrust-card.figure{
-  padding: 0;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
-  display: flex;
-  flex-direction: column;
-  transition: transform .18s ease, box-shadow .18s ease;
-  box-sizing: border-box;
+  align-items:start;
+  width:100%;
 }
 
-/* hover lift */
-.thrust-card.figure:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(15,23,42,0.10);
+/* Card wrapper (figure) */
+.figure{
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
 }
 
-/* clickable wrapper for the media */
-.thrust-media-link{
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  color: inherit;
+/* Media: show full image (contain) centered, letterbox background */
+.figure .thrust-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f4f6f8;       /* neutral background for letterbox areas */
+  overflow:hidden;
+  aspect-ratio: 3/2;        /* card media shape */
+  max-height: 320px;        /* change if you want taller/shorter cards */
 }
 
-/* 4. Media container (force full width & expected height) */
-.thrust-media{
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: #f4f6f8;
-  aspect-ratio: 3 / 2;
-  max-height: 260px;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  position: relative;
+/* Full-image behavior: no crop */
+.figure .thrust-media img,
+.figure .thrust-media video{
+  width:100%;
+  height:100%;
+  object-fit:contain;       /* show entire image with letterbox if needed */
+  object-position:center;
+  transform:none;
+  display:block;
 }
 
-/* 5. Image & video behavior */
-.thrust-media img,
-.thrust-media video{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  margin: 0;
-  padding: 0;
+/* Body */
+.figure .thrust-body{ padding:14px; }
+.figure .figure-meta{ margin-top:6px; color:var(--muted); font-size:13px; }
+
+/* Optional hover (uncomment to enable) */
+/*
+.figure:hover .thrust-media img,
+.figure:hover .thrust-media video{
+  transform:scale(1.06);
   transition: transform .35s ease;
-  box-sizing: border-box;
+}
+*/
+
+/* ==== ABOUT (card-style, robust) ==== */
+
+.about-card{
+  width:100%;
 }
 
-/* gentle zoom */
-.thrust-card.figure:hover .thrust-media img{
-  transform: scale(1.04);
+.about-card-inner{
+  display:grid;
+  grid-template-columns: 450px 1fr;  /* image | text */
+  gap:40px;
+  align-items:center;
 }
 
-/* reduce media height on narrower screens */
+/* image */
+.about-media img{
+  width:100%;
+  height:auto;
+  border-radius:6px;
+  display:block;
+}
+
+/* text */
+.about-content h2{
+  margin:0 0 16px;
+  font-size:22px;
+}
+
+.about-content p{
+text-align: justify;
+  hyphens: auto;
+  text-justify: inter-word;
+  margin:0 0 16px;
+  line-height:1.6;
+  color:#222;
+  max-width:100%;
+}
+
+/* responsive */
 @media (max-width:900px){
-  .thrust-media{ max-height: 220px; }
+  .about-card-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .about-media img{
+    max-width:220px;
+  }
 }
 
-/* 6. Caption footer (always below media) */
-.thrust-body{
-  display: block;
-  padding: 8px 10px;
-  background: #ffffff;
-  border-top: 1px solid #eef1f4;
-  box-sizing: border-box;
-  text-align: center;
-  min-height: 0;
-  height: auto;
-}
 
-/* 7. Title typography — normalize to site heading styles */
-.thrust-body h3,
-.thrust-body strong{
-  margin: 0;
-  font-family: var(--site-heading-font);
-  font-weight: var(--site-heading-weight);
-  font-size: var(--site-heading-size);
-  line-height: 1.2;
-  color: #111;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-}
 
-/* Accessibility: keyboard focus for clickable media */
-.thrust-media-link:focus-visible{
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: 8px;
-}
-
-/* Safety: ensure consistent box-sizing inside cards */
-.thrust-card.figure *,
-.thrust-card.figure *::before,
-.thrust-card.figure *::after{ box-sizing: inherit; }
-
-/* ------------------------------------------------------------------
-   RESEARCH THRUSTS (3 boxes) — special appearance
-   ------------------------------------------------------------------ */
+/* ==== RESEARCH THRUSTS (3 boxes) ==== */
 #research{ padding-top:12px; padding-bottom:48px; }
 
-#research .thrust-grid{
+.thrust-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap: var(--card-gap);
@@ -357,7 +280,8 @@ a:hover { text-decoration: underline; }
   align-items:stretch;
 }
 
-#research .thrust-card{
+/* Card: equal-height stack */
+.thrust-card{
   background:#fff;
   border-radius:10px;
   overflow:hidden;
@@ -368,135 +292,453 @@ a:hover { text-decoration: underline; }
   min-height:360px;
 }
 
-/* research media smaller / centered image */
-#research .thrust-media{
+/* Image area: smaller so title stands out */
+.thrust-media{
   display:flex;
   align-items:center;
   justify-content:center;
   background:#f4f6f8;
   overflow:hidden;
   aspect-ratio:4/3;
-  max-height:240px;
+  max-height:240px;         /* change to make image area taller/shorter */
 }
 
-#research .thrust-media img,
-#research .thrust-media video{
+/* Show full image but scaled down inside the media area */
+.thrust-media img,
+.thrust-media video{
   width:auto;
-  max-width:85%;
+  max-width:85%;            /* control visual dominance of the image (lower => smaller image) */
   max-height:100%;
   object-fit:contain;
   object-position:center;
+  transform:none;
   display:block;
 }
 
-#research .thrust-body{
+/* Thrust body (centered to make title focal) */
+.thrust-body{
   padding:20px;
   display:flex;
   flex-direction:column;
   gap:8px;
   flex:1 1 auto;
-  align-items:center;
+  text-align:center;
 }
-
-#research .thrust-body h3{
+.thrust-body h3{
   margin:16px 0 6px;
   font-size:18px;
   color:var(--text);
-  text-align:center;
-  width:100%;
 }
-
-#research .thrust-body p{
+.thrust-body p{
   margin:0;
   color:#333;
   line-height:1.55;
   font-size:15px;
-  text-align:left;
-  max-width: 560px;
-  width:100%;
-  box-sizing:border-box;
-  margin-left:auto;
-  margin-right:auto;
 }
 
-/* -----------------------------
-   TEACHING & SUPERVISION
-   ----------------------------- */
-#teaching{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4 }
-.teaching-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
-  max-width:var(--page-max);
-  margin:0 auto;
-  padding:0 var(--site-pad);
+/* Hover elevation */
+.thrust-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(15,23,42,0.12);
 }
-.teaching-block h3{ margin:0 0 10px; }
-@media (max-width:900px){ .teaching-grid{ grid-template-columns:1fr } }
+.thrust-card:hover .thrust-media img{
+  transform:scale(1.02);
+  transition:transform .35s ease;
+}
 
-/* optional group photo in teaching — use .teaching-photo */
-.teaching-photo img{ max-width:100%; border-radius:6px; }
 
-/* -----------------------------
-   PUBLICATIONS / LISTING
-   ----------------------------- */
-#publications{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4 }
-.pub-top-plain{ list-style:none; padding:0; margin:0; }
-.pub-top-plain li{ margin-bottom:10px; line-height:1.45; }
+/* ==== PUBLICATIONS / OTHER SECTIONS ==== */
+.pub-list { max-width:900px; margin:0 auto; padding:0 20px 60px; }
 
-/* pub links */
-.pub-links{ margin-top:14px; display:flex; gap:8px; align-items:center; }
+/* Generic section styles */
+section{ border-bottom:1px solid #f0f2f4; }
+section h2{ font-size:22px; margin:0 0 12px; }
+section p{ max-width:700px; margin:0 0 16px; }
 
-/* -----------------------------
-   CONTACT / FOOTER
-   ----------------------------- */
-#contact{ padding:var(--section-vertical-pad) var(--site-pad); }
-.contact-grid{ max-width:var(--page-max); margin:0 auto; padding:0 var(--site-pad); display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap; }
-.contact-qr img{ width:120px; height:120px; object-fit:cover; border-radius:6px; }
+/* ==== FOOTER ==== */
+footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted); }
 
-/* footer: match your HTML's <footer> element */
-footer{
-  padding:24px var(--site-pad);
-  text-align:center;
+/* ==== RESPONSIVE RULES ==== */
+@media (max-width:1100px){
+  .gallery-grid, .thrust-grid { grid-template-columns:repeat(2,1fr); }
+  .about-wrap { gap:24px; }
+  .about-photo { flex:0 0 420px; }
+  .about-photo img { width:420px; }
+}
+
+@media (max-width:880px){
+  .about-wrap{ flex-direction:column; gap:20px; }
+  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
+  .about-photo img{ width:140px; }
+  .about-text{ max-width:100%; min-width:0; }
+}
+
+@media (max-width:700px){
+  .gallery-grid, .thrust-grid{ grid-template-columns:1fr; }
+  .figure .thrust-media{ aspect-ratio:4/3; max-height:220px; }
+  .thrust-media{ aspect-ratio:4/3; max-height:200px; }
+  .thrust-media img{ max-width:90%; }
+  .container{ padding:40px 12px; }
+  .hero-title h1{ font-size:28px; }
+  .main-nav{ display:none; }
+}
+
+/* ==== QUICK TWEAK NOTES (edit these values) ====
+   - To make about-photo smaller: change .about-photo flex basis & image width (both)
+   - To reduce image dominance in thrusts: lower --thrust-media max-width (max-width:85% -> 70%)
+   - To make all sections narrower site-wide: change --page-max to 1100px
+   - To change gaps between cards: edit --card-gap
+   ========================================================================== */
+
+/* ==== Publications (homepage) ==== */
+/* ==== Recent Publications (chronological, no numbering) ==== */
+.pub-top-plain{
+  list-style:none;
+  padding:0;
+  margin:0;
+  max-width:1100px;
+}
+
+.pub-top-plain li{
+  margin-bottom:14px;
+  font-size:15px;
+  line-height:1.55;
+  color:#222;
+}
+
+.pub-top-plain em{
+  font-style:italic;
+}
+
+.pub-top-plain .status{
   color:var(--muted);
-  border-top:1px solid #eee;
   font-size:14px;
-  background: #fff;
 }
 
-/* -----------------------------
-   PROJECT PAGE: media + layout helpers
-   ----------------------------- */
-.project-media{ max-width:1100px; margin:0 auto 22px auto; display:block; border-radius:8px; overflow:hidden; }
-.project-media video, .project-media iframe, .project-media img{ width:100%; height:auto; display:block; }
+.pub-links{
+  margin-top:18px;
+  font-size:15px;
+}
 
-/* back link small helper */
-.back-link{ display:inline-block; margin-top:18px; color:var(--muted) }
+.pub-links a{
+  font-weight:500;
+}
 
-/* -----------------------------
-   SMALL PRINT / UTILITIES
-   ----------------------------- */
-.small{ font-size:13px; color:var(--muted) }
-.kicker{ font-size:13px; color:var(--muted); font-weight:600 }
+.pub-links span{
+  margin:0 8px;
+  color:var(--muted);
+}
 
-/* -----------------------------
-   ACCESSIBILITY / FOCUS
-   ----------------------------- */
-a:focus, button:focus{ outline:3px solid rgba(11,110,198,0.14); outline-offset:3px; }
+/* ==== Teaching (statement + concrete examples) ==== */
+#teaching{
+  border-bottom:1px solid #f0f2f4;
+}
 
-/* -----------------------------
-   FINAL RESPONSIVE TUNING
-   ----------------------------- */
-@media (max-width:1200px){ :root{ --page-max:1100px } }
-@media (max-width:1000px){
-  .container{ padding:60px 20px }
-  .header-inner{ padding:12px 16px }
+.teaching-statement{
+  max-width:900px;
+  margin-bottom:36px;
+}
+
+.teaching-statement p{
+  margin:0 0 14px;
+  font-size:16px;
+  line-height:1.6;
+  color:#222;
+}
+
+.teaching-columns{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:48px;
+}
+
+.teaching-block h3{
+  font-size:18px;
+  margin:0 0 12px;
+}
+
+.teaching-block ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.teaching-block li{
+  margin-bottom:10px;
+  font-size:15px;
+  line-height:1.55;
+  color:#222;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .teaching-columns{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+}
+
+
+/* ==== Other (4-box section for side projects / hobbies) ==== */
+#other{
+  border-bottom:1px solid #f0f2f4;
+}
+
+.other-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:28px;
+  margin-top:24px;
+}
+
+.other-card{
+  background:#fff;
+  border-radius:10px;
+  padding:22px;
+  box-shadow:0 8px 22px rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.other-card h3{
+  margin:0;
+  font-size:18px;
+  color:var(--text);
+}
+
+.other-card p{
+  margin:0;
+  font-size:15px;
+  line-height:1.55;
+  color:#333;
+}
+
+/* responsive */
+@media (max-width:1200px){
+  .other-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
 }
 @media (max-width:700px){
-  .hero-title{ max-width:90% }
-  .brand{ margin-top:6px }
-  .main-nav{ display:none }
-  .container{ padding:40px 12px }
+  .other-grid{
+    grid-template-columns:1fr;
+  }
 }
 
-/* end of file */
+
+
+/* === Research section: remove card & media background ONLY === */
+#research .thrust-card {
+  background: transparent;     /* remove white card */
+  box-shadow: none;            /* optional: remove elevation */
+}
+
+#research .thrust-media {
+  background: transparent;     /* remove pale image background */
+}
+
+/* keep image smaller than text (your original intent) */
+#research .thrust-media img,
+#research .thrust-media video {
+  width: auto;
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* safety: prevent any fallback bg from children */
+#research .thrust-card *,
+#research .thrust-media * {
+  background-color: transparent !important;
+}
+
+/* ==== Project pages (shared) ==== */
+
+.project-page{
+  max-width:1100px;   /* slightly narrower for reading */
+}
+
+.project-hero{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:24px;
+  display:block;
+}
+
+.project-meta{
+  margin:4px 0 18px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.project-intro{
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+  max-width:900px;
+}
+
+.project-points{
+  list-style:none;
+  padding:0;
+  margin:0 0 28px;
+}
+
+.project-points li{
+  margin-bottom:10px;
+  font-size:15px;
+  line-height:1.55;
+}
+
+.project-pubs{
+  list-style:none;
+  padding:0;
+  margin:10px 0 8px;
+}
+
+.project-pubs li{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+.project-pubs a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.project-pubs a:hover{
+  text-decoration:underline;
+}
+
+.project-pubs-more{
+  margin-top:10px;
+  font-size:15px;
+}
+
+.project-back{
+  margin-top:32px;
+}
+
+/* ==== Project video embed ==== */
+.project-video {
+  max-width: 1000px;
+  margin: 0 auto 28px;
+}
+
+.project-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+/* Contact QR layout */
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:48px;
+  align-items:center;
+}
+
+.contact-qr{
+  display:flex;
+  gap:28px;
+}
+
+.qr-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  text-align:center;
+}
+
+.qr-item img{
+  width:120px;
+  height:120px;
+  border-radius:6px;
+  background:#fff;
+  padding:6px;
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+  display:block;
+}
+
+.qr-item a{
+  display:block;
+  font-size:14px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.qr-item a:hover{
+  color:var(--accent);
+  text-decoration:underline;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .contact-qr{ justify-content:flex-start; }
+}
+
+/* existing CSS above */
+/* ------------------ */
+/* gallery, about, projects, contact, etc... */
+
+
+/* ======= Full-image-fit (contain) — ensure full image always visible ======= */
+
+.figure{
+  /* default: show entire image (no crop). Change to --img-fit:cover on a card to crop. */
+  --img-fit: contain;         /* contain | cover */
+  --img-hover-scale: 1.03;    /* optional small hover zoom (keeps contain behavior) */
+  --img-transition: 300ms;
+}
+
+.figure .thrust-media{
+  /* keep the card box size fixed / responsive */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#f4f6f8;
+}
+
+/* Make the image as large as possible while remaining fully visible.
+   Behavior:
+   - For wide images, height:100% (fills vertical), width auto; for tall images, width:100%, height auto.
+   - object-fit:contain is kept for safety with replaced-image cases.
+*/
+.figure .thrust-media img,
+.figure .thrust-media video{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  /* Use object-fit as a fallback for non-standard media */
+  object-fit: var(--img-fit);
+  object-position: center;
+
+  /* ensure it scales smoothly if hover is enabled */
+  transform-origin: center center;
+  transition: transform var(--img-transition) ease;
+  display:block;
+}
+
+/* subtle hover: scale up slightly but still contained by max-width/max-height */
+.figure:hover .thrust-media img,
+.figure:hover .thrust-media video{
+  transform: scale(var(--img-hover-scale));
+}
+
+/* mobile: disable hover scaling (no pointer hover) */
+@media (max-width:700px){
+  .figure:hover .thrust-media img,
+  .figure:hover .thrust-media video{
+    transform: none;
+  }
+}
