@@ -833,25 +833,31 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   }
 }
 
-/* === FORCE compact caption box for 4-column Projects gallery ===
-   Place this at the END of site.css so it overrides prior rules.
-*/
-#gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body {
-  box-sizing: border-box;
-  padding: 6px 10px !important;        /* small padding */
-  max-height: 48px !important;         /* limit caption box height */
+/* ====== Gallery-only: force compact caption (append this at END of site.css) ====== */
+
+/* Be explicit about the full path in the DOM to avoid accidental matches */
+section#gallery.thrust-grid,
+section#gallery .thrust-grid,
+section#gallery .thrust-grid.gallery-grid {}
+
+/* Target the caption box in the gallery only (highest specificity) */
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body {
+  box-sizing: border-box !important;
+  padding: 6px 8px !important;        /* compact padding */
+  min-height: 0 !important;           /* allow shrink */
+  max-height: 48px !important;        /* cap vertical size */
   height: auto !important;
-  overflow: hidden !important;         /* prevent box from expanding */
-  display: flex !important;            /* center title vertically */
+  overflow: hidden !important;        /* prevent expansion */
+  display: flex !important;           /* vertical centering for 1-line titles */
   align-items: center !important;
-  justify-content: center !important; /* keep title centered horizontally */
+  justify-content: center !important;
 }
 
-/* Title: ensure two-line clamp and zero margins */
-#gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body h3,
-#gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body strong {
+/* Ensure title uses tight line-height and clamps to two lines */
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body h3,
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body strong {
   margin: 0 !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
   line-height: 1.2 !important;
   text-align: center !important;
   display: -webkit-box !important;
@@ -859,21 +865,29 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   -webkit-line-clamp: 2 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  max-width: 100% !important;
 }
 
-/* Hide extra paragraph/subtitle only in gallery captions */
-#gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body p,
-#gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body .subtitle {
+/* Hide any extra paragraph or subtitle in gallery captions */
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body p,
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body .subtitle,
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body .caption-sub {
   display: none !important;
 }
 
-/* Slightly reduce on small screens */
+/* Defensive override: if some code wraps title in <div class="title"> */
+html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body .title {
+  display:block !important;
+}
+
+/* Responsive tweak */
 @media (max-width:900px) {
-  #gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body {
+  html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body {
     max-height: 44px !important;
     padding: 5px 8px !important;
   }
-  #gallery .thrust-grid.gallery-grid .thrust-card.figure .thrust-body h3 {
+  html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body h3,
+  html body section#gallery .thrust-grid.gallery-grid .thrust-card.figure > .thrust-body strong {
     font-size: 11px !important;
   }
 }
