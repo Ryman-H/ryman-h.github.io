@@ -101,6 +101,52 @@ a:hover { text-decoration: underline; }
   .year{ font-size:14px; }
 }
 
+/* -----------------------------
+   ABOUT SECTION (two-column)
+   ----------------------------- */
+/* Section wrapper */
+#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
+
+/* inner two-column layout */
+.about-wrap{
+  max-width:var(--page-max);
+  margin:0 auto;
+  display:flex;
+  gap:40px;               /* change this to enlarge/reduce space between image & text */
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* left: text column (flexible) */
+.about-text{
+  flex:1 1 0%;
+  min-width:0;            /* required so the text can shrink on narrow screens */
+  box-sizing:border-box;
+  text-align:justify;     /* user requested justified text */
+}
+
+/* right: photo column (fixed basis matched to image width) */
+.about-photo{
+  flex:0 0 var(--about-photo-basis); /* change the variable to scale the photo */
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.about-photo img{
+  width:var(--about-photo-basis);
+  height:auto;
+  border-radius:6px;
+  display:block;
+  object-fit:cover;
+}
+
+/* responsive: stack for small screens */
+@media (max-width:880px){
+  .about-wrap{ flex-direction:column; gap:20px; align-items:flex-start; }
+  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
+  .about-photo img{ width:140px; }
+  .about-text{ text-align:left; }
+}
 
 /* ------------------------------------------------------------------
    PROJECT GALLERY — Consolidated (4-column)
@@ -304,115 +350,82 @@ a:hover { text-decoration: underline; }
   margin-right:auto;
 }
 
-/* ------------------------------------------------------------------
-   Other sections / responsive rules (kept intact)
-   ------------------------------------------------------------------ */
-
-/* Publications, teaching, other, research, project pages... (keep your original styles) */
-
-/* Responsive overrides (keep at end so they take precedence) */
-@media (max-width:1100px){
-  .thrust-grid{ grid-template-columns:repeat(2, 1fr); }
-  .thrust-media{ max-height:220px; }
-  .about-wrap { gap:24px; }
-  .about-photo { flex:0 0 420px; }
-  .about-photo img { width:420px; }
+/* -----------------------------
+   TEACHING & SUPERVISION
+   ----------------------------- */
+#teaching{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4 }
+.teaching-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  max-width:var(--page-max);
+  margin:0 auto;
+  padding:0 var(--site-pad);
 }
+.teaching-block h3{ margin:0 0 10px; }
+@media (max-width:900px){ .teaching-grid{ grid-template-columns:1fr } }
 
-@media (max-width:700px){
-  .thrust-grid{ grid-template-columns:1fr; }
-  .thrust-media{ aspect-ratio:4/3; max-height:200px; }
-  .thrust-media img{ max-width:90%; }
-  .thrust-body p{ max-width: 92%; }
-  .container{ padding:40px 12px; }
-  .hero-title h1{ font-size:28px; }
-  .main-nav{ display:none; }
-}
+/* optional group photo in teaching — use .teaching-photo */
+.teaching-photo img{ max-width:100%; border-radius:6px; }
 
-/* Optional debug outlines (uncomment while testing)
-.thrust-media.debug { outline: 2px dashed rgba(0,128,255,0.25); background: rgba(0,128,255,0.02); }
-.thrust-card.figure.debug { outline: 2px dashed rgba(0,200,0,0.12); }
+/* -----------------------------
+   PUBLICATIONS / LISTING
+   ----------------------------- */
+#publications{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4 }
+.pub-list{ max-width:var(--page-max); margin:0 auto; padding:0 var(--site-pad); }
+
+/* small publication item */
+.pub-item{ margin-bottom:14px; }
+.pub-item .year{ color:var(--muted); margin-right:10px; }
+
+/* -----------------------------
+   CONTACT / FOOTER
+   ----------------------------- */
+#contact{ padding:var(--section-vertical-pad) var(--site-pad); }
+.contact-grid{ max-width:var(--page-max); margin:0 auto; padding:0 var(--site-pad); display:flex; gap:40px; align-items:flex-start; }
+.contact-qr img{ width:120px; height:120px; object-fit:cover; border-radius:6px; }
+
+/* footer */
+.site-footer{ padding:32px var(--site-pad); text-align:center; color:var(--muted); border-top:1px solid #eee; }
+
+/* -----------------------------
+   PROJECT PAGE: media + layout helpers
+   ----------------------------- */
+.project-media{ max-width:1100px; margin:0 auto 22px auto; display:block; border-radius:8px; overflow:hidden; }
+.project-media video, .project-media iframe, .project-media img{ width:100%; height:auto; display:block; }
+
+/* back link small helper */
+.back-link{ display:inline-block; margin-top:18px; color:var(--muted) }
+
+/* -----------------------------
+   SMALL PRINT / UTILITIES
+   ----------------------------- */
+.small{ font-size:13px; color:var(--muted) }
+.kicker{ font-size:13px; color:var(--muted); font-weight:600 }
+
+/* helpers for debugging layout during edits (remove/comment out in production) */
+/*
+.debug-outline * { outline:1px dashed rgba(0,0,0,0.06) }
 */
 
-/* End of cleaned stylesheet */
-/* ===============================
-   PATCH: fix about + contact + gallery conflicts
-   Paste this at the END of your main CSS file
-   =============================== */
+/* -----------------------------
+   ACCESSIBILITY / FOCUS
+   ----------------------------- */
+a:focus, button:focus{ outline:3px solid rgba(11,110,198,0.14); outline-offset:3px; }
 
-/* ---- 1) Restore safe default for generic thrust-grid (3 cols)
-   Some parts of the site (research) expect .thrust-grid to be 3-columns.
-   Keep .thrust-grid.gallery-grid = 4 columns (explicit for gallery).
-*/
-.thrust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--card-gap, 22px);
-  width: 100%;
-  align-items: stretch;
-}
-
-/* Make gallery-specific grid 4 columns as intended */
-.thrust-grid.gallery-grid,
-.gallery-grid {
-  grid-template-columns: repeat(4, 1fr) !important;
-}
-
-/* Responsive fallbacks (ensure consistent behavior) */
-@media (max-width:1200px){
-  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
-  .thrust-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width:900px){
-  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .thrust-grid { grid-template-columns: repeat(2, 1fr); }
+/* -----------------------------
+   FINAL RESPONSIVE TUNING
+   ----------------------------- */
+@media (max-width:1200px){ :root{ --page-max:1100px } }
+@media (max-width:1000px){
+  .container{ padding:60px 20px }
+  .header-inner{ padding:12px 16px }
 }
 @media (max-width:700px){
-  .thrust-grid.gallery-grid, .gallery-grid { grid-template-columns: 1fr !important; }
-  .thrust-grid { grid-template-columns: 1fr; }
+  .hero-title{ max-width:90% }
+  .brand{ margin-top:6px }
+  .main-nav{ display:none }
+  .container{ padding:40px 12px }
 }
 
-
-/* About 2 column
-/* FORCE about: text on LEFT, image on RIGHT (override any previous rules) */
-.about-wrap {
-  display: flex !important;
-  flex-direction: row !important; /* ensure horizontal layout on wide screens */
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-/* Make sure text is first (left) and image is second (right) */
-.about-wrap > .about-text {
-  order: 0 !important;
-  flex: 1 1 0% !important;
-  min-width: 0 !important;
-  text-align: left !important;
-}
-
-/* Image column forced to the right */
-.about-wrap > .about-photo {
-  order: 1 !important;
-  flex: 0 0 var(--about-photo-basis) !important;
-  max-width: 40% !important;   /* adjust percent if you want smaller image */
-  padding-left: 20px !important;
-  box-sizing: border-box !important;
-}
-
-/* Ensure the image fits its column */
-.about-wrap > .about-photo img {
-  width: 100% !important;
-  max-width: var(--about-photo-basis) !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: cover !important;
-}
-
-/* Preserve responsive stacked behaviour on narrow screens */
-@media (max-width:880px){
-  .about-wrap { flex-direction: column !important; }
-  .about-wrap > .about-text,
-  .about-wrap > .about-photo { order: 0 !important; flex: 0 0 auto !important; max-width: none !important; padding-left: 0 !important; }
-  .about-wrap > .about-photo img { width: 140px !important; }
-}
 
