@@ -12,13 +12,19 @@
   --bg:     #ffffff;
 
   /* Layout widths */
-  --page-max: 1600px;    /* main site rhythm (change to 1100px if you prefer narrower) */
-  --narrow-max: 1100px;  /* use for small internal containers (hero card etc.) */
+  --page-max: 1600px;
+  --narrow-max: 1100px;
 
   /* Spacing */
   --site-pad: 32px;
   --section-vertical-pad: 80px;
   --card-gap: 28px;
+  --about-photo-basis: 520px;
+
+  /* Heading font stack for project titles */
+  --site-heading-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --site-heading-weight: 600;
+  --site-heading-size: 14px;
 }
 
 /* ==== GLOBAL RESET & TYPO ==== */
@@ -286,6 +292,10 @@ a:hover{ text-decoration:underline; }
 .thrust-card.figure *::before,
 .thrust-card.figure *::after{ box-sizing: inherit; }
 
+
+
+/* ==== ABOUT (card-style, robust) ==== */
+/* ==== ABOUT (card-style, robust) ==== */
 /* ==== ABOUT (card-style, robust) ==== */
 
 .about-card{
