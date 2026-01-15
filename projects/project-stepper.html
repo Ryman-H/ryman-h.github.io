@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MR-Safe Pneumatic Stepper Motor | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main class="project-page">
+
+  <!-- Hero media placeholder -->
+  <div class="project-video">
+    <iframe src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <h1>Low-Cost High-Performance MR-Safe Pneumatic Stepper Motor</h1>
+
+  <p class="project-meta">
+    Z. Liang, R. Hashem et al. — MR-Safe Actuation for Medical Robotics
+  </p>
+
+  <p class="project-intro">
+    A compact, low-cost, and high-performance pneumatic stepper motor designed for operation
+    inside MRI environments. The motor provides precise, repeatable motion while meeting strict
+    MR-safety constraints, enabling robotic systems for MRI-guided interventions without
+    electromagnetic interference.
+  </p>
+
+  <ul class="project-points">
+    <li><strong>Problem:</strong>
+      MRI-guided robotic interventions require actuators that are non-magnetic, non-conductive,
+      compact, and reliable — while still delivering useful torque and positioning accuracy.
+    </li>
+
+    <li><strong>Approach:</strong>
+      A direct-drive pneumatic stepper motor using standard commercial syringes as pistons and
+      cylinders, combined with 3D-printed MR-safe components. This design improves airtightness,
+      torque output, and manufacturability while keeping costs low.
+    </li>
+
+    <li><strong>Validation:</strong>
+      Bench-top characterisation of torque, air leakage, positional repeatability, and shaft
+      stability, alongside testing inside a clinical MRI scanner to verify minimal image
+      interference during operation.
+    </li>
+
+    <li><strong>Outcome:</strong>
+      A compact MR-safe motor achieving high torque for its size, negligible air leakage, accurate
+      stepping behaviour, and reliable operation inside a 3T MRI — suitable as a core actuator
+      for MRI-compatible robotic systems.
+    </li>
+  </ul>
+
+  <h3>Applications</h3>
+  <ul class="project-points">
+    <li>MRI-guided needle insertion and interventional robotics</li>
+    <li>MR-compatible positioning stages and linear rails</li>
+    <li>Medical robots operating in confined, high-field environments</li>
+  </ul>
+
+  <h3>Related publication</h3>
+  <ul class="project-pubs">
+    <li>
+      <a
+        href="https://scholar.google.com/scholar?q=A+Low-Cost+High-Performance+MR+Safe+Pneumatic+Stepper+Motor+Liang+Hashem"
+        target="_blank" rel="noopener">
+        A Low-Cost High-Performance MR-Safe Pneumatic Stepper Motor
+      </a>
+    </li>
+  </ul>
+
+  <p class="project-back">
+    <a href="/#gallery">← Back to Projects</a>
+  </p>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
+</body>
+</html>
