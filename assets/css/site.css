@@ -280,10 +280,7 @@ a:hover{ text-decoration:underline; }
   text-overflow: ellipsis;
   word-break: break-word;
 }
-/* Hide any paragraph/extra text inside caption so only title appears */
-.thrust-body p{
-  display: none;
-}
+
 /* Accessibility: keyboard focus for clickable media */
 .thrust-media-link:focus-visible{
   outline: 3px solid var(--accent);
