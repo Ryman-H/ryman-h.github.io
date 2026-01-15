@@ -858,25 +858,3 @@ footer{ text-align:center; padding:40px 20px; font-size:13px; color:var(--muted)
   }
 }
 
-/* =========================================================
-   FIX: Center and scale images ONLY in 4-column PROJECT gallery
-   This overrides the later global `.figure` rules safely
-   ========================================================= */
-
-.thrust-grid.gallery-grid > .thrust-card.figure > .thrust-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Force gallery images to fill the media box correctly */
-.thrust-grid.gallery-grid > .thrust-card.figure > .thrust-media img,
-.thrust-grid.gallery-grid > .thrust-card.figure > .thrust-media video {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  object-fit: cover;       /* change to contain if you want no crop */
-  object-position: center;
-  margin: 0;
-}
