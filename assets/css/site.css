@@ -162,110 +162,131 @@ a:hover{ text-decoration:underline; }
 
 
 
-/* ==== GALLERY / PROJECT CARDS ==== */
-/* Grid */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap: var(--card-gap);
+/* ------------------------------------------------------------------
+   PROJECT GALLERY — Consolidated (4-column)
+   ------------------------------------------------------------------ */
+
+/* 1. Grid layout */
+.thrust-grid.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--card-gap, 22px);
   margin-top: 22px;
-  align-items:start;
-  width:100%;
+  width: 100%;
+  align-items: start;
+}
+@media (max-width:1200px){ .thrust-grid.gallery-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:900px){  .thrust-grid.gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:520px){  .thrust-grid.gallery-grid{ grid-template-columns: 1fr; } }
+
+/* 2. Card container */
+.thrust-card.figure{
+  padding: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-sizing: border-box;
 }
 
-/* Card wrapper (figure) */
-.figure{
-  background:#fff;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 8px 22px rgba(15,23,42,0.06);
-  display:flex;
-  flex-direction:column;
+/* hover lift */
+.thrust-card.figure:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.10);
 }
 
-/* Media: show full image (contain) centered, letterbox background */
-.figure .thrust-media{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f4f6f8;       /* neutral background for letterbox areas */
-  overflow:hidden;
-  aspect-ratio: 3/2;        /* card media shape */
-  max-height: 320px;        /* change if you want taller/shorter cards */
+/* clickable wrapper for the media */
+.thrust-media-link{
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Full-image behavior: no crop */
-.figure .thrust-media img,
-.figure .thrust-media video{
-  width:100%;
-  height:100%;
-  object-fit:contain;       /* show entire image with letterbox if needed */
-  object-position:center;
-  transform:none;
-  display:block;
+/* 4. Media container (force full width & expected height) */
+.thrust-media{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #f4f6f8;
+  aspect-ratio: 3 / 2;
+  max-height: 260px; /* change this to make media area taller/shorter */
+  overflow: hidden;
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
 }
 
-/* Body */
-.figure .thrust-body{ padding:14px; }
-.figure .figure-meta{ margin-top:6px; color:var(--muted); font-size:13px; }
-
-/* Optional hover (uncomment to enable) */
-/*
-.figure:hover .thrust-media img,
-.figure:hover .thrust-media video{
-  transform:scale(1.06);
+/* 5. Image & video behavior */
+.thrust-media img,
+.thrust-media video{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* set to 'contain' to preserve whole image */
+  object-position: center;
+  margin: 0;
+  padding: 0;
   transition: transform .35s ease;
-}
-*/
-
-/* ==== ABOUT (card-style, robust) ==== */
-
-.about-card{
-  width:100%;
+  box-sizing: border-box;
 }
 
-.about-card-inner{
-  display:grid;
-  grid-template-columns: 450px 1fr;  /* image | text */
-  gap:40px;
-  align-items:center;
+/* gentle zoom */
+.thrust-card.figure:hover .thrust-media img{
+  transform: scale(1.04);
 }
 
-/* image */
-.about-media img{
-  width:100%;
-  height:auto;
-  border-radius:6px;
-  display:block;
-}
-
-/* text */
-.about-content h2{
-  margin:0 0 16px;
-  font-size:22px;
-}
-
-.about-content p{
-text-align: justify;
-  hyphens: auto;
-  text-justify: inter-word;
-  margin:0 0 16px;
-  line-height:1.6;
-  color:#222;
-  max-width:100%;
-}
-
-/* responsive */
+/* reduce media height on narrower screens */
 @media (max-width:900px){
-  .about-card-inner{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .about-media img{
-    max-width:220px;
-  }
+  .thrust-media{ max-height: 220px; }
 }
+
+/* 6. Caption footer (always below media) */
+.thrust-body{
+  display: block;
+  padding: 6px 8px; /* compact padding */
+  background: #ffffff;
+  border-top: 1px solid #eef1f4;
+  box-sizing: border-box;
+  min-height: 0;
+  height: auto;
+}
+
+/* 7. Title typography — normalize to site heading styles */
+.thrust-body h3,
+.thrust-body strong{
+  margin: 0;
+  font-family: var(--site-heading-font);
+  font-weight: var(--site-heading-weight);
+  font-size: var(--site-heading-size);
+  line-height: 1.2;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* clamp to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+/* Accessibility: keyboard focus for clickable media */
+.thrust-media-link:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Safety: ensure consistent box-sizing inside cards */
+.thrust-card.figure *,
+.thrust-card.figure *::before,
+.thrust-card.figure *::after{ box-sizing: inherit; }
 
 
 
