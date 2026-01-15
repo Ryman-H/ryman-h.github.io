@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Soft Robotic Gripper — Xeno-Tongue + Composite Sensors | Ryman Hashem</title>
+  <title>The Xeno-Tongue Gripper — Ryman Hashem</title>
 
   <!-- main site CSS -->
   <link rel="stylesheet" href="/assets/css/site.css" />
   <style>
-    /* local adjustments for project pages (kept small) */
     .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
     .project-hero{ width:100%; border-radius:8px; margin-bottom:20px; display:block; }
     .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
@@ -18,123 +17,59 @@
     .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
     .project-pubs li{ margin-bottom:8px; font-size:15px; }
     .project-pubs a{ color:var(--accent); text-decoration:none; }
-    .project-pubs a:hover{ text-decoration:underline; }
     .project-back{ margin-top:28px; }
   </style>
 </head>
 
 <body>
-
-  <!-- placeholder for included header -->
   <div id="site-header"></div>
 
   <main class="project-page">
 
-    <!-- Hero media placeholder -->
     <div class="project-video">
-      <iframe
-        src=""
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <h1>Soft Robotic Gripper — Xeno-Tongue Adaptive Jamming + Embedded Composite Sensors</h1>
+    <h1>The Xeno-Tongue Gripper</h1>
 
     <p class="project-meta">
-      K. Gilday, R. Hashem, A. Abdulali, F. Iida — (Xeno-Tongue, RoboSoft 2023);  
-      D. Hardman, R. Hashem, F. Iida — (Composite Stretchable Sensors, RoboSoft 2023)
+      K. Gilday, R. Hashem, A. Abdulali, F. Iida — RoboSoft 2023.
     </p>
 
-    <!-- Overview -->
     <p class="project-intro">
-      This project pairs a novel adaptive suction-gripper design (the Xeno-Tongue: a granular-jamming suction cup augmented
-      with a small bellow “tongue”) with soft, stretchable composite sensors integrated into soft manipulators. The combined
-      system addresses robust grasping across varied object geometries and real-world environments while providing embedded
-      proprioceptive and exteroceptive sensing for closed-loop control and object-aware behaviours.
+      A morphing granular-jamming suction cup augmented by a small vacuum-driven bellows (“tongue”) that actively preforms
+      and adapts the jamming surface to diverse object geometries. The tongue reduces the need for precise contact and expands
+      usable grasp envelopes for soft suction-based end-effectors. :contentReference[oaicite:2]{index=2}
     </p>
 
-    <!-- Key project bullets -->
     <ul class="project-points">
-      <li><strong>Problem:</strong>
-        Conventional suction cups and soft grippers struggle with textured or offset surfaces, cluttered environments, and
-        lack embedded sensing for robust closed-loop manipulation.
-      </li>
-
-      <li><strong>Approach:</strong>
-        Xeno-Tongue: a morphing granular-jamming cup augmented with a vacuum-driven bellows (“tongue”) that provides an
-        initial pulling force to adapt the cup to objects (reducing environmental constraints for forming a seal).  
-        Composite sensors: hydrogel–silicone stretchable channels cast into the skin of soft manipulators to detect large
-        strains and asymmetric deformations (used for bifurcation sensing and object-aware control).
-      </li>
-
-      <li><strong>Validation:</strong>
-        The gripper is characterised with analytical models and bench tests (bellows force, sealing/pressing force envelopes,
-        freestanding grasp experiments) and evaluated on benchmarking surfaces and diverse real objects (fruits, packets, etc.).  
-        The composite sensors are validated with tensile/cyclic tests, morphology studies, and integration into an underactuated
-        soft manipulator for both proprioception (finger position) and exteroception (object shape/size/asymmetry).
-      </li>
-
-      <li><strong>Key results:</strong>
-        Xeno-Tongue: successful picks across a wide range of shapes and weights (objects ≥ ~17 mm), predictable operating envelopes
-        from combined bellows/jamming models, and strong performance on smooth and many textured objects with reduced reliance
-        on reaction forces.  
-        Composite sensors: stretchable hydrogel–silicone channels survive >200% strain before delamination, detect bifurcation
-        direction reliably, and enable simple thresholded and transient-based closed-loop control strategies.
-      </li>
-
-      <li><strong>Applications:</strong>
-        Agri-robotic harvesting and handling, soft grippers for unstructured pick-and-place, sensorised soft manipulators for
-        in-hand manipulation and tactile-aware control, and experimental platforms for embodied intelligence in soft robotics.
-      </li>
+      <li><strong>Problem:</strong> Suction cups struggle with textured/offset surfaces and irregular shapes; forming a reliable seal is often the limiting step.</li>
+      <li><strong>Approach:</strong> Add a small bellows that exerts an initial pull/press on the granular packing to conform the cup to the target, improving seal formation before jamming.</li>
+      <li><strong>Validation:</strong> Bench tests and pick trials on a variety of object shapes and textures; analytical and empirical models for bellows/jamming behaviour establish operating envelopes.</li>
+      <li><strong>Outcome:</strong> Broader object coverage, higher pick success on irregular objects, and a modular tongue module concept for rapid end-effector adaptation.</li>
     </ul>
 
-    <!-- Related publications -->
-    <h3>Related publications</h3>
+    <h3>Practical notes</h3>
+    <ul class="project-points">
+      <li>Package the tongue + cup as a swappable module sized to object class (small / medium / large).</li>
+      <li>Use the tongue as a pre-seal step in a simple finite-state controller (attempt→seal→lift) to get reliable behaviour quickly.</li>
+      <li>Good candidate for delicate agricultural picking where surface uncertainty is high.</li>
+    </ul>
+
+    <h3>Resources</h3>
     <ul class="project-pubs">
-      <li>
-        <a
-          href="https://scholar.google.com/scholar?q=The+Xeno-Tongue+Gripper+Granular+Jamming+Suction+Cup+with+Bellow-Driven+Self-Morphing+Gilday+Hashem"
-          target="_blank"
-          rel="noopener"
-        >
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://scholar.google.com/scholar?q=Composite+Stretchable+Sensors+for+the+Detection+of+Asymmetric+Deformations+in+a+Soft+Manipulator+Hardman+Hashem"
-          target="_blank"
-          rel="noopener"
-        >
-        </a>
-      </li>
+      <li><a href="https://scholar.google.com/scholar?q=The+Xeno-Tongue+Gripper+Granular+Jamming+Suction+Cup+with+Bellow-Driven+Self-Morphing+Gilday+Hashem" target="_blank" rel="noopener">The Xeno-Tongue Gripper — RoboSoft 2023</a></li>
+      <li><a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">Author profile — Google Scholar</a></li>
     </ul>
 
-    <p class="project-pubs-more">
-      <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">
-      </a>
-    </p>
-
-    <p class="project-back">
-      <a href="/#gallery">← Back to Projects</a>
-    </p>
-
+    <p class="project-back"><a href="/#gallery">← Back to Projects</a></p>
   </main>
 
   <div id="site-footer"></div>
 
 <script>
-  fetch('/assets/includes/header.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-header').innerHTML = html);
-
-  fetch('/assets/includes/footer.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('site-footer').innerHTML = html);
+  fetch('/assets/includes/header.html').then(r=>r.text()).then(html=>document.getElementById('site-header').innerHTML=html);
+  fetch('/assets/includes/footer.html').then(r=>r.text()).then(html=>document.getElementById('site-footer').innerHTML=html);
 </script>
-
 </body>
 </html>
-
