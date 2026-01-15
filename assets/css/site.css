@@ -160,49 +160,6 @@ a:hover{ text-decoration:underline; }
   }
 }
 
-/* -----------------------------
-   ABOUT SECTION (two-column)
-   ----------------------------- */
-#about{ padding:var(--section-vertical-pad) var(--site-pad); border-bottom:1px solid #f0f2f4; }
-
-.about-wrap{
-  max-width:var(--page-max);
-  margin:0 auto;
-  display:flex;
-  gap:40px;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.about-text{
-  flex:1 1 0%;
-  min-width:0;
-  box-sizing:border-box;
-  text-align:justify;
-}
-
-.about-photo{
-  flex:0 0 var(--about-photo-basis);
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-}
-
-.about-photo img{
-  width:var(--about-photo-basis);
-  height:auto;
-  border-radius:6px;
-  display:block;
-  object-fit:cover;
-}
-
-@media (max-width:880px){
-  .about-wrap{ flex-direction:column; gap:20px; align-items:flex-start; }
-  .about-photo{ flex:0 0 auto; justify-content:flex-start; }
-  .about-photo img{ width:140px; }
-  .about-text{ text-align:left; }
-}
-
 /* ------------------------------------------------------------------
    PROJECT GALLERY — Consolidated (4-column)
    ------------------------------------------------------------------ */
@@ -328,6 +285,56 @@ a:hover{ text-decoration:underline; }
 .thrust-card.figure *,
 .thrust-card.figure *::before,
 .thrust-card.figure *::after{ box-sizing: inherit; }
+
+/* ==== ABOUT (card-style, robust) ==== */
+
+.about-card{
+  width:100%;
+}
+
+.about-card-inner{
+  display:grid;
+  grid-template-columns: 450px 1fr;  /* image | text */
+  gap:40px;
+  align-items:center;
+}
+
+/* image */
+.about-media img{
+  width:100%;
+  height:auto;
+  border-radius:6px;
+  display:block;
+}
+
+/* text */
+.about-content h2{
+  margin:0 0 16px;
+  font-size:22px;
+}
+
+.about-content p{
+text-align: justify;
+  hyphens: auto;
+  text-justify: inter-word;
+  margin:0 0 16px;
+  line-height:1.6;
+  color:#222;
+  max-width:100%;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .about-card-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .about-media img{
+    max-width:220px;
+  }
+}
+
 
 
 
