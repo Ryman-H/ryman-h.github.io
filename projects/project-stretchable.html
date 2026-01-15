@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stretchable Wearable Sensors for Joint Tracking | Ryman Hashem</title>
+  <title>Wearable Stretchable Sensors — DIW+Embroidery & Mesoscale Hydrogel Directions | Ryman Hashem</title>
 
   <!-- main site CSS -->
   <link rel="stylesheet" href="/assets/css/site.css" />
@@ -20,6 +20,9 @@
     .project-pubs a{ color:var(--accent); text-decoration:none; }
     .project-pubs a:hover{ text-decoration:underline; }
     .project-back{ margin-top:28px; }
+    .direction-list{ margin-top:8px; padding-left:18px; }
+    .direction-list li{ margin-bottom:10px; }
+    .note { color:var(--muted); font-size:13px; margin-top:8px; }
   </style>
 </head>
 
@@ -30,76 +33,128 @@
 
   <main class="project-page">
 
-    <!-- Hero image -->
+    <!-- Hero media placeholder -->
     <div class="project-video">
-  <iframe
-    src=""
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
+      <iframe
+        src=""
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-  <h1>Stretchable Wearable Sensors for Joint Tracking</h1>
- 
-  <!-- Overview -->
-  <p class="project-intro">
-    This project develops stretchable, textile-integrated strain sensors for
-    wearable monitoring of joint motion, enabling robust measurement of elbow
-    and knee kinematics during movement and physical activity.
-  </p>
+    <h1>Wearable Stretchable Sensors — Hybrid Fabrication & Mesoscale Morphology</h1>
 
-  <!-- Unified bullets (same template as stomach/MRI) -->
-  <ul class="project-points">
-    <li><strong>Problem:</strong>
-      Wearable strain sensors often suffer from fragile electrical connections
-      and poor mechanical integration with textiles, limiting durability and
-      repeatability in real-world use.
-    </li>
+    <p class="project-meta">
+      Lukas Cha, R. Hashem et al. — DIW + Embroidery (wearable resistive sensors, 2024);  
+      Naoki Tano, R. Hashem et al. — Mesoscale cellular hydrogel morphologies (design directions, 2024)
+    </p>
 
-    <li><strong>Approach:</strong>
-      A hybrid fabrication process combining multi-material direct ink writing
-      with automated embroidery to integrate stretchable conductive sensors
-      directly into fabric substrates.
-    </li>
+    <!-- Overview -->
+    <p class="project-intro">
+      This project combines two complementary directions into a single wearable-sensors programme:
+      (1) a scalable **hybrid fabrication** route — multi-material direct-ink-writing of an elastomer/conductor/elastomer stack directly onto textiles with simultaneous automated embroidery for mechanical anchoring and electrical interconnects; and (2) **mesoscale morphology design** — using in-plane cellular structures (lattice, auxetic, honeycomb, non-mesh) to tune sensitivity, directionality, and localization without changing chemistry. Together these routes give a practical, manufacturable pathway to tune sensitivity, robustness, and mapping for joint-tracking and tactile wearable skins. :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}
+    </p>
 
-    <li><strong>Validation:</strong>
-      Mechanical testing and on-body experiments demonstrate high stretchability,
-      linear strain response, and reliable joint-angle tracking during elbow and
-      knee motion.
-    </li>
+    <!-- Key project bullets -->
+    <ul class="project-points">
+      <li><strong>Problem:</strong>
+        Wearable strain sensors must be comfortable, durable, washable, and configurable for different sensitivity and directional needs — but existing routes either provide robust attachment (stitching) without multilayer printed stacks, or printed stacks without textile-grade interconnects or design-level sensitivity control.
+      </li>
 
-    <li><strong>Domain:</strong>
-      Wearable sensing · soft electronics · textile integration · sports and
-      rehabilitation monitoring.
-    </li>
-  </ul>
+      <li><strong>Unified approach:</strong>
+        Combine DIW-printed multilayer resistive stacks (silicone base → conductive carbon grease → silicone encapsulation) and automated embroidery (mechanical anchoring + conductive-thread traces) with mesoscale morphology (cellular meshes cast or printed) to achieve both manufacturing robustness and tunable sensing characteristics.
+      </li>
 
-  <!-- Related publications via Scholar -->
-  <h3>Related publications</h3>
-  <ul class="project-pubs">
-    <li>
-      <a href="https://scholar.google.com/scholar?q=stretchable+wearable+sensors+Cha+Hashem"
-         target="_blank" rel="noopener">
-        Stretchable wearable sensors and textile-integrated strain sensing
-      </a>
-    </li>
-  </ul>
+      <li><strong>Fabrication & integration (what works):</strong>
+        - DIW multilayer sensor printed directly onto textile (bed ~60°C) with 0.3 mm layers; total printed sensor ~20 minutes.  
+        - Automated embroidery (camera registration) stitches perimeter and conductive-thread interconnects in the same automated workflow, eliminating fragile discrete soldered connectors.  
+        - Mesoscale cellular sensors cast from gelatin/glycerol hydrogel into 3D-printed negatives (cell area: 25/50/100 mm²; thickness: 2–5 mm) or produced via DIW-compatible patterns for silicone composites.
+      </li>
 
-  <p class="project-pubs-more">
-    <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ"
-       target="_blank" rel="noopener">
-      View all publications on Google Scholar →
-    </a>
-  </p>
+      <li><strong>Performance highlights:</strong>
+        - DIW embroidered resistive sensors: R² ≈ 0.99 linearity, GF ≈ 31.4, hysteresis ≈ 22.9%, stretchability up to 120%, baseline drift ~0.135%/cycle over 80 cycles (see tensile-cyclic tests). :contentReference[oaicite:4]{index=4}  
+        - Mesoscale morphology: lattice cell increases GF (~+28% vs non-mesh), auxetic lowers GF (~−40% vs non-mesh); mesh area controls sensitivity magnitude; thickness affects durability but not GF. :contentReference[oaicite:5]{index=5}
+      </li>
 
-  <p class="project-back">
-    <a href="/#gallery">← Back to Projects</a>
-  </p>
+      <li><strong>Validation:</strong>
+        Bench tensile testing, 80-cycle stability tests, stretch-to-failure measurements (DIW sensors) and FEM + UR3e robotic tensile rigs for hydrogel mesh characterization; on-body elbow & knee sleeve tests show usable joint-tracking (MAPE ≈ 17% with current prototypes — an acceptable baseline for prototype systems; next iterations target <10%). :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}
+      </li>
+    </ul>
 
-</main>
+    <!-- Design directions -->
+    <h3>Design directions — how to pick geometry & process</h3>
 
-<div id="site-footer"></div>
+    <ul class="project-points direction-list">
+      <li><strong>Pick morphology by target sensitivity:</strong>
+        Lattice → maximize uniaxial GF (use for high-sensitivity joint patches). Auxetic → reduce GF and improve isotropy (use for bidirectional capture or reducing cross-talk). Honeycomb → softer mechanical feel with moderate GF. Use non-mesh as baseline for robust low-complexity sensors. :contentReference[oaicite:8]{index=8}
+      </li>
+
+      <li><strong>Use mesh area to tune GF magnitude:</strong>
+        Larger mesh cells amplify morphology-driven GF differences; smaller cells converge toward non-mesh behaviour. Choose cell area as your coarse knob for sensitivity vs robustness. :contentReference[oaicite:9]{index=9}
+      </li>
+
+      <li><strong>Process pairing for production:</strong>
+        - For textile-first products: DIW-print the multilayer sensor directly to garment, then do positional-registered embroidery in the same production step (mechanical + electrical integration). This yields washable, reproducible assemblies. :contentReference[oaicite:10]{index=10}  
+        - For morphologically tuned hydrogel patches: cast hydrogel into printed negatives and encapsulate with thin silicone films to protect against moisture and abrasion before stitching/embedding into garments. :contentReference[oaicite:11]{index=11}
+      </li>
+
+      <li><strong>Electrical routing & contacts:</strong>
+        Keep embroidered conductive-thread leads outside high-strain zones; anchor leads through reinforced stitch patterns and thin silicone channels to avoid contact delamination. Use LCR-based calibration connectors for field testing before finalizing sealed connectors. :contentReference[oaicite:12]{index=12}
+      </li>
+
+      <li><strong>Model-driven design:</strong>
+        Use the spring-network + Pouillet model (convert mesh edges → springs → edge strains → per-edge RRC → total RRC) to predict sensor response before fabricating. This reduces iterations and helps choose mesh geometry for target GF and linear range. :contentReference[oaicite:13]{index=13}
+      </li>
+
+      <li><strong>Encapsulation trade-offs:</strong>
+        Encapsulation improves wearability and washability but shifts hysteresis and GF. Measure GF after encapsulation and include that change in the model loop. For hydrogels, thin silicone encapsulation preserves response while improving durability. 
+      </li>
+    </ul>
+
+    <!-- Next steps / roadmap -->
+    <h3>Next steps (recommended roadmap)</h3>
+    <ul class="project-points">
+      <li>Make a small design lookup tool (mesh shape, cell area, thickness → predicted GF & linear range) to speed designer choices.</li>
+      <li>Produce DIW+embroidered sensor prototypes with lattice and auxetic patches on the same sleeve to demonstrate localizing & directional sensing (combine both papers’ ideas).</li>
+      <li>Encapsulation study: quantify GF & hysteresis shifts from silicone overcoats and hydrogel encapsulation; measure washability cycles.</li>
+      <li>Closed-loop demo: integrate embroidered leads to a microcontroller + simple transient detection to show improved joint-estimation accuracy with morphology-optimized patches.</li>
+      <li>Long-term tests: fatigue (10k cycles), humidity/temperature sensitivity, and user comfort trials (7–14 days) to move toward field deployment.</li>
+    </ul>
+
+    <!-- Related publications -->
+    <h3>Resources</h3>
+    <ul class="project-pubs">
+      <li>
+        <a href="https://scholar.google.com/scholar?q=Multi-material+Direct+Ink+Writing+and+Embroidery+for+Stretchable+Wearable+Sensors+Lukas+Cha"
+           target="_blank" rel="noopener">
+          Multi-material Direct Ink Writing and Embroidery for Stretchable Wearable Sensors — Cha et al. (paper / source).
+        </a> :contentReference[oaicite:15]{index=15}
+      </li>
+
+      <li>
+        <a href="https://scholar.google.com/scholar?q=Variable+Response+Characteristics+of+a+Soft+Sensorized+Hydrogel+using+Mesoscale+Cellular+Structures+Tano"
+           target="_blank" rel="noopener">
+          Variable Response Characteristics of a Soft Sensorized Hydrogel using Mesoscale Cellular Structures — Tano et al. (paper / source).
+        </a> :contentReference[oaicite:16]{index=16}
+      </li>
+
+      <li>
+        <a href="https://scholar.google.com/citations?user=YcmYPOwAAAAJ" target="_blank" rel="noopener">
+          R. Hashem — Google Scholar (author profile)
+        </a>
+      </li>
+    </ul>
+
+    <p class="note">Notes: metrics and fabrication parameters in this page are taken from the two project sources listed above; see the linked papers for complete experimental methods and raw data. </p>
+
+    <p class="project-back">
+      <a href="/#gallery">← Back to Projects</a>
+    </p>
+
+  </main>
+
+  <div id="site-footer"></div>
 
 <script>
   fetch('/assets/includes/header.html')
