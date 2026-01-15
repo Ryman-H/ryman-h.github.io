@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bellows-Based Soft Actuator with Embedded Sensing | Ryman Hashem</title>
+
+  <!-- main site CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <style>
+    .project-page{ max-width:1100px; margin:0 auto; padding:40px 20px; }
+    .project-meta{ margin:4px 0 18px; color:var(--muted); font-size:14px; }
+    .project-intro{ font-size:16px; line-height:1.6; margin-bottom:18px; max-width:900px; }
+    .project-points{ list-style:none; padding:0; margin:0 0 20px; }
+    .project-points li{ margin-bottom:10px; font-size:15px; line-height:1.55; }
+    .project-pubs{ list-style:none; padding:0; margin:10px 0 8px; }
+    .project-pubs li{ margin-bottom:8px; font-size:15px; }
+    .project-pubs a{ color:var(--accent); text-decoration:none; }
+    .project-pubs a:hover{ text-decoration:underline; }
+    .project-back{ margin-top:28px; }
+  </style>
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main class="project-page">
+
+  <!-- Hero media placeholder -->
+  <div class="project-video">
+    <iframe
+      src=""
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <h1>Bellows-Based Soft Actuator with Embedded Sensing</h1>
+
+  <p class="project-meta">
+    Soft actuation · Embedded sensing · Closed-loop soft robotics
+  </p>
+
+  <p class="project-intro">
+    A modular soft bellows actuator that integrates deformation and interaction sensing directly
+    into its structure. The system is designed as a building block for soft robots that require
+    large, controllable motion combined with real-time proprioceptive feedback, enabling adaptive
+    and closed-loop behaviour without external sensing.
+  </p>
+
+  <ul class="project-points">
+    <li><strong>Problem:</strong>
+      Soft pneumatic actuators provide compliant motion but typically lack integrated sensing,
+      limiting controllability and robustness during interaction with objects or humans.
+    </li>
+
+    <li><strong>Approach:</strong>
+      Design a bellows-style soft actuator that produces large axial deformation while embedding
+      stretchable sensors within the bellows walls or along its surface to measure deformation,
+      contact, and loading.
+    </li>
+
+    <li><strong>Validation:</strong>
+      Bench-top characterisation of pressure–displacement behaviour, sensor response during
+      cyclic actuation, and interaction experiments demonstrating repeatable sensing under
+      large strains.
+    </li>
+
+    <li><strong>Outcome:</strong>
+      A sensorised soft actuator capable of self-sensing its state, suitable for closed-loop
+      control, adaptive interaction, and integration into larger soft robotic systems.
+    </li>
+  </ul>
+
+  <h3>Applications</h3>
+  <ul class="project-points">
+    <li>Soft grippers and adaptive end-effectors</li>
+    <li>Wearable and assistive soft robotics</li>
+    <li>Physical human–robot interaction and haptics</li>
+    <li>Experimental platforms for embodied intelligence</li>
+  </ul>
+
+  <h3>Design directions</h3>
+  <ul class="project-points">
+    <li>Bellows geometry used as a mechanical gain to amplify motion and sensing resolution.</li>
+    <li>Embedded sensors positioned in high-strain regions to maximise signal quality.</li>
+    <li>Sensor signals used for simple closed-loop strategies (pressure modulation, contact detection).</li>
+    <li>Modular design allows scaling to multi-bellows arrays or integration into larger systems.</li>
+  </ul>
+
+  <p class="project-back">
+    <a href="/#gallery">← Back to Projects</a>
+  </p>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script>
+  fetch('/assets/includes/header.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-header').innerHTML = html);
+
+  fetch('/assets/includes/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('site-footer').innerHTML = html);
+</script>
+
+</body>
+</html>
