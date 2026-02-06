@@ -70,3 +70,35 @@ Due completion in April 2026.
 <p class="project-back">
   <a href="/#gallery">← Back to Projects</a>
 </p>
+
+      <!-- placeholder for included footer -->
+  <div id="site-footer"></div>
+
+  <!-- include header/footer and set active nav -->
+  <script>
+    // load includes
+    fetch('/assets/includes/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+        // after header inserted, mark Projects link active
+        try {
+          const navLinks = document.querySelectorAll('.main-nav a[data-nav]');
+          navLinks.forEach(a => a.classList.remove('active'));
+          const projectsLink = document.querySelector('.main-nav a[data-nav="projects"]');
+          if (projectsLink) projectsLink.classList.add('active');
+        } catch (e) { /* ignore */ }
+      });
+
+    fetch('/assets/includes/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+
+  <!-- small style for active nav (if you don't already have it in site.css) -->
+  <style>
+    .main-nav a.active { font-weight:600; text-decoration:underline; }
+  </style>
+
+</body>
+</html>
